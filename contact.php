@@ -1,1 +1,40 @@
 <?php
+
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <div>
+            <a href="index.php">Home</a>
+            <a href="blog.php">Blog</a>
+            <a href="bestellen.php">Bestellen</a>
+            <a href="contact.php">Over Wolhoop</a>
+        </div>
+        <div class="login">
+            <a href="login.php">Login</a>
+        </div>
+    </nav>
+    <header></header>
+    <main></main>
+    <footer>
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <div>
+            <img src="images/instagram.png" alt="instagram-logo">
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+            <img src="images/facebook.png" alt="facebook-logo">
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+        </div>
+    </footer>
+</body>
+</html>

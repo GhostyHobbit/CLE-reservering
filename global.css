@@ -65,7 +65,18 @@ footer div img {
     margin: 0 1vw 0 1vw;
 }
 
-/*  <nav>
+footer a {
+    text-decoration: none;
+    color: #414141;
+}
+footer a:hover {
+    font-weight: bold;
+}
+
+/*  <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+
+    <nav>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <div>
             <a href="index.php">Home</a>
@@ -82,8 +93,8 @@ footer div img {
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <div>
             <img src="images/instagram.png" alt="instagram-logo">
-            <p>@dewolhoopspinning</p>
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
             <img src="images/facebook.png" alt="facebook-logo">
-            <p>De Wolhoop</p>
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
         </div>
     </footer>*/
