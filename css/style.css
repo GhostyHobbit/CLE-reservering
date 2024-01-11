@@ -6,42 +6,67 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Almarai,'sans-serif';
-    background:#FAF4F4;
+    font-family: Almarai, 'sans-serif';
+    background: #FAF4F4;
 }
 
 nav {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 4vw;
-    background: #d5cac0;
-    font-family:Annie use your Telescope,'sans-serif';
-    font-size:1.75rem;
+    background: #D5CAC0;
+    font-family: Annie use your Telescope, 'sans-serif';
 }
 
 .navbar-logo {
-    width: 150px;
-    height: 100px;
+    width: 100px;
+    height: auto;
     object-fit: contain;
 }
 
 nav a {
     text-decoration: none;
-    color:#414141;
+    color: #414141;
+    font-size: 2rem;
+    transition: 600ms all;
+    position: relative;
 }
-nav a:hover{
-    background: aliceblue;
+
+nav a:after {
+    content: '';
+    background-color: #000000;
+    position: absolute;
+    bottom:3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 600ms ease-in-out;
+
 }
-.navbar-middle{
+
+nav a:hover:after {
+    text-decoration: underline dotted;
+    width: 100%;
+}
+
+nav a:hover {
+    font-weight: bold;
+}
+
+.navbar-middle {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.navbar-middle a{
+.navbar-middle a {
     padding: 0 2vw;
+    margin: 0 3vw;
 }
+
+
 header {
     display: grid;
     grid-template-columns:1fr 1fr;
@@ -50,6 +75,13 @@ header {
     padding: 0 4vw;
 }
 
+.header-left{
+    display:flex;
+    justify-content: center;
+    padding:5vh 4vw;
+    flex-direction: column;
+    width:60vw;
+}
 header div {
     border: 2px solid black;
 }
@@ -70,10 +102,9 @@ article {
 
 }
 
-.blog-images, .header-images {
+.blog-images, .header-images, #kleuren img {
     width: 250px;
 }
-
 
 #kleuren {
     display: flex;
@@ -82,18 +113,67 @@ article {
 }
 
 #kleuren img {
-    width: 200px;
     border: 2px solid black;
 }
 
 /* Footer */
-footer{
+footer {
     background: #d5cac0;
-    padding:0 4vw;
+    padding: 0 4vw;
 }
-.upper-footer-one{
-    width:25rem;
+
+footer a {
+    text-decoration: none;
+    color: #414141;
+    font-family: 'Annie Use Your Telescope', sans-serif;
+    transition: 600ms ease-in-out;
+    position: relative;
+
 }
+
+/* Underline animation 11/01/2024 20:23 Roshan*/
+footer a::before {
+    content: '';
+    background-color: #414141;
+    position: absolute;
+    bottom:3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 600ms ease-in-out;
+
+}
+
+footer a:hover::before {
+    width: 100%;
+}
+footer a:hover{
+    font-weight:bold;
+    transform: scale(1.35);
+}
+
+/* Underline animation 11/01/2024 20:23 Roshan*/
+
+#upper-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#upper-footer-one {
+    width: 25rem;
+}
+
+#upper-footer-two img {
+    width: 2vw;
+    margin: 0 1vw;
+}
+
+#upper-footer-two {
+    display: flex;
+    align-items: center;
+}
+
 
 /* BLOG.php starts here*/
 #all-blogs {
