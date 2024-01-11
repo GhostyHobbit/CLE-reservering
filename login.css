@@ -1,0 +1,17 @@
+main {
+    display: flex;
+}
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: white;
+    width: 32vw;
+}
+
+img {
+    width: 32vw;
+}
