@@ -25,8 +25,15 @@
             <a href="login.php">Login</a>
         </div>
     </nav>
-    <header></header>
-    <main></main>
+    <main>
+        <div>
+
+        </div>
+        <div>
+            <h1></h1>
+            <p></p>
+        </div>
+    </main>
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <div>
