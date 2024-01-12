@@ -3,7 +3,7 @@ session_start();
 
 //establishes connection to the database
 /** @var mysqli $db */
-require_once 'database.php';
+require_once 'includes/database.php';
 
 //gets the users data from the database
 $query = "SELECT * FROM users WHERE id = '$_SESSION'['id']";

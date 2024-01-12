@@ -3,7 +3,7 @@ session_start();
 
 //establishes connection to the database
 /** @var mysqli $db */
-require_once 'database.php';
+require_once 'includes/database.php';
 
 //gets the users data from the database
 $query = "SELECT * FROM users WHERE id = '$_SESSION'['id']";
@@ -25,7 +25,7 @@ $user = mysqli_fetch_assoc($result);
     <h1>Settings</h1>
 </header>
 <main>
-    <h2><?= $user['first_name']?> <?= $user['infix']?> <?= $user['first_name']?></h2>
+    <h2><?= $user['first_name']?> <?= $user['infix']?> <?= $user['last_name']?></h2>
     <h3><?= $user['email']?></h3>
     <h3><?= $user['street_name']?> <?= $user['house_number']?></h3>
     <h3><?= $user['postal_code']?></h3>

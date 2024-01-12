@@ -38,6 +38,7 @@ Onder de footer Copyrights etc...
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Contact</a>
+        <a href="settings.php">settings</a>
     </div>
 
     <a href="login.php" class="login">Login</a>
