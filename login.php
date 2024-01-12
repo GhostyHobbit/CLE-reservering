@@ -2,8 +2,6 @@
 //establishes connection to the database
 /** @var mysqli $db */
 require_once 'database.php';
-$db = mysqli_connect($host, $user, $password, $database)
-or die("Error: " . mysqli_connect_error());
 
 $login = false;
 //redirects user if there is a session going already
@@ -75,7 +73,7 @@ mysqli_close($db);
             Heb je nog geen account?
         </p>
         <p>
-            <a href="#">Registreer</a> hier.
+            <a href="register.php">Registreer</a> hier.
         </p>
     </section>
     <section>
