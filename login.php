@@ -1,9 +1,7 @@
 <?php
-//establishes connection to the database
+//establishes connection to the database.php
 /** @var mysqli $db */
-require_once 'database.php';
-$db = mysqli_connect($host, $user, $password, $database)
-or die("Error: " . mysqli_connect_error());
+require_once 'includes/database.php';
 
 $login = false;
 //redirects user if there is a session going already
@@ -17,9 +15,10 @@ if (isset($_POST['submit'])) {
     //save data in variables
     $email = $_POST['email'];
     $password = $_POST['password'];
-    //gets the users data from the database
+    //gets the users data from the database.php
     $query = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($db, $query);
+
     //puts the data in an array
     $user = mysqli_fetch_assoc($result);
     //verifies the password of the user
@@ -39,7 +38,7 @@ if (isset($_POST['submit'])) {
     }
 
 }
-//closes the database connection
+//closes the database.php connection
 mysqli_close($db);
 ?>
 
@@ -75,7 +74,7 @@ mysqli_close($db);
             Heb je nog geen account?
         </p>
         <p>
-            <a href="#">Registreer</a> hier.
+            <a href="register.php">Registreer</a> hier.
         </p>
     </section>
     <section>
