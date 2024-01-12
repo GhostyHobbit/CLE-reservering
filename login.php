@@ -74,7 +74,7 @@ mysqli_close($db);
             Heb je nog geen account?
         </p>
         <p>
-            <a href="#">Registreer</a> hier.
+            <a href="register.php">Registreer</a> hier.
         </p>
     </section>
     <section>
