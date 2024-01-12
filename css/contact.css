@@ -1,0 +1,25 @@
+main {
+    display: flex;
+    align-items: center;
+    gap: 7vw;
+    font-family: Almarai, 'sans-serif';
+    color: #414141;
+}
+
+main img {
+    max-width: 50vw;
+}
+
+main .links {
+    display: flex;
+    flex-direction: column;
+}
+
+main a {
+    text-decoration: none;
+    color: #414141;
+}
+
+main .facebook {
+    margin-top: 2vh;
+}
