@@ -5,7 +5,7 @@ body {
 
 nav {
     background-color: #D5CAC0;
-    height: 100px;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,7 +13,7 @@ nav {
 }
 
 nav img {
-    width: 100px;
+    width: 6vw;
 }
 
 nav a {
@@ -29,25 +29,26 @@ nav a:hover {
 }
 
 nav .login {
-    background-color: #9BB0AB;
+    background-color: #bba695;
     margin-right: 2vw;
+    border-radius: 1vw;
 }
 
 nav .login:hover {
-    background-color: #7EA098;
+    background-color: #ab9482;
     font-weight: bold;
 }
 
 footer {
     background-color: #D5CAC0;
-    height: 80px;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 footer img {
-    width: 90px;
+    width: 6vw;
     height: auto;
 }
 
@@ -59,7 +60,7 @@ footer div {
 }
 
 footer div img {
-    width: 30px;
+    width: 4vh;
     height: auto;
     margin: 0 1vw 0 1vw;
 }

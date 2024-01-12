@@ -1,7 +1,7 @@
 <?php
-//establishes connection to the database
+//establishes connection to the database.php
 /** @var mysqli $db */
-require_once 'database.php';
+require_once 'includes/database.php';
 
 $login = false;
 //redirects user if there is a session going already
@@ -73,7 +73,7 @@ mysqli_close($db);
             Heb je nog geen account?
         </p>
         <p>
-            <a href="register.php">Registreer</a> hier.
+            <a href="#">Registreer</a> hier.
         </p>
     </section>
     <section>
