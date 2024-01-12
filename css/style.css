@@ -11,45 +11,47 @@ body {
 }
 
 nav {
+    background-color: #D5CAC0;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4vw;
-    background: #D5CAC0;
-    font-family: Annie use your Telescope, 'sans-serif';
 }
 
 .navbar-logo {
     width: 100px;
-    height: auto;
-    object-fit: contain;
+}
+.login{
+    background-color: #9BB0AB;
+    margin-right: 2vw;
 }
 
 nav a {
     text-decoration: none;
-    color: #414141;
+    margin: 0 3vw;
+    font-family: 'Annie Use Your Telescope', sans-serif;
     font-size: 2rem;
-    transition: 600ms all;
-    position: relative;
+    color: #414141;
+    /*transition: 600ms all;*/
+    /*position: relative;*/
 }
 
-nav a:after {
-    content: '';
-    background-color: #000000;
-    position: absolute;
-    bottom:3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    transition: 600ms ease-in-out;
+/*nav a:after {*/
+/*    content: '';*/
+/*    background-color: #414141   ;*/
+/*    position: absolute;*/
+/*    bottom:3px;*/
+/*    left: 0;*/
+/*    width: 0;*/
+/*    height: 2px;*/
+/*    transition: 600ms ease-in-out;*/
+/*}*/
 
-}
-
-nav a:hover:after {
-    text-decoration: underline dotted;
-    width: 100%;
-}
+/*nav a:hover:after {*/
+/*    text-decoration: underline dotted;*/
+/*    width: 100%;*/
+/*}*/
 
 nav a:hover {
     font-weight: bold;
@@ -75,13 +77,14 @@ header {
     padding: 0 4vw;
 }
 
-.header-left{
-    display:flex;
+.header-left {
+    display: flex;
     justify-content: center;
-    padding:5vh 4vw;
+    padding: 5vh 4vw;
     flex-direction: column;
-    width:60vw;
+    width: 60vw;
 }
+
 header div {
     border: 2px solid black;
 }
@@ -136,7 +139,7 @@ footer a::before {
     content: '';
     background-color: #414141;
     position: absolute;
-    bottom:3px;
+    bottom: 3px;
     left: 0;
     width: 0;
     height: 2px;
@@ -147,8 +150,9 @@ footer a::before {
 footer a:hover::before {
     width: 100%;
 }
-footer a:hover{
-    font-weight:bold;
+
+footer a:hover {
+    font-weight: bold;
     transform: scale(1.35);
 }
 

@@ -1,8 +1,17 @@
 <?php
+/** @var mysqli $db */
+include_once 'database.php';
+
+$query = "SELECT id, title, recap, picture_link FROM blogposts ORDER BY id DESC LIMIT 3";
+$result = mysqli_query($db, $query);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $blogs[] = $row;
+}
+
+mysqli_close($db);
 
 /*
-
-
 Front-end --> Index
 Header ( titel , tekst en opmaak + afbeeldingen volgens de wireframe namaken)
 Recente Blog post koppelen met mickey zijn PHP back-end
@@ -38,10 +47,11 @@ Onder de footer Copyrights etc...
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Contact</a>
+        <a href="createBlog.php">CREATE</a>
     </div>
-
-    <a href="login.php" class="login">Login</a>
-
+    <div class="login">
+        <a href="login.php">Login</a>
+    </div>
 </nav>
 <!-- Navbar Eindigt hier-->
 
@@ -72,27 +82,21 @@ Onder de footer Copyrights etc...
 <main>
     <section id="recommendations">
         <div id="recent-blogs">
-            <article class="article-one">
-                <img src="images/Logo-reserveringsysteem.png" class="blog-images">
-                <div class="article-one-bottom">
-                    <h2>Test</h2>
-                    <p>some textsome textsome textsome textsome textsome textsome textsome text</p>
-                </div>
-            </article>
-            <article class="article-one">
-                <img src="images/Logo-reserveringsysteem.png" class="blog-images">
-                <div class="article-one-bottom">
-                    <h2>Test</h2>
-                    <p>some textsome textsome textsome textsome textsome textsome textsome text</p>
-                </div>
-            </article>
-            <article class="article-one">
-                <img src="images/Logo-reserveringsysteem.png" class="blog-images">
-                <div class="article-one-bottom">
-                    <h2>Test</h2>
-                    <p>some textsome textsome textsome textsome textsome textsome textsome text</p>
-                </div>
-            </article>
+
+            <?php if (isset($blogs)) { ?>
+                <?php foreach ($blogs as $blog) { ?>
+                    <article class="article-one">
+                        <img src="<?= $blog['picture_link'] ?>" class="blog-images">
+                        <div class="article-one-bottom">
+                            <h2> <?= $blog['title'] ?> </h2>
+                            <p><?= $blog['recap'] ?></p>
+                            <a href="blog.php?id=<?= $blog['id'] ?>">Open</a>
+                        </div>
+                    </article>
+                <?php } ?>
+            <?php } else { ?>
+                <h1> Excuses voor het ongemak er zijn op dit moment geen blogs</h1>
+            <?php } ?>
         </div>
         <div id="kleuren">
             <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
@@ -102,13 +106,7 @@ Onder de footer Copyrights etc...
     </section>
     <footer>
         <div id="upper-footer">
-            <div id="upper-footer-one">
-                <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam assumenda aut beatae,
-                    commodi
-                    consectetur eos esse labore, maxime nobis possimus qui quisquam ratione sequi sint. Aspernatur ipsa
-                    porro tempora!</p>
-            </div>
+            <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
             <div id="upper-footer-two">
                 <img src="images/instagram.png" alt="instagram-logo">
                 <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
