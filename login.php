@@ -29,7 +29,8 @@ if (isset($_POST['submit'])) {
             $login = true;
 
             session_start();
-            $_SESSION["email"] = $user['email'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['isAdmin'] = $user['isAdmin'];
             //redirects the user to the homepage (not the secure page yet)
             header('Location: index.php');
             exit;
