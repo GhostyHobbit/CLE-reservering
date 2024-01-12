@@ -15,10 +15,9 @@ if (isset($_POST['submit'])) {
     //save data in variables
     $email = $_POST['email'];
     $password = $_POST['password'];
-    //gets the users data from the database.php
+    //gets the users data from the database
     $query = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($db, $query);
-
     //puts the data in an array
     $user = mysqli_fetch_assoc($result);
     //verifies the password of the user
@@ -29,7 +28,8 @@ if (isset($_POST['submit'])) {
             $login = true;
 
             session_start();
-            $_SESSION["email"] = $user['email'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['isAdmin'] = $user['isAdmin'];
             //redirects the user to the homepage (not the secure page yet)
             header('Location: index.php');
             exit;
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
     }
 
 }
-//closes the database.php connection
+//closes the database connection
 mysqli_close($db);
 ?>
 
@@ -74,7 +74,7 @@ mysqli_close($db);
             Heb je nog geen account?
         </p>
         <p>
-            <a href="register.php">Registreer</a> hier.
+            <a href="#">Registreer</a> hier.
         </p>
     </section>
     <section>

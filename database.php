@@ -2,7 +2,7 @@
 
 // General settings
 $host       = "localhost";
-$database   = "protoss_units";
+$database   = "cle-2";
 $user       = "root";
 $password   = "";
 
