@@ -5,8 +5,10 @@ session_start();
 /** @var mysqli $db */
 require_once 'includes/database.php';
 
+$sessionId = $_SESSION['id'];
+
 //gets the users data from the database
-$query = "SELECT * FROM users WHERE id = '$_SESSION'['id']";
+$query = "SELECT * FROM users WHERE id = '$sessionId'";
 $result = mysqli_query($db, $query);
 //puts the data in an array
 $user = mysqli_fetch_assoc($result);
@@ -25,11 +27,12 @@ $user = mysqli_fetch_assoc($result);
     <h1>Settings</h1>
 </header>
 <main>
+    <a href="editSettings.php">Verander persoonlijke gegevens</a>
     <h2><?= $user['first_name']?> <?= $user['infix']?> <?= $user['last_name']?></h2>
     <h3><?= $user['email']?></h3>
     <h3><?= $user['street_name']?> <?= $user['house_number']?></h3>
     <h3><?= $user['postal_code']?></h3>
-    <h3><?= $user['city']?></h3>
+    <h3><?= $user['city_name']?></h3>
 </main>
 <footer>
 

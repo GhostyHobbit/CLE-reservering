@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 
             if(password_verify($userPassword, $userHash)){
                 $_SESSION['email'] = $email;
-                $_SESSION['firstName'] = $firstName;
+                $_SESSION['id'] = $user['id'];
                 $login = true;
             } else {
                 $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
