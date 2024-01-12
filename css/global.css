@@ -24,6 +24,11 @@ nav a {
     color: #414141;
 }
 
+nav .nav {
+    display: flex;
+    align-items: center;
+}
+
 nav a:hover {
     font-weight: bold;
 }
@@ -77,12 +82,14 @@ footer a:hover {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
 
     <nav>
-        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
-        <div>
+        <div class="nav">
+            <div>
+                <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+            </div>
             <a href="index.php">Home</a>
             <a href="blog.php">Blog</a>
+            <a href="kleuren.php">Kleuren</a>
             <a href="bestellen.php">Bestellen</a>
-            <a href="contact.php">Over Wolhoop</a>
         </div>
         <div class="login">
             <a href="login.php">Login</a>

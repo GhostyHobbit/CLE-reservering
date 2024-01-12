@@ -15,8 +15,10 @@
 </head>
 <body>
     <nav>
-        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
-        <div>
+        <div class="nav">
+            <div>
+                <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+            </div>
             <a href="index.php">Home</a>
             <a href="blog.php">Blog</a>
             <a href="kleuren.php">Kleuren</a>
