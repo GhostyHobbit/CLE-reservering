@@ -1,7 +1,9 @@
 .idea
 #.vscode
 
-include/databse.php
+include/database.php
+includes/database.php
+database.php
 
 # TeAM 2
 
