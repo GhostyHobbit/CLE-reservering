@@ -63,31 +63,33 @@ if(isset($_POST['submit'])) {
     <title>Document</title>
 </head>
 <body>
+<a href="login.php">Annuleren</a>
 <!--Registratie formulier-->
     <form method="post" action="">
+<!--   per input: label met naam, input waar als er iets leeg staat alle volle dingen worden terug gevuld, als er een error is wordt deze naast de input gezet     -->
         <label for="first_name">Voornaam</label>
-        <input type="text" id="first_name" name="first_name" value="<?= $firstName ?? $errors['first_name'] ?? '' ?>">
+        <input type="text" id="first_name" name="first_name" value="<?= $firstName ?? '' ?>">
         <?php if(isset($errors['first_name'])) {
             echo $errors['first_name'];
         } ?>
         <br>
 
         <label for="infix">Tussenvoegsel</label>
-        <input type="text" id="infix" name="infix" value="<?= $infix ?? $errors['infix'] ?? '' ?>">
+        <input type="text" id="infix" name="infix" value="<?= $infix ?? '' ?>">
         <?php if(isset($errors['infix'])) {
             echo $errors['infix'];
         } ?>
         <br>
 
         <label for="last_name">Achternaam</label>
-        <input type="text" id="last_name" name="last_name" value="<?= $lastName ?? $errors['last_name'] ?? '' ?>">
+        <input type="text" id="last_name" name="last_name" value="<?= $lastName ?? '' ?>">
         <?php if(isset($errors['last_name'])) {
             echo $errors['last_name'];
         } ?>
         <br>
 
         <label for="text">Email</label>
-        <input type="email" id="email" name="email" value="<?= $email ?? $errors['email'] ?? '' ?>">
+        <input type="email" id="email" name="email" value="<?= $email ?? '' ?>">
         <?php if(isset($errors['email'])) {
             echo $errors['email'];
         } ?>
@@ -101,28 +103,28 @@ if(isset($_POST['submit'])) {
         <br>
 
         <label for="city_name">Stad</label>
-        <input type="text" id="city_name" name="city_name" value="<?= $cityName ?? $errors['city_name'] ?? '' ?>">
+        <input type="text" id="city_name" name="city_name" value="<?= $cityName ?? '' ?>">
         <?php if(isset($errors['city_name'])) {
             echo $errors['city_name'];
         } ?>
         <br>
 
         <label for="street_name">Straat</label>
-        <input type="text" id="street_name" name="street_name" value="<?= $streetName ?? $errors['street_name'] ?? '' ?>">
+        <input type="text" id="street_name" name="street_name" value="<?= $streetName ?? '' ?>">
         <?php if(isset($errors['street_name'])) {
             echo $errors['street_name'];
         } ?>
         <br>
 
         <label for="house_number">Huisnummer</label>
-        <input type="text" id="house_number" name="house_number" value="<?= $houseNumber ?? $errors['house_number'] ?? '' ?>">
+        <input type="text" id="house_number" name="house_number" value="<?= $houseNumber ?? '' ?>">
         <?php if(isset($errors['house_number'])) {
             echo $errors['house_number'];
         } ?>
         <br>
 
         <label for="postal_code">Postcode</label>
-        <input type="text" id="postal_code" name="postal_code" value="<?= $postalCode ?? $errors['postal_code'] ?? '' ?>">
+        <input type="text" id="postal_code" name="postal_code" value="<?= $postalCode ?? '' ?>">
         <?php if(isset($errors['postal_code'])) {
             echo $errors['postal_code'];
         } ?>
