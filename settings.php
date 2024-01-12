@@ -4,11 +4,9 @@ session_start();
 //establishes connection to the database
 /** @var mysqli $db */
 require_once 'database.php';
-$db = mysqli_connect($host, $user, $password, $database)
-or die("Error: " . mysqli_connect_error());
 
 //gets the users data from the database
-$query = "SELECT * FROM users WHERE email = '$_SESSION'['email']";
+$query = "SELECT * FROM users WHERE id = '$_SESSION'['id']";
 $result = mysqli_query($db, $query);
 //puts the data in an array
 $user = mysqli_fetch_assoc($result);
@@ -27,10 +25,10 @@ $user = mysqli_fetch_assoc($result);
     <h1>Settings</h1>
 </header>
 <main>
-    <h2><?= $user['first_name']?> <?= $user['first_name']?></h2>
+    <h2><?= $user['first_name']?> <?= $user['infix']?> <?= $user['first_name']?></h2>
     <h3><?= $user['email']?></h3>
-    <h3><?= $user['adress']?></h3>
-    <h3><?= $user['postcode']?></h3>
+    <h3><?= $user['street_name']?> <?= $user['house_number']?></h3>
+    <h3><?= $user['postal_code']?></h3>
     <h3><?= $user['city']?></h3>
 </main>
 <footer>
