@@ -1,89 +1,122 @@
 <?php
-//establishes connection to the database.php
 /** @var mysqli $db */
-require_once 'database.php';
+require_once "includes/database.php";
+// required when working with sessions
+session_start();
 
 $login = false;
-//redirects user if there is a session going already
-if (!empty($_SESSION)) {
-    header('Location: index.php');
-    exit;
-}
+// Is user logged in?
+$user = [
+    'email' => ''
+];
+$errors = [];
+$userPassword = '';
+$emailError = '';
+$passwordError = '';
+$email = '';
 
-//if user submits data
+// Get form data
 if (isset($_POST['submit'])) {
-    //save data in variables
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    //gets the users data from the database
-    $query = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($db, $query);
-    //puts the data in an array
-    $user = mysqli_fetch_assoc($result);
-    //verifies the password of the user
-    if (password_verify($password, $user['password'])) {
-        //verifies the email of the user
-        if ($email == $user['email']) {
+    // form data beveiligd ophalen
+    $email = mysqli_escape_string($db, $_POST['email']);
+    // Server-side validation
+    if($_POST['email'] === '') {
+        $emailError = 'Email mag niet leeg zijn';
+        $errors[] = $emailError;
+    }
+    if($_POST['password'] === '') {
+        $passwordError = 'Wachtwoord mag niet leeg zijn';
+        $errors[] = $passwordError;
+    }
+    // If data valid
+    if(empty($errors)) {
+        $email = mysqli_escape_string($db, $_POST['email']);
+        // SELECT the user from the database, based on the email address.
+        $query = "SELECT * FROM users WHERE email = '$email'";
 
-            $login = true;
+        $result = mysqli_query($db, $query)
+        or die('Error '.mysqli_error($db).' with query '.$query);
 
-            session_start();
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['isAdmin'] = $user['isAdmin'];
-            //redirects the user to the homepage (not the secure page yet)
-            header('Location: index.php');
-            exit;
+        $users = [];
+
+        if (mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
+        }  else {
+            $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
         }
 
+        // check if the user exists
+        if($user['email'] === $email) {
+            $userPassword = $_POST['password'];
+            $userHash = $user['password'];
+            $firstName = $user['first_name'];
+
+            if(password_verify($userPassword, $userHash)){
+                $_SESSION['email'] = $email;
+                $_SESSION['id'] = $user['id'];
+                $login = true;
+            } else {
+                $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
+            }
+        }
     }
-
+    // Get user data from result
+    // Check if the provided password matches the stored password in the database
+    // Store the user in the session
+    // Redirect to secure page
+    // Credentials not valid
+    //error incorrect log in
+    // User doesn't exist
+    //error incorrect log in
 }
-//closes the database connection
-mysqli_close($db);
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/login.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log in</title>
 </head>
 <body>
-<main>
-    <section>
-        <img src="/images/placeholder-image.jpg" alt="">
-    </section>
-    <section class="login-section">
-        <h1>Login</h1>
-        <form action="" method="post">
-            <div>
-                <label for="email">E-mail</label>
-                <input name="email" id="email" type="email">
-                <p></p>
-            </div>
-            <div>
-                <label for="password">Wachtwoord</label>
-                <input name="password" id="password" type="password">
-            </div>
-            <div>
-                <button type="submit" class="button">Login</button>
-            </div>
-        </form>
-        <p>
-            Heb je nog geen account?
-        </p>
-        <p>
-            <a href="#">Registreer</a> hier.
-        </p>
-    </section>
-    <section>
-        <img src="/images/placeholder-image.jpg" alt="">
-    </section>
-</main>
-<footer>
+    <form method = post>
+        <h2 class="title">Log in</h2>
 
-</footer>
+        <?php if ($login) { ?>
+            <p>Je bent ingelogd!</p>
+            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
+        <?php } else { ?>
+        <label for="email">Email</label>
+        <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
+        <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+        <p class="help is-danger">
+            <?= htmlentities($emailError) ?? '' ?>
+        </p>
+
+        <label for="password">Wachtwoord</label>
+        <input class="input" id="password" type="password" name="password"/>
+        <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+
+        <?php if(isset($errors['loginFailed'])) { ?>
+            <div class="notification is-danger">
+                <button class="delete"></button>
+                <?=htmlentities($errors['loginFailed'])?>
+            </div>
+        <?php } ?>
+
+
+        <p class="help is-danger">
+            <?= htmlentities($passwordError) ?? '' ?>
+        </p>
+
+        <button class="button is-link is-fullwidth" type="submit" name="submit">Log in Met Email</button>
+
+        <a href="register.php" class="button is-fullwidth">Registreer hier</a>
+            </form>
+
+        <?php } ?>
+
 </body>
 </html>
+
