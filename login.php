@@ -21,12 +21,12 @@ if (isset($_POST['submit'])) {
     $email = mysqli_escape_string($db, $_POST['email']);
     // Server-side validation
     if($_POST['email'] === '') {
-        $emailError = 'Email is required';
-        $errors[] = 'Email is required';
+        $emailError = 'Email mag niet leeg zijn';
+        $errors[] = $emailError;
     }
     if($_POST['password'] === '') {
-        $passwordError = 'Password is required';
-        $errors[] = 'Password is required';
+        $passwordError = 'Wachtwoord mag niet leeg zijn';
+        $errors[] = $passwordError;
     }
     // If data valid
     if(empty($errors)) {
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
         }  else {
-            $errors['loginFailed'] = 'Email or password is incorrect';
+            $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
         }
 
         // check if the user exists
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['firstName'] = $firstName;
                 $login = true;
             } else {
-                $errors['loginFailed'] = 'Email or password is incorrect';
+                $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
             }
         }
     }
@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
 
         <?php if ($login) { ?>
             <p>Je bent ingelogd!</p>
-            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Naar index page</a></p>
+            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
         <?php } else { ?>
         <label for="email">Email</label>
         <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
@@ -110,9 +110,9 @@ if (isset($_POST['submit'])) {
             <?= htmlentities($passwordError) ?? '' ?>
         </p>
 
-        <button class="button is-link is-fullwidth" type="submit" name="submit">Log in With Email</button>
+        <button class="button is-link is-fullwidth" type="submit" name="submit">Log in Met Email</button>
 
-        <a href="register.php" class="button is-fullwidth">Sign Up</a>
+        <a href="register.php" class="button is-fullwidth">Registreer hier</a>
             </form>
 
         <?php } ?>
