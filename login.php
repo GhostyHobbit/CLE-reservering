@@ -1,7 +1,7 @@
 <?php
 //establishes connection to the database.php
 /** @var mysqli $db */
-require_once 'includes/database.php';
+require_once 'database.php';
 
 $login = false;
 //redirects user if there is a session going already
@@ -57,10 +57,11 @@ mysqli_close($db);
     </section>
     <section class="login-section">
         <h1>Login</h1>
-        <form>
+        <form action="" method="post">
             <div>
                 <label for="email">E-mail</label>
                 <input name="email" id="email" type="email">
+                <p></p>
             </div>
             <div>
                 <label for="password">Wachtwoord</label>
