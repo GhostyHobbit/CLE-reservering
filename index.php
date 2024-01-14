@@ -32,8 +32,9 @@ Onder de footer Copyrights etc...
 <!-- Navbar Begint hier -->
 <nav>
     <!-- Foto doet raar moet nog aangepast worden -->
-    <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
+
     <div class="navbar-middle"> <!-- Nav-Box Middle -->
+        <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
         <a href="blog.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
@@ -102,20 +103,12 @@ Onder de footer Copyrights etc...
         </div>
     </section>
     <footer>
-        <div id="upper-footer">
-            <div id="upper-footer-one">
-                <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam assumenda aut beatae,
-                    commodi
-                    consectetur eos esse labore, maxime nobis possimus qui quisquam ratione sequi sint. Aspernatur ipsa
-                    porro tempora!</p>
-            </div>
-            <div id="upper-footer-two">
-                <img src="images/instagram.png" alt="instagram-logo">
-                <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
-                <img src="images/facebook.png" alt="facebook-logo">
-                <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
-            </div>
+        <img src="images/Logo-reserveringsysteem.png" alt="Logo">
+        <div id="footer-right">
+            <img src="images/instagram.png" alt="instagram-logo">
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+            <img src="images/facebook.png" alt="facebook-logo">
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
         </div>
     </footer>
 
