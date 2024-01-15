@@ -1,6 +1,13 @@
 <?php
 /** @var mysqli $db */
 include_once 'includes/database.php';
+session_start();
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 
 $query = "SELECT id, title, recap, picture_link FROM blogposts ORDER BY id DESC LIMIT 3";
 $result = mysqli_query($db, $query);
@@ -39,9 +46,16 @@ mysqli_close($db);
         <a href="contact.php">Contact</a>
         <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
     </div>
-    <div class="login">
+<div class="login">
+<!--    <a href="--><?php //$authenticationLink = $loginStatus ?><!--</a>-->
+<!--    --><?php //= $_SESSION['id']?>
+    <?php if ($login) { ?>
+        <a href="logout.php">Log Uit</a>
+    <?php } else {?>
         <a href="login.php">Login</a>
-    </div>
+    <?php }?>
+</div>
+
 </nav>
 <!-- Navbar Eindigt hier-->
 
