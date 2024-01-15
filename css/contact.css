@@ -1,7 +1,6 @@
 main {
     display: flex;
     align-items: center;
-    gap: 7vw;
     font-family: Almarai, 'sans-serif';
     color: #414141;
 }
@@ -10,9 +9,14 @@ main img {
     width: 50vw;
 }
 
+main div {
+    margin-left: 7vw;
+}
+
 main .links {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 main a {

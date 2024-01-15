@@ -1,17 +1,104 @@
+/*main {*/
+/*    display: flex;*/
+/*}*/
+
+/*.login-section {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    align-content: center;*/
+/*    text-align: center;*/
+/*    background-color: white;*/
+/*    width: 32vw;*/
+/*}*/
+
+/*img {*/
+/*    width: 32vw;*/
+/*}*/
 main {
     display: flex;
+    align-items: center;
+}
+main img {
+    width: 20vw;
+    height: 80vh;
+    object-fit: cover;
 }
 
-.login-section {
+.form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    background-color: white;
-    width: 32vw;
 }
 
-img {
-    width: 32vw;
+form {
+    min-width: 60vw;
+    padding: 0 15vw;
 }
+
+form h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+form label {
+    font-weight: bold;
+    color: #414141;
+    margin-bottom: 0.3vw;
+    margin-left: 1vw;
+}
+
+form input {
+    padding: 0.7vw 0 0.7vw 0.2vw;
+    border-style: solid;
+    border-color: #414141;
+    background-color: #e7dede;
+    border-radius: 2vw;
+}
+
+form .submit {
+    width: 30vw;
+    border-radius: 10vw;
+    padding: 0.5vw 0 0.5vw 0.2vw;
+    background-color: #bba695;
+    font-family: Almarai, 'sans-serif';
+    font-size: 1rem;
+}
+
+form .submit:hover {
+    background-color: #ab9482;
+    font-weight: bold;
+}
+
+.form a {
+    padding: 0.7vw 15vw;
+    text-align: center;
+    color: #414141;
+    text-decoration: none;
+    transition: 600ms all;
+    position: relative;
+}
+
+.form a:after {
+    content: '';
+    background-color: #414141;
+    position: absolute;
+    bottom:3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 600ms ease-in-out;
+}
+.form a:hover:after {
+    margin: 0 23vw;
+    width: 14vw;
+}
+.form a:hover {
+    font-weight: bold;
+}
+
