@@ -48,7 +48,7 @@ if(isset($_POST['submit'])) {
         <a href="index.php">Home</a>
         <a href="blog.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a> <!--moet in admin bestelling overzicht worden-->
+        <a href="bestellen.php">Bestellen</a> <!--moet in admin bestellingen overzicht worden-->
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
