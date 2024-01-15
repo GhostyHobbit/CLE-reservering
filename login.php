@@ -54,20 +54,13 @@ if (isset($_POST['submit'])) {
             if(password_verify($userPassword, $userHash)){
                 $_SESSION['email'] = $email;
                 $_SESSION['id'] = $user['id'];
-                $login = true;
+                header('Location: index.php');
+                    exit;
             } else {
                 $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
             }
         }
     }
-    // Get user data from result
-    // Check if the provided password matches the stored password in the database
-    // Store the user in the session
-    // Redirect to secure page
-    // Credentials not valid
-    //error incorrect log in
-    // User doesn't exist
-    //error incorrect log in
 }
 ?>
 <!doctype html>
@@ -87,47 +80,36 @@ if (isset($_POST['submit'])) {
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
     </div>
 </nav>
+<main>
     <form method = post>
         <h2 class="title">Log in</h2>
 
-        <?php if ($login) { ?>
-            <p>Je bent ingelogd!</p>
-            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
-        <?php } else { ?>
         <label for="email">Email</label>
         <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
         <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-        <p class="help is-danger">
-            <?= htmlentities($emailError) ?? '' ?>
-        </p>
+        <p><?= htmlentities($emailError) ?? '' ?></p>
 
-        <label for="password">Wachtwoord</label>
-        <input class="input" id="password" type="password" name="password"/>
-        <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+        <div>
+            <label for="password">Wachtwoord</label>
+            <input class="input" id="password" type="password" name="password"/>
+            <p><?= htmlentities($passwordError) ?? '' ?></p>
+        </div>
 
         <?php if(isset($errors['loginFailed'])) { ?>
-            <div class="notification is-danger">
-                <button class="delete"></button>
-                <?=htmlentities($errors['loginFailed'])?>
-            </div>
+            <p><?=htmlentities($errors['loginFailed'])?></p>
         <?php } ?>
 
+        <button type="submit" name="submit">Log in Met Email</button>
 
-        <p class="help is-danger">
-            <?= htmlentities($passwordError) ?? '' ?>
-        </p>
-
-        <button class="button is-link is-fullwidth" type="submit" name="submit">Log in Met Email</button>
-
-        <a href="register.php" class="button is-fullwidth">Registreer hier</a>
+        <a href="register.php">Registreer hier</a>
     </form>
 
-        <?php } ?>
+</main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
     <div>

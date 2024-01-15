@@ -21,7 +21,7 @@
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="contact.php">Over Wolhoop</a>
         <a href="bestellen.php">Bestellen</a>
     </div>

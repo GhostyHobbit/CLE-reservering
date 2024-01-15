@@ -14,10 +14,26 @@ $result = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($result);
 
 if(isset($_POST['submit'])) {
-    "UPDATE users SET first_name = '$_POST'['firstName'], infix = '$_POST'['infix'], last_name = '$_POST'['lastName'], 
-                      email = '$_POST'['email'], street_name = '$_POST'['streetName'], house_number = '$_POST'['houseNumber'],
-                      postal_code = '$_POST'['postalCode'], city_name = '$_POST'['cityName'] 
+
+    $firstName = $_POST['firstName'];
+    $infix = $_POST['infix'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $streetName = $_POST['streetName'];
+    $houseNumber = $_POST['houseNumber'];
+    $postalCode = $_POST['postalCode'];
+    $cityName = $_POST['cityName'];
+
+    "UPDATE users SET `first_name` = '$firstName', `infix` = '$infix', `last_name` = '$lastName', 
+                      `email` = '$email', `street_name` = $streetName, `house_number` = '$houseNumber',
+                      `postal_code` = '$postalCode', `city_name` = '$cityName' 
              WHERE id = '$_SESSION'['id']";
+
+    $_SESSION['id'] = $user['id'];
+    $login = true;
+    $_SESSION['login'] = $login;
+
+    header(header: 'Location: login.php');
 }
 ?>
 <!doctype html>
@@ -36,12 +52,13 @@ if(isset($_POST['submit'])) {
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <a href="logout.php" >Log uit</a>
     </div>
 </nav>
 

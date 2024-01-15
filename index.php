@@ -1,6 +1,13 @@
 <?php
 /** @var mysqli $db */
-include_once 'database.php';
+include_once 'includes/database.php';
+session_start();
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 
 $query = "SELECT id, title, recap, picture_link FROM blogposts ORDER BY id DESC LIMIT 3";
 $result = mysqli_query($db, $query);
@@ -40,15 +47,20 @@ mysqli_close($db);
     <!-- Foto doet raar moet nog aangepast worden -->
     <div class="navbar-middle"> <!-- Nav-Box Middle -->
         <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Contact</a>
-        <a href="createBlog.php">CREATE</a>
+        <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
     </div>
-    <div class="login">
+<div class="login">
+    <?php if ($login) { ?>
+        <a href="profile.php">Profiel</a>
+    <?php } else {?>
         <a href="login.php">Login</a>
-    </div>
+    <?php }?>
+</div>
+
 </nav>
 <!-- Navbar Eindigt hier-->
 
@@ -79,6 +91,7 @@ mysqli_close($db);
 <main>
     <section id="recommendations">
         <div id="recent-blogs">
+
             <?php if (isset($blogs)) { ?>
                 <?php foreach ($blogs as $blog) { ?>
                     <article class="article-one">
@@ -112,13 +125,12 @@ mysqli_close($db);
         <?php } ?>
     </section>
     <footer>
-        <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-        <div id="footer-right">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <div>
             <img src="images/instagram.png" alt="instagram-logo">
             <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
             <img src="images/facebook.png" alt="facebook-logo">
             <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
-        </div>
         </div>
     </footer>
 
