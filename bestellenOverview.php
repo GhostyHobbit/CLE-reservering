@@ -1,8 +1,36 @@
 <?php
+require_once 'includes/database.php';
+/** @var array $db */
 
-if(isset($_POST['name'])){
-    $test = $_GET['rope_amount'];
+if (!isset($_POST['submit']) && !isset($_GET['user_first_name'])) {
+header('location: bestellen.php');
 }
+
+if (isset($_POST['submit'])) {
+    $user_first_name = $_POST['user_first_name'];
+    $user_infix = $_POST['user_infix'];
+    $user_last_name = $_POST['user_last_name'];
+    $city_name = $_POST['city_name'];
+    $street_name = $_POST['street_name'];
+    $house_number = $_POST['house_number'];
+    $postal_code = $_POST['postal_code'];
+    $rope_length = $_POST['rope_length'];
+    $colour_amount = $_POST['colour_amount'];
+    $colours = $_POST['colours'];
+    $comments = $_POST['comments'];
+    $rope_amount = $_POST['rope_amount'];
+
+
+
+
+    $query = "INSERT INTO orders (user_first_name, user_infix, user_last_name, city_name, street_name, house_number, postal_code, rope_length, colour_amount, colours, comments, rope_amount) 
+            VALUES ('$user_first_name', '$user_infix', '$user_last_name', '$city_name', '$street_name', '$house_number', '$postal_code', '$rope_length', '$colour_amount', '$colours', '$comments', '$rope_amount')";
+    mysqli_query($db, $query);
+    header('location: bestellen.php');
+}
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,11 +57,20 @@ if(isset($_POST['name'])){
     </div>
 </nav>
 <main>
-    <?= $test?>
-    <form action="bestellenOverview.php" method="get">
-        <p><?= $test ?></p>
-        <input type="text" name="test" id="test">
-        <input type="button" name="submit">
+    <form action="bestellenOverview.php" method="post">
+        <input type="hidden" id="user_first_name" name="user_first_name" value="<?=$_GET['user_first_name']?>">
+        <input type="hidden" id="user_infix" name="user_infix" value="<?=$_GET['user_infix']?>">
+        <input type="hidden" id="user_last_name" name="user_last_name" value="<?=$_GET['user_last_name']?>">
+        <input type="hidden" id="city_name" name="city_name" value="<?=$_GET['city_name']?>">
+        <input type="hidden" id="street_name" name="street_name" value="<?=$_GET['street_name']?>">
+        <input type="hidden" id="house_number" name="house_number" value="<?=$_GET['house_number']?>">
+        <input type="hidden" id="postal_code" name="postal_code" value="<?=$_GET['postal_code']?>">
+        <input type="hidden" id="rope_length" name="rope_length" value="<?=$_GET['rope_length']?>">
+        <input type="hidden" id="colour_amount" name="colour_amount" value="<?=$_GET['colour_amount']?>">
+        <input type="hidden" id="colours" name="colours" value="<?=$_GET['colours']?>">
+        <input type="hidden" id="comments" name="comments" value="<?=$_GET['comments']?>">
+        <input type="hidden" id="rope_amount" name="rope_amount" value="<?=$_GET['rope_amount']?>">
+        <input type="submit" name="submit" id="submit">
     </form>
 </main>
     <footer>
