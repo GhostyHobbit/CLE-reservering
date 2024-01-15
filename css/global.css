@@ -69,7 +69,7 @@ footer {
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 footer img {
     width: 6vw;
