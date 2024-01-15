@@ -5,8 +5,15 @@ include_once 'database.php';
 $query = "SELECT id, title, recap, picture_link FROM blogposts ORDER BY id DESC LIMIT 3";
 $result = mysqli_query($db, $query);
 
+
 while ($row = mysqli_fetch_assoc($result)) {
     $blogs[] = $row;
+}
+$queryColor = "SELECT id, colour, wool_length, product_link FROM products";
+$resultColor = mysqli_query($db, $queryColor);
+
+while ($row2 = mysqli_fetch_assoc($resultColor)) {
+    $colors[] = $row2;
 }
 
 mysqli_close($db);
@@ -72,7 +79,6 @@ mysqli_close($db);
 <main>
     <section id="recommendations">
         <div id="recent-blogs">
-
             <?php if (isset($blogs)) { ?>
                 <?php foreach ($blogs as $blog) { ?>
                     <article class="article-one">
@@ -88,22 +94,31 @@ mysqli_close($db);
                 <h1> Excuses voor het ongemak er zijn op dit moment geen blogs</h1>
             <?php } ?>
         </div>
-        <!--        --><?php //if isset($blogs)?>
+
         <div id="kleuren">
-            <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
-            <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
-            <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
+            <?php if (isset($colors)) { ?>
+            <?php foreach ($colors as $color) { ?>
+                <div>
+                    <h2><?= $color['colour'] ?></h2>
+                    <div>
+                        <img src="<?php echo $color['product_link'] ?>" class="kleuren-images" alt="Picture">
+                        <p> Omschrijving over de kleur</p>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
+        <?php } else { ?>
+            <p>Nog geen bestsellers</p>
+        <?php } ?>
     </section>
     <footer>
-        <div id="upper-footer">
-            <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-            <div id="upper-footer-two">
-                <img src="images/instagram.png" alt="instagram-logo">
-                <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
-                <img src="images/facebook.png" alt="facebook-logo">
-                <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
-            </div>
+        <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
+        <div id="footer-right">
+            <img src="images/instagram.png" alt="instagram-logo">
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+            <img src="images/facebook.png" alt="facebook-logo">
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+        </div>
         </div>
     </footer>
 

@@ -98,9 +98,10 @@ article {
     width: 250px;
 }
 #kleuren {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 5vh 4vw;
-    justify-content: space-between;
+    gap: 1rem
 }
 #kleuren img {
     border: 2px solid black;
@@ -163,7 +164,6 @@ article {
 #all-blogs {
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
-    grid-template-rows:1fr;
     gap: 1rem;
 }
 
