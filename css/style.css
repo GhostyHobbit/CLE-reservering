@@ -11,74 +11,37 @@ body {
 }
 
 /* Nav Bar */
-/*nav {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    background: #D5CAC0;*/
-/*    font-family: Annie use your Telescope, 'sans-serif';*/
-/*    height: 10vh;*/
-/*}*/
-/*nav img {*/
-/*    width: 6vw;*/
-/*    height: auto;*/
-/*    object-fit: contain;*/
-/*}*/
-/*.navbar-middle {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*}*/
-/*.navbar-middle a {*/
-/*    margin: 0 2vw;*/
-/*}*/
-/*nav a {*/
-/*    text-decoration: none ;*/
-/*    color: #414141;*/
-/*    font-size: 2rem;*/
-/*    margin: 0 3vw;*/
-/*    transition: 600ms all;*/
-/*    position: relative;*/
-/*}*/
-/*nav a:after {*/
-/*    content: '';*/
-/*    background-color: #414141;*/
-/*    position: absolute;*/
-/*    bottom:3px;*/
-/*    left: 0;*/
-/*    width: 0;*/
-/*    height: 2px;*/
-/*    transition: 600ms ease-in-out;*/
-/*}*/
-/*nav a:hover:after {*/
-/*    width: 100%;*/
-/*}*/
-/*nav a:hover {*/
-/*    font-weight: bold;*/
-/*}*/
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #D5CAC0;
+    font-family: Annie use your Telescope, 'sans-serif';
+    height: 10vh;
+}
+nav img {
+    width: 6vw;
+    height: auto;
+    object-fit: contain;
+}
 
 /* Header */
 header {
     display: grid;
     grid-template-columns:1fr 1fr;
-    grid-template-rows: 1fr;
     gap: 50px;
     padding: 0 4vw;
 }
 .header-left{
     display:flex;
     justify-content: center;
-    padding:5vh 4vw;
+    padding:0 4vw;
     flex-direction: column;
-    width:60vw;
-}
-header div {
-    border: 2px solid black;
 }
 
 /* Section Recommendations*/
-#recent-blogs {
+#recent-blog {
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
     padding: 5vh 4vw;
@@ -92,73 +55,33 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
+
+.bestseller-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .blog-images, .header-images, #kleuren img {
     width: 250px;
+    height: 250px;
 }
+
+
 #kleuren {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
     padding: 5vh 4vw;
-    gap: 1rem
+    gap: 1rem;
 }
+
 #kleuren img {
     border: 2px solid black;
 }
 
 /* Footer */
-/*footer {*/
-/*    background-color: #D5CAC0;*/
-/*    height: 10vh;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: space-between;*/
-/*    font-family: 'Annie Use Your Telescope', sans-serif;*/
-/*}*/
-/*footer img {*/
-/*    width: 6vw;*/
-/*    height: auto;*/
-/*}*/
-/*footer a::before {*/
-/*    content: '';*/
-/*    background-color: #414141;*/
-/*    position: absolute;*/
-/*    bottom:3px;*/
-/*    left: 0;*/
-/*    width: 0;*/
-/*    height: 2px;*/
-/*    transition: 600ms ease-in-out;*/
-
-/*}*/
-/*footer a:hover::before {*/
-/*    width: 100%;*/
-/*}*/
-/*footer a {*/
-/*    text-decoration: none;*/
-/*    color: #414141;*/
-/*    font-family: 'Annie Use Your Telescope', sans-serif;*/
-/*    transition: 600ms ease-in-out;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: space-between;*/
-/*    position: relative;*/
-
-/*}*/
-/*footer a:hover{*/
-/*    font-weight:bold;*/
-/*}*/
-/*#footer-right{*/
-/*    display:flex;*/
-/*    align-items: center;*/
-/*    margin: 0 2vw;*/
-/*}*/
-/*#footer-right img {*/
-/*    width: 2vw;*/
-/*    height: auto;*/
-/*    margin: 0 1vw;*/
-/*}*/
-
 
 /* BLOG.php starts here*/
 #all-blogs {
