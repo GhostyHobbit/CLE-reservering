@@ -96,11 +96,10 @@ if (isset($_POST['submit'])) {
     <form method = post>
         <h2 class="title">Log in</h2>
 
-        <?php if ($login) { ?>
-
-            <p>Je bent ingelogd!</p>
-            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
-        <?php } else { ?>
+        <?php if ($login) {
+            header('Location: index.php?login=false');
+            exit;
+         } else { ?>
         <label for="email">Email</label>
         <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
         <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
