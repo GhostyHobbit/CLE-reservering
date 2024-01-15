@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
     </datalist>
     <br>
 
-    <input type="submit" id="submit" name="submit">
+    <input type="submit" id="submit" name="submit" >
 
 </form>
 
