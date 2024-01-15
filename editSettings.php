@@ -14,10 +14,19 @@ $result = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($result);
 
 if(isset($_POST['submit'])) {
-    "UPDATE users SET first_name = '$_POST'['firstName'], infix = '$_POST'['infix'], last_name = '$_POST'['lastName'], 
+
+    $_POST[]
+
+    "UPDATE users SET `first_name` = '$_POST'['firstName'], `infix` = '$_POST'['infix'], last_name = '$_POST'['lastName'], 
                       email = '$_POST'['email'], street_name = '$_POST'['streetName'], house_number = '$_POST'['houseNumber'],
                       postal_code = '$_POST'['postalCode'], city_name = '$_POST'['cityName'] 
              WHERE id = '$_SESSION'['id']";
+
+    $_SESSION['id'] = $user['id'];
+    $login = true;
+    $_SESSION['login'] = $login;
+
+    header(header: 'Location: login.php');
 }
 ?>
 <!doctype html>
@@ -42,7 +51,7 @@ if(isset($_POST['submit'])) {
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <a href="logout.php" >Log uit</a>
     </div>
 </nav>
 

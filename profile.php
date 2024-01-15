@@ -35,7 +35,7 @@ $user = mysqli_fetch_assoc($result);
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php">Login</a>
+        <a href="logout.php">Log uit</a>
     </div>
 </nav>
 <header>

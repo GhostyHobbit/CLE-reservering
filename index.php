@@ -48,7 +48,7 @@ mysqli_close($db);
     </div>
 <div class="login">
     <?php if ($login) { ?>
-        <a href="logout.php">Log Uit</a>
+        <a href="profile.php">Profiel</a>
     <?php } else {?>
         <a href="login.php">Login</a>
     <?php }?>
