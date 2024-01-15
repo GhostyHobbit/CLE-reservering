@@ -47,10 +47,8 @@ mysqli_close($db);
         <a href="createBlog.php">CREATE</a>
     </div>
 <div class="login">
-<!--    <a href="--><?php //$authenticationLink = $loginStatus ?><!--</a>-->
-<!--    --><?php //= $_SESSION['id']?>
     <?php if ($login) { ?>
-        <a href="logout.php">Log Uit</a>
+        <a href="profile.php">Profiel</a>
     <?php } else {?>
         <a href="login.php">Login</a>
     <?php }?>

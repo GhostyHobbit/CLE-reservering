@@ -61,14 +61,6 @@ if (isset($_POST['submit'])) {
             }
         }
     }
-    // Get user data from result
-    // Check if the provided password matches the stored password in the database
-    // Store the user in the session
-    // Redirect to secure page
-    // Credentials not valid
-    //error incorrect log in
-    // User doesn't exist
-    //error incorrect log in
 }
 ?>
 <!doctype html>

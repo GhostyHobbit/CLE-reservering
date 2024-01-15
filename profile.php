@@ -34,7 +34,7 @@ $user = mysqli_fetch_assoc($result);
         <a href="bestellen.php">Bestellen</a>
     </div>
     <div class="login">
-        <a href="login.php">Login</a>
+        <a href="logout.php">Log uit</a>
     </div>
 </nav>
 <header>
