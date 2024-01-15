@@ -97,6 +97,7 @@ if (isset($_POST['submit'])) {
         <h2 class="title">Log in</h2>
 
         <?php if ($login) { ?>
+
             <p>Je bent ingelogd!</p>
             <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
         <?php } else { ?>

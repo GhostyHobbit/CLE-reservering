@@ -47,8 +47,6 @@ mysqli_close($db);
         <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
     </div>
 <div class="login">
-<!--    <a href="--><?php //$authenticationLink = $loginStatus ?><!--</a>-->
-<!--    --><?php //= $_SESSION['id']?>
     <?php if ($login) { ?>
         <a href="logout.php">Log Uit</a>
     <?php } else {?>
