@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
     </div>
@@ -88,10 +88,10 @@ if (isset($_POST['submit'])) {
     <form method = post>
         <h2 class="title">Log in</h2>
 
-        <?php if ($login) { ?>
-            <p>Je bent ingelogd!</p>
-            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
-        <?php } else { ?>
+        <?php if ($login) {
+            header('Location: index.php?login=false');
+            exit;
+         } else { ?>
         <label for="email">Email</label>
         <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
         <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>

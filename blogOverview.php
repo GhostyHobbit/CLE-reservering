@@ -1,6 +1,6 @@
 <?php
 /** @var mysqli $db */
-require_once "database.php";
+require_once "includes/database.php";
 
 
 $query = "SELECT id, title, recap, text, picture_link FROM blogposts";

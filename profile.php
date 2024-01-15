@@ -32,6 +32,7 @@ $user = mysqli_fetch_assoc($result);
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
         <a href="logout.php">Log uit</a>
