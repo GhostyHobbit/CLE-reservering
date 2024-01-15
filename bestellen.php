@@ -44,9 +44,9 @@ if (isset($_POST['submit'])) {
     <input type="radio" id="colour_amount3" name="colour_amount" value="3">
     <br>
 
-    <label for="lengths">Lengte touw</label>
-    <input list="lengths" name="lengths">
-        <datalist id="lengths">
+    <label for="rope_length">Lengte touw</label>
+    <input list="rope_length" name="rope_length">
+        <datalist id="rope_length">
             <option  value="50cm"></option>
             <option  value="100cm"></option>
             <option  value="150cm"></option>

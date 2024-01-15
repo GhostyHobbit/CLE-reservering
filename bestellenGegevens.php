@@ -1,9 +1,5 @@
 <?php
-$_GET['comments'];
-//
-$test = $_GET['rope_amount'];
-$get = $_GET;
-print_r($get)
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,10 +11,37 @@ print_r($get)
     <title>Document</title>
 </head>
 <body>
-    <?= $test?>
     <form action="bestellenOverview.php?colour_amount=" method="get">
-        <input type="text" name="test" id="test">
+        <label for="user_first_name">Voornaam</label>
+        <input type="text" name="user_first_name" id="user_first_name">
+
+        <label for="user_infix">Tussenvoegsel</label>
+        <input type="text" name="user_infix" id="user_infix">
+
+        <label for="user_last_name">Achternaam</label>
+        <input type="text" name="user_last_name" id="user_last_name">
+
+        <label for="city_name">Stad</label>
+        <input type="text" name="city_name" id="city_name">
+
+        <label for="street_name">Straatnaam</label>
+        <input type="text" name="street_name" id="street_name">
+
+        <label for="house_number">Huisnummer</label>
+        <input type="text" name="house_number" id="house_number">
+
+        <label for="postal_code">Postcode</label>
+        <input type="text" name="postal_code" id="postal_code">
+
+
+
         <input type="submit" id="submit" name="submit">
+
+        <input type="hidden" name="rope_length" id="rope_length" value="<?=$_GET['rope_length'] ?>">
+        <input type="hidden" name="colour_amount" id="colour_amount" value="<?=$_GET['colour_amount'] ?>">
+        <input type="hidden" name="colours" id="colours" value="<?=$_GET['colours'] ?>">
+        <input type="hidden" name="comments" id="comments" value="<?=$_GET['comments'] ?>">
+        <input type="hidden" name="rope_amount" id="rope_amount" value="<?=$_GET['rope_amount'] ?>">
     </form>
 </body>
 </html>
