@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 
 /*
 
@@ -41,8 +48,15 @@ Onder de footer Copyrights etc...
         <a href="contact.php">Contact</a>
         <a href="settings.php">settings</a>
     </div>
-
-    <a href="login.php" class="login">Login</a>
+<div class="login">
+<!--    <a href="--><?php //$authenticationLink = $loginStatus ?><!--</a>-->
+<!--    --><?php //= $_SESSION['id']?>
+    <?php if ($login) { ?>
+        <a href="logout.php">Log Uit</a>
+    <?php } else {?>
+        <a href="login.php">Login</a>
+    <?php }?>
+</div>
 
 </nav>
 <!-- Navbar Eindigt hier-->

@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['email'] = $email;
                 $_SESSION['id'] = $user['id'];
                 $login = true;
+                $_SESSION['login'] = $login;
             } else {
                 $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
             }
