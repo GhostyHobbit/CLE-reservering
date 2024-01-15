@@ -95,7 +95,6 @@ if (isset($_POST['submit'])) {
         <div>
             <label for="email">Email</label>
             <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
-            <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
             <p><?= htmlentities($emailError) ?? '' ?></p>
         </div>
 
