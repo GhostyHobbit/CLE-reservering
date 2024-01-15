@@ -38,10 +38,9 @@ mysqli_close($db);
 <!-- Navbar Begint hier -->
 <nav>
     <!-- Foto doet raar moet nog aangepast worden -->
-
     <div class="navbar-middle"> <!-- Nav-Box Middle -->
         <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Contact</a>
@@ -111,14 +110,12 @@ mysqli_close($db);
         </div>
     </section>
     <footer>
-        <div id="upper-footer">
-            <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-            <div id="upper-footer-two">
-                <img src="images/instagram.png" alt="instagram-logo">
-                <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
-                <img src="images/facebook.png" alt="facebook-logo">
-                <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
-            </div>
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <div>
+            <img src="images/instagram.png" alt="instagram-logo">
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+            <img src="images/facebook.png" alt="facebook-logo">
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
         </div>
     </footer>
 
