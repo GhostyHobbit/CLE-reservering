@@ -14,25 +14,25 @@ if (isset($_POST['submit'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Bestellen</title>
 </head>
 <body>
 
 <!-- Navbar Begint hier -->
 <nav>
-    <!-- Foto doet raar moet nog aangepast worden -->
-    <!--    <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">-->
-    <div class="navbar-middle"> <!-- Nav-Box Middle -->
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a>
-        <a href="contact.php">Contact</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
-    <a href="login.php">Login</a>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
 </nav>
-
-
 
 <!--begin formulier-->
 <form action="bestellenGegevens.php" method="get">
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     <input type="radio" id="colour_amount3" name="colour_amount" value="3">
     <br>
 
-    <label for="lengths">Lengte touw</label>
+    <label for="lengths">Lengte Wol</label>
     <input list="lengths" name="lengths">
         <datalist id="lengths">
             <option  value="50cm"></option>
@@ -74,5 +74,14 @@ if (isset($_POST['submit'])) {
     <input type="submit" id="submit" name="submit" >
 
 </form>
+<footer>
+    <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+    <div>
+        <img src="images/instagram.png" alt="instagram-logo">
+        <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+        <img src="images/facebook.png" alt="facebook-logo">
+        <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+    </div>
+</footer>
 
 </body>

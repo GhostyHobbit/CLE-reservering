@@ -37,7 +37,7 @@ mysqli_close($db);
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Contact</a>
-        <a href="createBlog.php">CREATE</a>
+        <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
     </div>
     <div class="login">
         <a href="login.php">Login</a>
