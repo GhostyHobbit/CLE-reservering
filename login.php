@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
         <h2 class="title">Log in</h2>
 
         <?php if ($login) {
-            header('Location: index.php?login=false');
+            header('Location: index.php');
             exit;
          } else { ?>
         <label for="email">Email</label>
