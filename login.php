@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['email'] = $email;
                 $_SESSION['id'] = $user['id'];
                 $login = true;
+                $_SESSION['login'] = $login;
             } else {
                 $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
             }
@@ -87,7 +88,7 @@ if (isset($_POST['submit'])) {
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
     </div>

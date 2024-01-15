@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])) {
     /** @var mysqli $db */
-    require_once "includes/database.php";
+    require_once "database.php";
 //zet post data om naar variabelen
     $title = $_POST['title'];
     $recap = $_POST['recap'];
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
         //zet alle info in de database
         $query = "INSERT INTO blogposts (title, recap, text, picture_link) VALUES ('$title', '$recap', '$text', '$image')";
         mysqli_query($db, $query);
-        header(header:'Location: blogOverview.php');
+        header(header:'Location: index.php');
     }
 }
 ?>
@@ -46,9 +46,9 @@ if(isset($_POST['submit'])) {
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a> <!--moet in admin bestelling overzicht worden-->
+        <a href="bestellen.php">Bestellen</a> <!--moet in admin bestellingen overzicht worden-->
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])) {
         <input type="text" id="recap" name="recap">
 
         <label for="text">Tekst:</label>
-        <textarea id="text" name="text">Schrijf hier je tekst...</textarea>
+        <textarea id="text" name="text" placeholder="Schrijf hier je tekst..."></textarea>
 
         <label for="image">Link naar foto:</label>
         <input type="text" id="image" name="image">

@@ -8,9 +8,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Bestellen - Gegevens</title>
 </head>
 <body>
+<nav>
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <a href="index.php">Home</a>
+        <a href="blogOverview.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="contact.php">Over Wolhoop</a>
+    </div>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
+</nav>
+<main>
+    <?= $test?>
     <form action="bestellenOverview.php?colour_amount=" method="get">
         <label for="user_first_name">Voornaam</label>
         <input type="text" name="user_first_name" id="user_first_name">
@@ -43,5 +59,15 @@
         <input type="hidden" name="comments" id="comments" value="<?=$_GET['comments'] ?>">
         <input type="hidden" name="rope_amount" id="rope_amount" value="<?=$_GET['rope_amount'] ?>">
     </form>
+</main>
+    <footer>
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <div>
+            <img src="images/instagram.png" alt="instagram-logo">
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+            <img src="images/facebook.png" alt="facebook-logo">
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+        </div>
+    </footer>
 </body>
 </html>

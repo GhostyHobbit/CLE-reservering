@@ -39,10 +39,25 @@ if (isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Bestelling Overzicht</title>
 </head>
 <body>
-    <form action="bestellenOverview.php" method="post">
+<nav>
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <a href="index.php">Home</a>
+        <a href="blogOverview.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="contact.php">Over Wolhoop</a>
+    </div>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
+</nav>
+<main>
+    <form action="bestellenOverview.php" method="get">
         <input type="hidden" id="user_first_name" name="user_first_name" value="<?=$_GET['user_first_name']?>">
         <input type="hidden" id="user_infix" name="user_infix" value="<?=$_GET['user_infix']?>">
         <input type="hidden" id="user_last_name" name="user_last_name" value="<?=$_GET['user_last_name']?>">
@@ -57,5 +72,15 @@ if (isset($_POST['submit'])) {
         <input type="hidden" id="rope_amount" name="rope_amount" value="<?=$_GET['rope_amount']?>">
         <input type="submit" name="submit" id="submit">
     </form>
+</main>
+    <footer>
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <div>
+            <img src="images/instagram.png" alt="instagram-logo">
+            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+            <img src="images/facebook.png" alt="facebook-logo">
+            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+        </div>
+    </footer>
 </body>
 </html>
