@@ -37,9 +37,24 @@ if(isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Create Blog</title>
 </head>
 <body>
+<nav>
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <a href="index.php">Home</a>
+        <a href="blog.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="bestellen.php">Bestellen</a> <!--moet in admin bestelling overzicht worden-->
+        <a href="contact.php">Over Wolhoop</a>
+    </div>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
+</nav>
 <a href="blogOverview.php">Annuleren</a>
     <form action="" method="post">
         <label for="title">Titel:</label>
@@ -56,5 +71,14 @@ if(isset($_POST['submit'])) {
 
         <input type="submit" id="submit" name="submit">
     </form>
+<footer>
+    <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+    <div>
+        <img src="images/instagram.png" alt="instagram-logo">
+        <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+        <img src="images/facebook.png" alt="facebook-logo">
+        <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+    </div>
+</footer>
 </body>
 </html>
