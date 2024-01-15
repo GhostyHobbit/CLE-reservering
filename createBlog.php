@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])) {
     /** @var mysqli $db */
-    require_once "includes/database.php";
+    require_once "database.php";
 //zet post data om naar variabelen
     $title = $_POST['title'];
     $recap = $_POST['recap'];
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
         //zet alle info in de database
         $query = "INSERT INTO blogposts (title, recap, text, picture_link) VALUES ('$title', '$recap', '$text', '$image')";
         mysqli_query($db, $query);
-        header(header:'Location: blogOverview.php');
+        header(header:'Location: index.php');
     }
 }
 ?>
@@ -37,9 +37,24 @@ if(isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Create Blog</title>
 </head>
 <body>
+<nav>
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <a href="index.php">Home</a>
+        <a href="blog.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="bestellen.php">Bestellen</a> <!--moet in admin bestellingen overzicht worden-->
+        <a href="contact.php">Over Wolhoop</a>
+    </div>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
+</nav>
 <a href="blogOverview.php">Annuleren</a>
     <form action="" method="post">
         <label for="title">Titel:</label>
@@ -49,12 +64,21 @@ if(isset($_POST['submit'])) {
         <input type="text" id="recap" name="recap">
 
         <label for="text">Tekst:</label>
-        <textarea id="text" name="text">Schrijf hier je tekst...</textarea>
+        <textarea id="text" name="text" placeholder="Schrijf hier je tekst..."></textarea>
 
         <label for="image">Link naar foto:</label>
         <input type="text" id="image" name="image">
 
         <input type="submit" id="submit" name="submit">
     </form>
+<footer>
+    <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+    <div>
+        <img src="images/instagram.png" alt="instagram-logo">
+        <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+        <img src="images/facebook.png" alt="facebook-logo">
+        <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+    </div>
+</footer>
 </body>
 </html>

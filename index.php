@@ -1,4 +1,6 @@
 <?php
+/** @var mysqli $db */
+include_once 'database.php';
 session_start();
 
 if (!empty($_SESSION)) {
@@ -7,18 +9,14 @@ if (!empty($_SESSION)) {
     $login = false;
 }
 
-/*
+$query = "SELECT id, title, recap, picture_link FROM blogposts ORDER BY id DESC LIMIT 3";
+$result = mysqli_query($db, $query);
 
+while ($row = mysqli_fetch_assoc($result)) {
+    $blogs[] = $row;
+}
 
-Front-end --> Index
-Header ( titel , tekst en opmaak + afbeeldingen volgens de wireframe namaken)
-Recente Blog post koppelen met mickey zijn PHP back-end
-Global Css even aanpassen
-Animaties op de index underlinen bij anchor tags
-Footer -> 3 dozen block display met anchor tags
-Onder de footer Copyrights etc...
-
- */
+mysqli_close($db);
 
 
 ?>
@@ -30,6 +28,7 @@ Onder de footer Copyrights etc...
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap"
           rel="stylesheet">
     <title>Home</title>
@@ -46,7 +45,7 @@ Onder de footer Copyrights etc...
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Contact</a>
-        <a href="settings.php">settings</a>
+        <a href="createBlog.php">CREATE</a>
     </div>
 <div class="login">
 <!--    <a href="--><?php //$authenticationLink = $loginStatus ?><!--</a>-->
@@ -88,28 +87,23 @@ Onder de footer Copyrights etc...
 <main>
     <section id="recommendations">
         <div id="recent-blogs">
-            <article class="article-one">
-                <img src="images/Logo-reserveringsysteem.png" class="blog-images">
-                <div class="article-one-bottom">
-                    <h2>Test</h2>
-                    <p>some textsome textsome textsome textsome textsome textsome textsome text</p>
-                </div>
-            </article>
-            <article class="article-one">
-                <img src="images/Logo-reserveringsysteem.png" class="blog-images">
-                <div class="article-one-bottom">
-                    <h2>Test</h2>
-                    <p>some textsome textsome textsome textsome textsome textsome textsome text</p>
-                </div>
-            </article>
-            <article class="article-one">
-                <img src="images/Logo-reserveringsysteem.png" class="blog-images">
-                <div class="article-one-bottom">
-                    <h2>Test</h2>
-                    <p>some textsome textsome textsome textsome textsome textsome textsome text</p>
-                </div>
-            </article>
+
+            <?php if (isset($blogs)) { ?>
+                <?php foreach ($blogs as $blog) { ?>
+                    <article class="article-one">
+                        <img src="<?= $blog['picture_link'] ?>" class="blog-images">
+                        <div class="article-one-bottom">
+                            <h2> <?= $blog['title'] ?> </h2>
+                            <p><?= $blog['recap'] ?></p>
+                            <a href="blog.php?id=<?= $blog['id'] ?>">Open</a>
+                        </div>
+                    </article>
+                <?php } ?>
+            <?php } else { ?>
+                <h1> Excuses voor het ongemak er zijn op dit moment geen blogs</h1>
+            <?php } ?>
         </div>
+        <!--        --><?php //if isset($blogs)?>
         <div id="kleuren">
             <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
             <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
@@ -117,12 +111,14 @@ Onder de footer Copyrights etc...
         </div>
     </section>
     <footer>
-        <img src="images/Logo-reserveringsysteem.png" alt="Logo">
-        <div id="footer-right">
-            <img src="images/instagram.png" alt="instagram-logo">
-            <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
-            <img src="images/facebook.png" alt="facebook-logo">
-            <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+        <div id="upper-footer">
+            <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
+            <div id="upper-footer-two">
+                <img src="images/instagram.png" alt="instagram-logo">
+                <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+                <img src="images/facebook.png" alt="facebook-logo">
+                <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+            </div>
         </div>
     </footer>
 

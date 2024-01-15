@@ -39,7 +39,7 @@ nav a {
 }
 nav a:after {
     content: '';
-    background-color: #000000;
+    background-color: #414141;
     position: absolute;
     bottom:3px;
     left: 0;
@@ -69,7 +69,7 @@ footer {
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 footer img {
     width: 6vw;
@@ -122,20 +122,18 @@ footer div img {
 /*  <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
 
-    <nav>
-        <div class="nav">
-            <div>
-                <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
-            </div>
-            <a href="index.php">Home</a>
-            <a href="blog.php">Blog</a>
-            <a href="kleuren.php">Kleuren</a>
-            <a href="bestellen.php">Bestellen</a>
-        </div>
-        <div class="login">
-            <a href="login.php">Login</a>
-        </div>
-    </nav>
+<nav>
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <a href="index.php">Home</a>
+        <a href="blog.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="bestellen.php">Bestellen</a>
+    </div>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
+</nav>
 
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">

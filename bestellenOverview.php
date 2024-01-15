@@ -1,9 +1,8 @@
 <?php
-$_GET['comments'];
-//
-$test = $_GET['rope_amount'];
-$get = $_GET;
-print_r($get)
+
+if(isset($_POST['name'])){
+    $test = $_GET['rope_amount'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,9 +15,10 @@ print_r($get)
 </head>
 <body>
     <?= $test?>
-    <form action="bestellenOverview.php?colour_amount=" method="get">
+    <form action="bestellenOverview.php" method="get">
+        <p><?= $test ?></p>
         <input type="text" name="test" id="test">
-        <input type="submit" id="submit" name="submit">
+        <input type="button" name="submit">
     </form>
 </body>
 </html>
