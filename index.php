@@ -1,6 +1,6 @@
 <?php
 /** @var mysqli $db */
-include_once 'database.php';
+include_once 'includes/database.php';
 session_start();
 
 if (!empty($_SESSION)) {
