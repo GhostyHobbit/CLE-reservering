@@ -21,12 +21,12 @@ if (isset($_POST['submit'])) {
     $email = mysqli_escape_string($db, $_POST['email']);
     // Server-side validation
     if($_POST['email'] === '') {
-        $emailError = 'Email is required';
-        $errors[] = 'Email is required';
+        $emailError = 'Email mag niet leeg zijn';
+        $errors[] = $emailError;
     }
     if($_POST['password'] === '') {
-        $passwordError = 'Password is required';
-        $errors[] = 'Password is required';
+        $passwordError = 'Wachtwoord mag niet leeg zijn';
+        $errors[] = $passwordError;
     }
     // If data valid
     if(empty($errors)) {
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
         }  else {
-            $errors['loginFailed'] = 'Email or password is incorrect';
+            $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
         }
 
         // check if the user exists
@@ -53,10 +53,10 @@ if (isset($_POST['submit'])) {
 
             if(password_verify($userPassword, $userHash)){
                 $_SESSION['email'] = $email;
-                $_SESSION['firstName'] = $firstName;
+                $_SESSION['id'] = $user['id'];
                 $login = true;
             } else {
-                $errors['loginFailed'] = 'Email or password is incorrect';
+                $errors['loginFailed'] = 'Email of wachtwoord is incorrect';
             }
         }
     }
@@ -77,15 +77,27 @@ if (isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap"
+          rel="stylesheet">
     <title>Log in</title>
 </head>
 <body>
+<nav>
+    <div class="navbar-middle">
+        <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+        <a href="index.php">Home</a>
+        <a href="blog.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="bestellen.php">Bestellen</a>
+    </div>
+</nav>
     <form method = post>
         <h2 class="title">Log in</h2>
 
         <?php if ($login) { ?>
             <p>Je bent ingelogd!</p>
-            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Naar index page</a></p>
+            <p><a href="logout.php">Uitloggen</a> / <a href="index.php">Terug naar home</a></p>
         <?php } else { ?>
         <label for="email">Email</label>
         <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
@@ -110,12 +122,21 @@ if (isset($_POST['submit'])) {
             <?= htmlentities($passwordError) ?? '' ?>
         </p>
 
-        <button class="button is-link is-fullwidth" type="submit" name="submit">Log in With Email</button>
+        <button class="button is-link is-fullwidth" type="submit" name="submit">Log in Met Email</button>
 
-        <a href="register.php" class="button is-fullwidth">Sign Up</a>
-            </form>
+        <a href="register.php" class="button is-fullwidth">Registreer hier</a>
+    </form>
 
         <?php } ?>
+<footer>
+    <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
+    <div>
+        <img src="images/instagram.png" alt="instagram-logo">
+        <a href="https://www.instagram.com/dewolhoopspinning/">@dewolhoopspinning</a>
+        <img src="images/facebook.png" alt="facebook-logo">
+        <a href="https://www.facebook.com/groups/3217490328265360">De Wolhoop</a>
+    </div>
+</footer>
 
 </body>
 </html>

@@ -1,44 +1,69 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 body {
-    background-color: #F4F4F4;
     margin: auto;
+    font-family: Almarai, 'sans-serif';
+    background: #FAF4F4;
 }
 
+
+/* Nav Bar */
 nav {
-    background-color: #D5CAC0;
-    height: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: #D5CAC0;
+    font-family: Annie use your Telescope, 'sans-serif';
+    height: 10vh;
 }
-
 nav img {
     width: 6vw;
+    height: auto;
+    object-fit: contain;
 }
-
+.navbar-middle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 nav a {
     text-decoration: none;
-    margin: 0 3vw;
-    font-family: 'Annie Use Your Telescope', sans-serif;
-    font-size: 2rem;
     color: #414141;
+    font-size: 2rem;
+    margin: 0 3vw;
+    transition: 600ms all;
+    position: relative;
 }
-
+nav a:after {
+    content: '';
+    background-color: #414141;
+    position: absolute;
+    bottom:3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 600ms ease-in-out;
+}
+nav a:hover:after {
+    width: 100%;
+}
 nav a:hover {
     font-weight: bold;
 }
-
 nav .login {
     background-color: #bba695;
     margin-right: 2vw;
     border-radius: 1vw;
 }
-
 nav .login:hover {
     background-color: #ab9482;
     font-weight: bold;
 }
 
+/* Footer */
 footer {
     background-color: #D5CAC0;
     height: 10vh;
@@ -46,48 +71,69 @@ footer {
     align-items: center;
     justify-content: space-between;
 }
-
 footer img {
     width: 6vw;
     height: auto;
 }
+footer a::before {
+    content: '';
+    background-color: #414141;
+    position: absolute;
+    bottom:3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 600ms ease-in-out;
 
-footer div {
-    display: flex;
-    align-items: center;
-    font-family: 'Annie Use Your Telescope', sans-serif;
-    margin: 0 2vw;
 }
-
-footer div img {
-    width: 4vh;
-    height: auto;
-    margin: 0 1vw 0 1vw;
+footer a:hover::before {
+    width: 100%;
 }
-
 footer a {
     text-decoration: none;
     color: #414141;
+    font-family: 'Annie Use Your Telescope', sans-serif;
+    transition: 600ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
 }
-footer a:hover {
-    font-weight: bold;
+footer a:hover{
+    font-weight:bold;
 }
+footer div {
+    display:flex;
+    align-items: center;
+    margin: 0 2vw;
+    font-family: 'Annie Use Your Telescope', sans-serif;
+}
+footer div img {
+    width: 2vw;
+    height: auto;
+    margin: 0 1vw;
+}
+
+
+
+
 
 /*  <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
 
-    <nav>
+<nav>
+    <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
-        <div>
-            <a href="index.php">Home</a>
-            <a href="blog.php">Blog</a>
-            <a href="bestellen.php">Bestellen</a>
-            <a href="contact.php">Over Wolhoop</a>
-        </div>
-        <div class="login">
-            <a href="login.php">Login</a>
-        </div>
-    </nav>
+        <a href="index.php">Home</a>
+        <a href="blog.php">Blog</a>
+        <a href="kleuren.php">Kleuren</a>
+        <a href="bestellen.php">Bestellen</a>
+    </div>
+    <div class="login">
+        <a href="login.php" >Login</a>
+    </div>
+</nav>
 
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
