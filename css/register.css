@@ -54,6 +54,10 @@ form input {
     border-radius: 2vw;
 }
 
+form input:hover {
+    background-color: #d5cdcd;
+}
+
 form .submit {
     width: 30vw;
     border-radius: 10vw;
