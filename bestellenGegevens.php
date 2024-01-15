@@ -26,7 +26,6 @@
     </div>
 </nav>
 <main>
-    <?= $test?>
     <form action="bestellenOverview.php?colour_amount=" method="get">
         <label for="user_first_name">Voornaam</label>
         <input type="text" name="user_first_name" id="user_first_name">

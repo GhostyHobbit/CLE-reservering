@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
     </div>
 </nav>
 <main>
-    <form action="bestellenOverview.php" method="get">
+    <form action="bestellenOverview.php" method="post">
         <input type="hidden" id="user_first_name" name="user_first_name" value="<?=$_GET['user_first_name']?>">
         <input type="hidden" id="user_infix" name="user_infix" value="<?=$_GET['user_infix']?>">
         <input type="hidden" id="user_last_name" name="user_last_name" value="<?=$_GET['user_last_name']?>">
