@@ -1,9 +1,16 @@
 <?php
+session_start();
 /** @var mysqli $db */
 require_once 'includes/database.php';
 if (isset($_POST['submit'])) {
     $colourAmount = $_POST['colour_amount'];
     print_r($colourAmount);
+}
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
 }
 ?>
 <!doctype html>
@@ -35,7 +42,11 @@ if (isset($_POST['submit'])) {
 </nav>
 
 <!--begin formulier-->
-<form action="bestellenGegevens.php" method="get">
+<form <?php if ($login) { ?>
+    action = "bestellenOverview.php"
+<?php } else {?>
+    action = "bestellenGegevens.php"
+<?php }?> method="get">
     <label for="colour_amount1">1 Kleur</label>
     <input type="radio" id="colour_amount1" name="colour_amount" value="1" >
     <label for="colour_amount2">2 Kleuren</label>

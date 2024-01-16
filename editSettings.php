@@ -5,36 +5,64 @@ session_start();
 /** @var mysqli $db */
 require_once 'includes/database.php';
 
-$sessionId = $_SESSION['id'];
+if(empty($_SESSION)) {
+    header('Location: login.php');
+    exit();
+}
 
-//gets the users data from the database
-$query = "SELECT * FROM users WHERE id = 'sessionId'";
-$result = mysqli_query($db, $query);
-//puts the data in an array
-$user = mysqli_fetch_assoc($result);
+$sessionId = $_SESSION['id'];
 
 if(isset($_POST['submit'])) {
 
-    $firstName = $_POST['firstName'];
-    $infix = $_POST['infix'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $streetName = $_POST['streetName'];
-    $houseNumber = $_POST['houseNumber'];
-    $postalCode = $_POST['postalCode'];
-    $cityName = $_POST['cityName'];
+    $firstName = mysqli_escape_string($db,$_POST['firstName']);
+    $infix = mysqli_escape_string($db,$_POST['infix']);
+    $lastName = mysqli_escape_string($db,$_POST['lastName']);
+    $email = mysqli_escape_string($db,$_POST['email']);
+    $streetName = mysqli_escape_string($db,$_POST['streetName']);
+    $houseNumber = mysqli_escape_string($db,$_POST['houseNumber']);
+    $postalCode = mysqli_escape_string($db,$_POST['postalCode']);
+    $cityName = mysqli_escape_string($db,$_POST['cityName']);
 
-    "UPDATE users SET `first_name` = '$firstName', `infix` = '$infix', `last_name` = '$lastName', 
-                      `email` = '$email', `street_name` = $streetName, `house_number` = '$houseNumber',
-                      `postal_code` = '$postalCode', `city_name` = '$cityName' 
-             WHERE id = '$_SESSION'['id']";
+    if ($firstName === '') {
+        $errors['first_name'] = "Je moet nog een voornaam invullen!";
+    }
+    if ($lastName === '') {
+        $errors['last_name'] = "Je moet nog een achternaam invullen!";
+    }
+    if ($email === '') {
+        $errors['email'] = "Je moet een email invullen!";
+    }
+    if ($cityName === '') {
+        $errors['city_name'] = "Je moet nog een stad invullen!";
+    }
+    if ($streetName === '') {
+        $errors['street_name'] = "Je moet nog een straatnaam invullen!";
+    }
+    if ($houseNumber === '') {
+        $errors['house_number'] = "Je moet nog een huisnummer invullen!";
+    }
+    if ($postalCode === '') {
+        $errors['postal_code'] = "Je moet nog een postcode invullen!";
+    }
 
-    $_SESSION['id'] = $user['id'];
-    $login = true;
-    $_SESSION['login'] = $login;
+    $query = "UPDATE users 
+                    SET first_name = '$firstName', 
+                        infix = '$infix', 
+                        last_name = '$lastName', 
+                        email = '$email', 
+                        street_name = $streetName, 
+                        house_number = '$houseNumber',
+                        postal_code = '$postalCode', 
+                        city_name = '$cityName' 
+             WHERE id = '$sessionId'";
 
-    header(header: 'Location: login.php');
+    $result = mysqli_query($db, $query)
+    or die('Error '.mysqli_error($db).' with query '.$query);
+
+    header('Location: profile.php');
+    exit;
 }
+mysqli_close($db);
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,10 +94,14 @@ if(isset($_POST['submit'])) {
 
 </header>
 <main>
+    <?= $sessionId ?>
     <form method="post">
         <div>
             <label for="firstName">Voornaam</label>
             <input type="text" name="firstName" id="firstName">
+            <?php if(isset($errors['first_name'])) {
+                echo $errors['first_name'];
+            } ?>
         </div>
         <div>
             <label for="infix">Tussenvoegsel</label>
@@ -78,26 +110,44 @@ if(isset($_POST['submit'])) {
         <div>
             <label for="lastName">Achternaam</label>
             <input type="text" name="lastName" id="lastName">
+            <?php if(isset($errors['last_name'])) {
+                echo $errors['last_name'];
+            } ?>
         </div>
         <div>
             <label for="email">Email</label>
             <input type="email" name="email" id="email">
+            <?php if(isset($errors['email'])) {
+                echo $errors['email'];
+            } ?>
         </div>
         <div>
             <label for="streetName">Straatnaam</label>
             <input type="text" name="streetName" id="streetName">
+            <?php if(isset($errors['street_name'])) {
+                echo $errors['street_name'];
+            } ?>
         </div>
         <div>
             <label for="houseNumber">Huisnummer</label>
             <input type="text" name="houseNumber" id="houseNumber">
+            <?php if(isset($errors['house_number'])) {
+                echo $errors['house_number'];
+            } ?>
         </div>
         <div>
             <label for="postcode">Postcode</label>
             <input type="text" name="postcode" id="postcode">
+            <?php if(isset($errors['postal_code'])) {
+                echo $errors['postal_code'];
+            } ?>
         </div>
         <div>
             <label for="city">Plaats</label>
             <input type="text" name="city" id="city">
+            <?php if(isset($errors['city_name'])) {
+                echo $errors['city_name'];
+            } ?>
         </div>
         <div>
             <button type="submit" class="button">Plaats Veranderingen</button>
