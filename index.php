@@ -12,8 +12,15 @@ if (!empty($_SESSION)) {
 $query = "SELECT id, title, recap, picture_link FROM blogposts ORDER BY id DESC LIMIT 3";
 $result = mysqli_query($db, $query);
 
+
 while ($row = mysqli_fetch_assoc($result)) {
     $blogs[] = $row;
+}
+$queryColor = "SELECT id, colour, wool_length, product_link FROM products";
+$resultColor = mysqli_query($db, $queryColor);
+
+while ($row2 = mysqli_fetch_assoc($resultColor)) {
+    $colors[] = $row2;
 }
 
 mysqli_close($db);
@@ -46,13 +53,13 @@ mysqli_close($db);
         <a href="contact.php">Contact</a>
         <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
     </div>
-<div class="login">
-    <?php if ($login) { ?>
-        <a href="profile.php">Profiel</a>
-    <?php } else {?>
-        <a href="login.php">Login</a>
-    <?php }?>
-</div>
+    <div class="login">
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
+    </div>
 
 </nav>
 <!-- Navbar Eindigt hier-->
@@ -69,9 +76,9 @@ mysqli_close($db);
             unieke en hoogwaardige wolproducten aan te bieden, zodat jij, of je nu een ervaren breier bent of net begint
             aan je haakavontuur, de perfecte wol vindt om jouw projecten tot leven te brengen. Dus, omarm de warmte,
             kleur en vreugde van wol met Wolhoop! Laat ons jouw metgezel zijn terwijl je de prachtige wereld van
-            handwerk verkent. Happy crafting! 🌈🧶✨</p>
+            handwerk verkent. Happy crafting! 🌈🧶✨
+        </p>
     </div>
-
     <div class="header-right">
         <h1>Foto's</h1>
         <img src="images/Logo-reserveringsysteem.png" alt class="header-images">
@@ -82,9 +89,9 @@ mysqli_close($db);
 <!-- Header Eindigt hier-->
 
 <main>
-    <section id="recommendations">
-        <div id="recent-blogs">
-
+    <section id="recent-blogs">
+        <h2>Recente Blogs</h2>
+        <div id="recent-blog">
             <?php if (isset($blogs)) { ?>
                 <?php foreach ($blogs as $blog) { ?>
                     <article class="article-one">
@@ -100,11 +107,25 @@ mysqli_close($db);
                 <h1> Excuses voor het ongemak er zijn op dit moment geen blogs</h1>
             <?php } ?>
         </div>
-        <!--        --><?php //if isset($blogs)?>
-        <div id="kleuren">
-            <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
-            <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
-            <img src="images/Logo-reserveringsysteem.png" class="kleuren-images" alt="">
+    </section>
+    <section id="bestseller">
+        <div>
+            <h2> Best verkocht kleuren</h2>
+            <div id="kleuren">
+                <?php if (isset($colors)) { ?>
+                    <?php foreach ($colors as $color) { ?>
+                        <div class="bestseller-color">
+                            <h2><?= $color['colour'] ?></h2>
+                            <div class="article-one-bottom">
+                                <img src="<?php echo $color['product_link'] ?>" class="kleuren-images" alt="Picture">
+                                <p> Omschrijving over de kleur</p>
+                            </div>
+                        </div>
+                    <?php } ?>
+                <?php } else { ?>
+                    <p>Nog geen bestsellers</p>
+                <?php } ?>
+            </div>
         </div>
     </section>
     <footer>
