@@ -1,0 +1,63 @@
+main {
+    min-height: 80vh;
+}
+
+main h1 {
+    color: #414141;
+    margin-left: 1vw;
+    font-weight: normal;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form .rowFlex {
+    display: flex;
+}
+
+form .rowFlex div label {
+    margin-left: 1vw;
+}
+
+/*form .rowFlex div input {*/
+/*    opacity: 0;*/
+/*    cursor: pointer;*/
+/*    height: 2vw;*/
+/*    width: 5vw;*/
+/*    background-color: #e70202;*/
+/*}*/
+
+/*form .rowFlex div input:hover {*/
+/*    opacity: 100;*/
+/*    background-color: #e70202;*/
+/*    border-radius: 0;*/
+/*}*/
+
+form .rowFlex div .img  {
+    margin: 2vh 1vw 0 1vw;
+    padding: 2vh 1vw;
+    background-color: #D5CAC0;
+}
+
+form img {
+    display: flex;
+    flex-direction: column;
+    height: 55vh;
+    max-width: 100%;
+}
+
+form .stack {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+form .fields {
+    height: 60vh;
+}
+
+
+
+

@@ -36,7 +36,8 @@ form .stack {
 }
 
 #small {
-    width: 10vw;
+    max-width: 10vw;
+    margin-left: 0.5vw;
 }
 
 form label {
