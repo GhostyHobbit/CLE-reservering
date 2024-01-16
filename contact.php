@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +29,11 @@
         <a href="bestellen.php">Bestellen</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 <main>

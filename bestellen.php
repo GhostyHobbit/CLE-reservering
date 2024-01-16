@@ -37,7 +37,11 @@ if (!empty($_SESSION)) {
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 

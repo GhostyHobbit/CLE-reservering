@@ -1,6 +1,14 @@
 <?php
+session_start();
 /** @var mysqli $db */
 require_once "includes/database.php";
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
+
 $id = $_GET['id'];
 $query = "SELECT * FROM blogposts WHERE id = '$id'";
 $result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
@@ -31,7 +39,11 @@ mysqli_close($db);
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 <main>
