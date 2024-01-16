@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -8,7 +13,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/kleuren.css">
     <link rel="stylesheet" href="css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap"
           rel="stylesheet">
@@ -26,15 +31,21 @@
         <a href="bestellen.php">Bestellen</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 <main>
-    <section id="best-seller">
+    <section id="kleuren-bestseller">
         <h1>Best Verkocht</h1>
+        <div class="bestseller">
         <img src="images/Placeholder.png " alt=""> <!--  -->
         <img src="images/Placeholder.png " alt="">
         <img src="images/Placeholder.png " alt="">
+        </div>
     </section>
     <section id="season-colors">
         <h1>Seizoen Combinaties</h1>

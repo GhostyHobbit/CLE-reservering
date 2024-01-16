@@ -5,6 +5,12 @@ if (isset($_POST['submit'])) {
     $colourAmount = $_POST['colour_amount'];
     print_r($colourAmount);
 }
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,10 +36,27 @@ if (isset($_POST['submit'])) {
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 
+<!--begin formulier-->
+<form <?php if ($login) { ?>
+    action = "bestellenOverview.php"
+<?php } else {?>
+    action = "bestellenGegevens.php"
+<?php }?> method="get">
+    <label for="colour_amount1">1 Kleur</label>
+    <input type="radio" id="colour_amount1" name="colour_amount" value="1" >
+    <label for="colour_amount2">2 Kleuren</label>
+    <input type="radio" id="colour_amount2" name="colour_amount" value="2">
+    <label for="colour_amount3">3 Kleuren</label>
+    <input type="radio" id="colour_amount3" name="colour_amount" value="3">
+    <br>
 <main>
     <h1>Bestellen: Kies uw kleuren</h1>
     <!--begin formulier-->

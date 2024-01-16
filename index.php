@@ -108,7 +108,7 @@ mysqli_close($db);
             <?php } ?>
         </div>
     </section>
-    <section id="bestseller">
+    <section id="index-besteller">
         <div>
             <h2> Best verkocht kleuren</h2>
             <div id="kleuren">
