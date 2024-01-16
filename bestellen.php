@@ -45,24 +45,16 @@ if (!empty($_SESSION)) {
 </nav>
 
 <!--begin formulier-->
-<form <?php if ($login) { ?>
-    action = "bestellenOverview.php"
-<?php } else {?>
-    action = "bestellenGegevens.php"
-<?php }?> method="get">
-    <label for="colour_amount1">1 Kleur</label>
-    <input type="radio" id="colour_amount1" name="colour_amount" value="1" >
-    <label for="colour_amount2">2 Kleuren</label>
-    <input type="radio" id="colour_amount2" name="colour_amount" value="2">
-    <label for="colour_amount3">3 Kleuren</label>
-    <input type="radio" id="colour_amount3" name="colour_amount" value="3">
-    <br>
 <main>
     <h1>Bestellen: Kies uw kleuren</h1>
     <!--begin formulier-->
-    <form action="bestellenGegevens.php" method="get">
+    <form <?php if ($login) { ?>
+        action = "bestellenOverview.php"
+    <?php } else {?>
+        action = "bestellenGegevens.php"
+    <?php }?> method="get">
 
-        <div class="rowFlex">
+    <div class="rowFlex">
             <div>
                 <div class="img">
                     <img src="images/1kleur.jpg" alt="één-kleur">
