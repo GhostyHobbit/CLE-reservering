@@ -1,0 +1,18 @@
+#all-blogs {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1fr;
+    padding: 5vh 4vw;
+    gap: 1rem;
+}
+
+#all-blogs article {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap:2rem;
+}
+.blog-images {
+    width: 250px;
+    height: 250px;
+}

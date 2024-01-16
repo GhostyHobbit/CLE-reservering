@@ -1,11 +1,24 @@
-h1{
-    font-family: 'Annie Use Your Telescope', sans-serif;
-    color: #414141;
-    font-size:2rem;
-    letter-spacing: 2px;
-    font-weight: bold;
+
+#bestseller{
+    display:flex;
+    justify-content: space-evenly;
+
 }
-#kleuren-bestseller{
+.bestseller{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+h1{
+        font-family: 'Annie Use Your Telescope', sans-serif;
+    color: #414141;
+    font-size:2.5rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+}
+#bestseller img{
+    width:250px;
+    height:250px;
 }

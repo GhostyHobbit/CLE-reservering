@@ -1,12 +1,11 @@
 * {
-    box-sizing: border-box;
+    box-sizing: content-box;
     scroll-behavior: smooth;
 }
 
 body {
-    margin: auto;
+    margin: 0 auto;
     padding: 0;
-    font-family: Almarai, 'sans-serif';
     background: #FAF4F4;
 }
 
@@ -30,67 +29,66 @@ nav img {
 header {
     display: grid;
     grid-template-columns:1fr 1fr;
-    gap: 50px;
+    gap:10vw;
     padding: 0 4vw;
 }
 .header-left{
     display:flex;
+    flex-direction: column;
     justify-content: center;
     padding:0 4vw;
-    flex-direction: column;
 }
 
-/* Section Recommendations*/
-#recent-blog {
+/* Section Blogs*/
+#recent-blog,#kleuren {
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
     padding: 5vh 4vw;
     gap: 1rem;
 }
+#recent-blogs h1, #index-besteller h1{
+    font-family: 'Annie Use Your Telescope', sans-serif;
+    color: #414141;
+    font-size:2.5rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-align: center;
+    text-transform:capitalize;
+}
 
-/* Article*/
-article {
-    border: 2px solid black;
+
+
+/* Section Best sellers*/
+.bestseller-color,.article-one{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.bestseller-color {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.blog-images, .header-images, #kleuren img {
+.blog-images, .header-images, .kleuren-images {
     width: 250px;
     height: 250px;
 }
-
-
-#kleuren {
-    display: flex;
-    justify-content: space-between;
-    padding: 5vh 4vw;
-    gap: 1rem;
+.article-one-bottom{
+    text-align: left;
 }
-
-#kleuren img {
+.kleuren-images,.blog-images{
     border: 2px solid black;
 }
-
+.blog-button{
+    text-decoration: none;
+    padding: 0.5vh 4vw;
+    background-color: #205D20;
+    color: #D3E9D6;
+    font-family: Almarai, 'sans-serif';
+    border-radius:25px 25px 25px;
+    transition: 400ms ease-in-out;
+}
+.blog-button:hover{
+    background-color: #aabdac;
+    color: #414141;
+    font-weight: bold;
+}
 /* Footer */
 
-/* BLOG.php starts here*/
-#all-blogs {
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap: 1rem;
-}
-
-#all-blogs article {
-    display: flex;
-    flex-direction: row;
-}

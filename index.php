@@ -16,7 +16,9 @@ $result = mysqli_query($db, $query);
 while ($row = mysqli_fetch_assoc($result)) {
     $blogs[] = $row;
 }
-$queryColor = "SELECT id, colour, wool_length, product_link FROM products";
+
+// verkocht eigenschap nog toevoegen bij database en later aanpassen
+$queryColor = "SELECT id, colour, wool_length, product_link FROM products ORDER BY id LIMIT 3";
 $resultColor = mysqli_query($db, $queryColor);
 
 while ($row2 = mysqli_fetch_assoc($resultColor)) {
@@ -90,35 +92,34 @@ mysqli_close($db);
 
 <main>
     <section id="recent-blogs">
-        <h2>Recente Blogs</h2>
+        <h1>Recente Blogs</h1>
         <div id="recent-blog">
             <?php if (isset($blogs)) { ?>
                 <?php foreach ($blogs as $blog) { ?>
-                    <article class="article-one">
-                        <img src="<?= $blog['picture_link'] ?>" class="blog-images">
+                    <div class="article-one">
+                        <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="blog-images">
                         <div class="article-one-bottom">
-                            <h2> <?= $blog['title'] ?> </h2>
-                            <p><?= $blog['recap'] ?></p>
-                            <a href="blog.php?id=<?= $blog['id'] ?>">Open</a>
+                            <h2><?= $blog['title']?></h2>
+                            <p><?= $blog['recap']?></p>
+                            <a href="blog.php?id=<?= $blog['id'] ?>" class="blog-button">Open</a>
                         </div>
-                    </article>
+                    </div>
                 <?php } ?>
             <?php } else { ?>
-                <h1> Excuses voor het ongemak er zijn op dit moment geen blogs</h1>
+                <h1>Excuses voor het ongemak er zijn op dit moment geen blogs</h1>
             <?php } ?>
         </div>
     </section>
     <section id="index-besteller">
-        <div>
-            <h2> Best verkocht kleuren</h2>
+            <h1> Best verkocht kleuren</h1>
             <div id="kleuren">
                 <?php if (isset($colors)) { ?>
                     <?php foreach ($colors as $color) { ?>
                         <div class="bestseller-color">
-                            <h2><?= $color['colour'] ?></h2>
+                            <img src="<?php echo $color['product_link'] ?>" class="blog-images" alt="Picture">
                             <div class="article-one-bottom">
-                                <img src="<?php echo $color['product_link'] ?>" class="kleuren-images" alt="Picture">
-                                <p> Omschrijving over de kleur</p>
+                                <h2><?= $color['colour'] ?></h2>
+                                <p>Omschrijving over de kleur</p>
                             </div>
                         </div>
                     <?php } ?>
@@ -126,7 +127,6 @@ mysqli_close($db);
                     <p>Nog geen bestsellers</p>
                 <?php } ?>
             </div>
-        </div>
     </section>
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">

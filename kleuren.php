@@ -1,4 +1,17 @@
 <?php
+require_once 'includes/database.php';
+/** @var mysqli $db */
+
+
+// verkocht eigenschap nog toevoegen bij database en later aanpassen
+// Hoeveel is er verkocht en wat is er verkocht
+// Op wat moet ik sorteren?
+$bestSellerQuery = "SELECT id, colour, wool_length, product_link FROM products ORDER BY id LIMIT 3";
+$bestSellResult = mysqli_query($db, $bestSellerQuery);
+
+while ($row = mysqli_fetch_assoc($bestSellResult)) {
+    $bestSeller[] = $row;
+}
 
 
 ?>
@@ -23,22 +36,28 @@
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
         <a href="blogOverview.php">Blog</a>
-        <a href="contact.php">Over Wolhoop</a>
         <a href="bestellen.php">Bestellen</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <a href="login.php">Login</a>
     </div>
 </nav>
 <main>
     <section id="kleuren-bestseller">
-        <h1>Best Verkocht</h1>
-        <div class="bestseller">
-        <img src="images/Placeholder.png " alt=""> <!--  -->
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
+            <h1>Best Verkocht</h1>
+            <div id="bestseller">
+        <?php foreach ($bestSeller as $color) { ?>
+            <div class="bestseller">
+                <img src="<?= $color['product_link'] ?>" alt="">
+                <h2><?= $color['colour'] ?></h2>
+                <p>Omshcrijving van kleuren</p>
+
+            </div>
+        <?php } ?>
         </div>
     </section>
+
     <section id="season-colors">
         <h1>Seizoen Combinaties</h1>
         <img src="images/Placeholder.png " alt="">
