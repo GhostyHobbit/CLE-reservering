@@ -1,0 +1,108 @@
+main {
+    min-height: 80vh;
+}
+
+main h1 {
+    color: #414141;
+    margin: 1vh 1vw;
+    font-weight: normal;
+}
+
+form {
+    display: flex;
+}
+
+form .fields {
+    margin-left: 2vw;
+}
+
+form .rowFlex {
+    display: flex;
+}
+
+form .rowFlex div label {
+    margin-left: 1vw;
+}
+
+form .rowFlex div .img  {
+    margin: 2vh 1vw 0 1vw;
+    padding: 2vh 1vw;
+    background-color: #D5CAC0;
+}
+
+form img {
+    display: flex;
+    flex-direction: column;
+    height: 55vh;
+    max-width: 100%;
+}
+
+form .stack {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+form .stack {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+form label {
+    font-weight: bold;
+    color: #414141;
+    margin-bottom: 0.3vw;
+    margin-left: 1vw;
+}
+
+form input {
+    padding: 0.7vw 0 0.7vw 0.2vw;
+    border-style: solid;
+    border-color: #414141;
+    background-color: #F9F9F9;
+    border-radius: 2vw;
+    font-family: Almarai, 'sans-serif';
+    font-size: 1rem;
+}
+
+form input:hover {
+    background-color: #e7dede;
+}
+
+form textarea {
+    padding: 0.7vw 0 0.7vw 0.2vw;
+    border-style: solid;
+    border-color: #414141;
+    background-color: #F9F9F9;
+    border-radius: 1vw;
+    border-width: 0.15vw;
+    font-family: Almarai, 'sans-serif';
+    height: 20vh;
+    font-size: 1rem;
+}
+
+form textarea:hover {
+    background-color: #e7dede;
+}
+
+form .submit {
+    width: 30vw;
+    border-radius: 10vw;
+    margin-top: 1vh;
+    padding: 0.5vw 0 0.5vw 0.2vw;
+    background-color: #205D20;
+    color: #D3E9D6;
+    font-family: Almarai, 'sans-serif';
+    font-size: 1rem;
+    transition: 300ms ease-out;
+}
+
+form .submit:hover {
+    background-color: #aabdac;
+    color: #414141;
+    font-weight: bold;
+    transition: 300ms ease-in;
+}
+
+

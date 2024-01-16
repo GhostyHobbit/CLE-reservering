@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
+
 if(isset($_POST['submit'])) {
     /** @var mysqli $db */
     require_once "includes/database.php";
@@ -52,7 +60,11 @@ if(isset($_POST['submit'])) {
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 <a href="blogOverview.php">Annuleren</a>

@@ -41,6 +41,11 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
     </div>
     <div class="login">
         <a href="login.php">Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 <main>
@@ -57,7 +62,6 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
         <?php } ?>
         </div>
     </section>
-
     <section id="season-colors">
         <h1>Seizoen Combinaties</h1>
         <img src="images/Placeholder.png " alt="">
