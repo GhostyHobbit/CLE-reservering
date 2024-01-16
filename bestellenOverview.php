@@ -2,7 +2,7 @@
 require_once 'includes/database.php';
 /** @var array $db */
 
-if (!isset($_POST['submit']) && !isset($_GET['user_first_name'])) {
+if (isset($_POST['submit'])) {
 header('location: bestellen.php');
 }
 
