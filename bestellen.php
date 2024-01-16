@@ -112,7 +112,7 @@ if (!empty($_SESSION)) {
             </div>
 
 
-            <input type="submit" id="submit" name="submit" >
+            <input type="submit" id="submit" name="submit" class="submit">
         </div>
     </form>
 </main>
