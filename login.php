@@ -71,6 +71,7 @@ if (isset($_POST['submit'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap"
           rel="stylesheet">
     <title>Log in</title>
@@ -83,16 +84,19 @@ if (isset($_POST['submit'])) {
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
 </nav>
 <main>
+    <img src="images/wool.png" alt="landschap">
+    <div class="form">
     <form method = post>
-        <h2 class="title">Log in</h2>
-
-        <label for="email">Email</label>
-        <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
-        <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-        <p><?= htmlentities($emailError) ?? '' ?></p>
+        <h2 class="title">Inloggen</h2>
+        <div>
+            <label for="email">Email</label>
+            <input class="input" id="email" type="text" name="email" value="<?= htmlentities($email) ?? '' ?>" />
+            <p><?= htmlentities($emailError) ?? '' ?></p>
+        </div>
 
         <div>
             <label for="password">Wachtwoord</label>
@@ -104,11 +108,11 @@ if (isset($_POST['submit'])) {
             <p><?=htmlentities($errors['loginFailed'])?></p>
         <?php } ?>
 
-        <button type="submit" name="submit">Log in Met Email</button>
-
-        <a href="register.php">Registreer hier</a>
+        <button type="submit" name="submit" class="submit">Inloggen</button>
     </form>
-
+        <a href="register.php">Geen profiel? Registreer hier</a>
+    </div>
+    <img src="images/wool.png" alt="landschap">
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">

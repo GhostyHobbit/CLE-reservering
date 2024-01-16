@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])) {
     /** @var mysqli $db */
-    require_once "database.php";
+    require_once "includes/database.php";
 //zet post data om naar variabelen
     $title = $_POST['title'];
     $recap = $_POST['recap'];
