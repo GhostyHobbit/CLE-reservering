@@ -58,6 +58,15 @@ form input:hover {
     background-color: #d5cdcd;
 }
 
+form p {
+    color: #e70202;
+    margin-left: 1vw;
+}
+
+form .infix {
+    color: #FAF4F4;
+}
+
 form .submit {
     width: 30vw;
     border-radius: 10vw;

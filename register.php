@@ -14,31 +14,36 @@ if(isset($_POST['submit'])) {
     $streetName = $_POST['street_name'];
     $houseNumber = $_POST['house_number'];
     $postalCode = $_POST['postal_code'];
+    $invalid = '';
+    $infixhack = '';
 
 //zet errors neer als ze er zijn
     if ($firstName === '') {
-        $errors['first_name'] = "Je moet nog een voornaam invullen!";
+        $errors['first_name'] = "Verplicht";
+        $invalid = 'Verplicht';
+        $infixhack = 'wooo';
     }
     if ($lastName === '') {
-        $errors['last_name'] = "Je moet nog een achternaam invullen!";
+        $errors['last_name'] = "Verplicht";
+        $invalid = 'Verplicht';
     }
     if ($email === '') {
-        $errors['email'] = "Je moet een email invullen!";
+        $errors['email'] = "Verplicht";
     }
     if ($password === '') {
-        $errors['password'] = "Je moet een wachtwoord invullen!";
+        $errors['password'] = "Verplicht";
     }
     if ($cityName === '') {
-        $errors['city_name'] = "Je moet nog een stad invullen!";
+        $errors['city_name'] = "Verplicht";
     }
     if ($streetName === '') {
-        $errors['street_name'] = "Je moet nog een straatnaam invullen!";
+        $errors['street_name'] = "Verplicht";
     }
     if ($houseNumber === '') {
-        $errors['house_number'] = "Je moet nog een huisnummer invullen!";
+        $errors['house_number'] = "Verplicht";
     }
     if ($postalCode === '') {
-        $errors['postal_code'] = "Je moet nog een postcode invullen!";
+        $errors['postal_code'] = "Verplicht";
     }
 //check of er niks leeg is
     if ($firstName !== '' && $lastName !== '' && $email !== '' && $password !== '' && $cityName !== '' && $streetName !== '' && $houseNumber !== '' && $postalCode !== '') {
@@ -93,7 +98,7 @@ if(isset($_POST['submit'])) {
             <div class="stack" id="small">
                 <label for="infix">Tussenvoegsel</label>
                 <input type="text" id="infix" name="infix" value="<?= $infix ?? '' ?>">
-                <p><?= $errors['infix'] ?? '' ?></p>
+                <p class="infix"><?= $infixhack ?? '' ?></p>
             </div>
         </div>
         <div class="stack">
