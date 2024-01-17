@@ -5,6 +5,15 @@ if (!empty($_SESSION)) {
 } else {
     $login = false;
 }
+
+
+if (isset($_POST["message"])) {
+    $email = $_POST['email'];
+    mail("mickeyveldhuizen@gmail.com", "contact pagina Wolhoop",
+        $_POST["message"] . "From: '$email'");
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,7 +55,18 @@ if (!empty($_SESSION)) {
             <a href="https://www.instagram.com/dewolhoopspinning/">Instagram: @dewolhoopspinning</a>
             <a href="https://www.facebook.com/groups/3217490328265360/media" class="facebook">Facebook: De Wolhoop</a>
         </div>
-        <p>evt email etc</p>
+        <form method="post" action="contact.php">
+            <label for="email">Jouw e-mail:</label>
+            <input type="text" name="email" id="email">
+            <label for="message">Bericht:</label>
+            <textarea name="message" id="message"></textarea>
+            <input type="submit">
+        </form>
+
+
+
+
+
     </div>
 </main>
 <footer>
