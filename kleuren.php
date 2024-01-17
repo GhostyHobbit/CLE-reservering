@@ -2,6 +2,13 @@
 require_once 'includes/database.php';
 /** @var mysqli $db */
 
+session_start();
+
+if (!empty($_SESSION)) {
+    $login = true;
+} else {
+    $login = false;
+}
 
 // verkocht eigenschap nog toevoegen bij database en later aanpassen
 // Hoeveel is er verkocht en wat is er verkocht
@@ -40,7 +47,6 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php">Login</a>
         <?php if ($login) { ?>
             <a href="profile.php">Profiel</a>
         <?php } else { ?>
