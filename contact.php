@@ -1,10 +1,26 @@
 <?php
 session_start();
+/** @var mysqli $db */
+require_once "includes/database.php";
 if (!empty($_SESSION)) {
     $login = true;
 } else {
     $login = false;
 }
+
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['id'];
+    $query = "SELECT * FROM users WHERE id = '$userId'";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
+}
+if (isset($_POST["message"])) {
+    $email = $_POST['email'];
+    mail("mickeyveldhuizen@gmail.com", "contact pagina Wolhoop",
+        $_POST["message"] . "From: '$email'");
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,7 +62,18 @@ if (!empty($_SESSION)) {
             <a href="https://www.instagram.com/dewolhoopspinning/">Instagram: @dewolhoopspinning</a>
             <a href="https://www.facebook.com/groups/3217490328265360/media" class="facebook">Facebook: De Wolhoop</a>
         </div>
-        <p>evt email etc</p>
+        <form method="post" action="contact.php">
+            <label for="email">Jouw e-mail:</label>
+            <input type="text" name="email" id="email" <?php if (isset($user['email'])) {?> value=<?= $user['email'] ?><?php }?>>
+            <label for="message">Bericht:</label>
+            <textarea name="message" id="message"></textarea>
+            <input type="submit">
+        </form>
+
+
+
+
+
     </div>
 </main>
 <footer>
