@@ -57,7 +57,6 @@ header {
 }
 
 
-
 /* Section Best sellers*/
 .bestseller-color,.article-one{
     display: flex;
@@ -74,21 +73,33 @@ header {
     text-align: left;
 }
 .kleuren-images,.blog-images{
+    border-radius:15%;
     border: 2px solid black;
 }
 .blog-button{
     text-decoration: none;
-    padding: 0.5vh 4vw;
+    padding: 1vh 2.5vw;
     background-color: #205D20;
     color: #D3E9D6;
-    font-family: Almarai, 'sans-serif';
-    border-radius:25px 25px 25px;
+    width: 100%;
+    font-size:1.25rem;
+    font-family: Annie use your Telescope, 'sans-serif';
+    border-radius:25px;
     transition: 400ms ease-in-out;
 }
 .blog-button:hover{
     background-color: #aabdac;
     color: #414141;
     font-weight: bold;
+    box-shadow:7px 3px 4px #ab9482;
+
+}
+.button-to-right{
+
+}
+.all-color-button{
+    text-align: right;
+    margin:0 11vw 2vw 0;
 }
 /* Footer */
 

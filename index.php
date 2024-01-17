@@ -97,11 +97,13 @@ mysqli_close($db);
             <?php if (isset($blogs)) { ?>
                 <?php foreach ($blogs as $blog) { ?>
                     <div class="article-one">
-                        <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="blog-images">
                         <div class="article-one-bottom">
-                            <h2><?= $blog['title']?></h2>
-                            <p><?= $blog['recap']?></p>
-                            <a href="blog.php?id=<?= $blog['id'] ?>" class="blog-button">Open</a>
+                            <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="blog-images">
+                            <h3><?= $blog['title'] ?></h3>
+                            <p><?= $blog['recap'] ?></p>
+                            <div class="button-to-right">
+                                <a href="blog.php?id=<?= $blog['id'] ?>" class="blog-button">Lees meer</a>
+                            </div>
                         </div>
                     </div>
                 <?php } ?>
@@ -111,22 +113,22 @@ mysqli_close($db);
         </div>
     </section>
     <section id="index-besteller">
-            <h1> Best verkocht kleuren</h1>
-            <div id="kleuren">
-                <?php if (isset($colors)) { ?>
-                    <?php foreach ($colors as $color) { ?>
-                        <div class="bestseller-color">
+        <h1> Best verkocht kleuren</h1>
+        <div id="kleuren">
+            <?php if (isset($colors)) { ?>
+                <?php foreach ($colors as $color) { ?>
+                    <div class="bestseller-color">
                             <img src="<?php echo $color['product_link'] ?>" class="blog-images" alt="Picture">
-                            <div class="article-one-bottom">
-                                <h2><?= $color['colour'] ?></h2>
-                                <p>Omschrijving over de kleur</p>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php } else { ?>
-                    <p>Nog geen bestsellers</p>
+                            <h3><?= $color['colour'] ?></h3>
+                    </div>
                 <?php } ?>
-            </div>
+            <?php } else { ?>
+                <p>Nog geen bestsellers</p>
+            <?php } ?>
+        </div>
+        <div class="all-color-button">
+            <a href="kleuren.php" class="blog-button">Bekijk alle kleuren</a>
+        </div>
     </section>
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
