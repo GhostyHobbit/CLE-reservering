@@ -1,12 +1,19 @@
 <?php
 session_start();
+/** @var mysqli $db */
+require_once "includes/database.php";
 if (!empty($_SESSION)) {
     $login = true;
 } else {
     $login = false;
 }
 
-
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['id'];
+    $query = "SELECT * FROM users WHERE id = '$userId'";
+    $result = mysqli_query($db, $query);
+    $user = mysqli_fetch_assoc($result);
+}
 if (isset($_POST["message"])) {
     $email = $_POST['email'];
     mail("mickeyveldhuizen@gmail.com", "contact pagina Wolhoop",
@@ -57,7 +64,7 @@ if (isset($_POST["message"])) {
         </div>
         <form method="post" action="contact.php">
             <label for="email">Jouw e-mail:</label>
-            <input type="text" name="email" id="email">
+            <input type="text" name="email" id="email" <?php if (isset($user['email'])) {?> value=<?= $user['email'] ?><?php }?>>
             <label for="message">Bericht:</label>
             <textarea name="message" id="message"></textarea>
             <input type="submit">
