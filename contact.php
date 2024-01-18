@@ -3,21 +3,15 @@ session_start();
 /** @var mysqli $db */
 require_once "includes/database.php";
 if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
     $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
 } else {
     $login = false;
-}
-
-if (isset($_SESSION['id'])) {
-    $userId = $_SESSION['id'];
-    $query = "SELECT * FROM users WHERE id = '$userId'";
-    $result = mysqli_query($db, $query);
-    $user = mysqli_fetch_assoc($result);
-}
-if (isset($_POST["message"])) {
-    $email = $_POST['email'];
-    mail("mickeyveldhuizen@gmail.com", "contact pagina Wolhoop",
-        $_POST["message"] . "From: '$email'");
 }
 
 
@@ -42,7 +36,11 @@ if (isset($_POST["message"])) {
         <a href="index.php">Home</a>
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a>
+        <?php if ($user['isAdmin']) {?>
+            <a href="orders.php">Bestellingen</a>
+        <?php }  else {?>
+            <a href="bestellen.php">Bestellen</a>
+        <?php } ?>
         <a href="contact.php" class="location">Over Wolhoop</a>
     </div>
     <div class="login">
@@ -63,13 +61,6 @@ if (isset($_POST["message"])) {
             <a href="https://www.instagram.com/dewolhoopspinning/">Instagram: @dewolhoopspinning</a>
             <a href="https://www.facebook.com/groups/3217490328265360/media" class="facebook">Facebook: De Wolhoop</a>
         </div>
-        <form method="post" action="contact.php">
-            <label for="email">Jouw e-mail:</label>
-            <input type="text" name="email" id="email" <?php if (isset($user['email'])) {?> value=<?= $user['email'] ?><?php }?>>
-            <label for="message">Bericht:</label>
-            <textarea name="message" id="message"></textarea>
-            <input type="submit">
-        </form>
 
 
 

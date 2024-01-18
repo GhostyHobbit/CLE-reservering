@@ -7,7 +7,13 @@ if (isset($_POST['submit'])) {
 }
 
 if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
     $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
 } else {
     $login = false;
 }

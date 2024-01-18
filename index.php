@@ -4,7 +4,13 @@ include_once 'includes/database.php';
 session_start();
 
 if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
     $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
 } else {
     $login = false;
 }
@@ -52,7 +58,11 @@ mysqli_close($db);
         <a href="index.php" class="location">Home</a>
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a>
+        <?php if ($user['isAdmin']) {?>
+            <a href="orders.php">Bestellingen</a>
+        <?php }  else {?>
+            <a href="bestellen.php">Bestellen</a>
+        <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
