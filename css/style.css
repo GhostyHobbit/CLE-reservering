@@ -7,23 +7,11 @@ body {
     margin: 0 auto;
     padding: 0;
     background: #FAF4F4;
+    color: #414141;
 }
 
 /* Nav Bar */
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background: #D5CAC0;
-    font-family: Annie use your Telescope, 'sans-serif';
-    height: 10vh;
-}
-nav img {
-    width: 6vw;
-    height: auto;
-    object-fit: contain;
-}
+/* nav bar css in global.css file */
 
 /* Header */
 header {
@@ -40,11 +28,11 @@ header {
 }
 
 /* Section Blogs*/
-#recent-blog,#kleuren {
+#recent-blog, #kleuren {
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
     padding: 5vh 4vw;
-    gap: 1rem;
+    /*gap: 1vw;*/
 }
 #recent-blogs h1, #index-besteller h1{
     font-family: 'Annie Use Your Telescope', sans-serif;
@@ -65,33 +53,59 @@ header {
     align-items: center;
 }
 
-.blog-images, .header-images, .kleuren-images {
+.header-images {
     width: 250px;
     height: 250px;
 }
-.article-one-bottom{
-    text-align: left;
+
+.blog-images, .kleuren-images {
+    height: 30vh;
+    width: 22vw;
+    object-fit: cover;
 }
+
+.article-one-bottom h3, .article-one-bottom p {
+    max-width: 18vw;
+}
+
+.article-one-bottom{
+    min-height: 60vh;
+    background-color: #D5CAC0;
+    padding: 2vh 1vw;
+    border-radius: 1vw;
+    border: outset #a29081;
+    box-shadow: 0.2vw 0.4vh 0.4vw #D5CAC0;
+    transition: 700ms ease-in-out;
+}
+
+.article-one-bottom:hover {
+    background-color: #cebfb5;
+        box-shadow: 0.6vw 1vh 0.4vw #ab9482;
+}
+
 .kleuren-images,.blog-images{
-    border-radius:15%;
-    border: 2px solid black;
+    border-radius: 2vw;
+    border: 0.15vw solid #414141;
 }
 .blog-button{
     text-decoration: none;
-    padding: 1vh 2.5vw;
+    padding: 0 7.5vw;
     background-color: #205D20;
     color: #D3E9D6;
-    width: 100%;
-    font-size:1.25rem;
+    /*width: 100%;*/
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 1.6rem;
     font-family: Annie use your Telescope, 'sans-serif';
-    border-radius:25px;
+    border-radius: 2vw;
+    border: 0.15vw solid #205D20;
     transition: 400ms ease-in-out;
 }
 .blog-button:hover{
     background-color: #aabdac;
     color: #414141;
     font-weight: bold;
-    box-shadow:7px 3px 4px #ab9482;
+    border: 0.15vw solid #414141;
 
 }
 .button-to-right{

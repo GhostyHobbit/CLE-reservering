@@ -52,7 +52,6 @@ mysqli_close($db);
 
 <!-- Navbar Begint hier -->
 <nav>
-    <!-- Foto doet raar moet nog aangepast worden -->
     <div class="navbar-middle"> <!-- Nav-Box Middle -->
         <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
         <a href="index.php" class="location">Home</a>
@@ -72,7 +71,6 @@ mysqli_close($db);
             <a href="login.php">Login</a>
         <?php } ?>
     </div>
-
 </nav>
 <!-- Navbar Eindigt hier-->
 
@@ -108,7 +106,8 @@ mysqli_close($db);
                 <?php foreach ($blogs as $blog) { ?>
                     <div class="article-one">
                         <div class="article-one-bottom">
-                            <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="blog-images">
+<!--                            <img src="--><?php //= $blog['picture_link'] ?><!--" class="blog-images" alt="blog-foto">-->
+                            <img src="images/1kleur.jpg" alt="placeholder" class="blog-images"> <!--placeholder image, gotta change it-->
                             <h3><?= $blog['title'] ?></h3>
                             <p><?= $blog['recap'] ?></p>
                             <div class="button-to-right">
