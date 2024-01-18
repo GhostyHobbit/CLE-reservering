@@ -49,7 +49,11 @@ mysqli_close($db);
         <a href="index.php">Home</a>
         <a href="blogOverview.php" class="location">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a>
+        <?php if ($login && $user['isAdmin']) {?>
+            <a href="orders.php">Bestellingen</a>
+        <?php }  else {?>
+            <a href="bestellen.php">Bestellen</a>
+        <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
         <?php if ($isAdmin) { ?>
         <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->

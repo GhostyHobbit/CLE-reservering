@@ -4,8 +4,15 @@ require_once 'includes/database.php';
 
 session_start();
 
+
 if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
     $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
 } else {
     $login = false;
 }
@@ -44,7 +51,11 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
         <a href="index.php">Home</a>
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php" class="location">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a>
+        <?php if ($login && $user['isAdmin']) {?>
+            <a href="orders.php">Bestellingen</a>
+        <?php }  else {?>
+            <a href="bestellen.php">Bestellen</a>
+        <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
