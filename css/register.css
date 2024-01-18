@@ -4,7 +4,8 @@ main {
 }
 main img {
     width: 20vw;
-    height: 160vh;
+    min-height: 100vh;
+    max-height: 160vh;
     object-fit: cover;
 }
 

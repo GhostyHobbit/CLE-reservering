@@ -5,6 +5,39 @@ if (!empty($_SESSION)) {
 } else {
     $login = false;
 }
+
+//errors werken nog niet
+if (isset($_POST['submit'])) {
+    $firstName = $_POST['user_first_name'];
+    $infix = $_POST['user_infix'];
+    $lastName = $_POST['user_last_name'];
+    $cityName = $_POST['city_name'];
+    $streetName = $_POST['street_name'];
+    $houseNumber = $_POST['house_number'];
+    $postalCode = $_POST['postal_code'];
+
+    //zet errors neer als ze er zijn
+    if ($firstName === '') {
+        $errors['first_name'] = "Verplicht";
+        $infixhack = 'wooool';
+    }
+    if ($lastName === '') {
+        $errors['last_name'] = "Verplicht";
+    }
+    if ($cityName === '') {
+        $errors['city_name'] = "Verplicht";
+    }
+    if ($streetName === '') {
+        $errors['street_name'] = "Verplicht";
+    }
+    if ($houseNumber === '') {
+        $errors['house_number'] = "Verplicht";
+    }
+    if ($postalCode === '') {
+        $errors['postal_code'] = "Verplicht";
+    }
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,6 +47,7 @@ if (!empty($_SESSION)) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
     <title>Bestellen - Gegevens</title>
 </head>
@@ -36,38 +70,63 @@ if (!empty($_SESSION)) {
     </div>
 </nav>
 <main>
-    <form action="bestellenOverview.php?colour_amount=" method="get">
-        <label for="user_first_name">Voornaam</label>
-        <input type="text" name="user_first_name" id="user_first_name">
+    <img src="images/wool.png" alt="landschap">
+    <!--Registratie formulier-->
+    <div class="form">
+        <form action="bestellenOverview.php?colour_amount=" method="get">
+            <h2 class="title">Bestellen: Gegevens</h2>
+            <!--   per input: label met naam, input waar als er iets leeg staat alle volle dingen worden terug gevuld, als er een error is wordt deze naast de input gezet     -->
+            <div>
+                <div class="stack">
+                    <label for="user_first_name">Voornaam</label>
+                    <input type="text" id="user_first_name" name="user_first_name" value="<?= $firstName ?? '' ?>">
+                    <p><?= $errors['first_name'] ?? '' ?></p>
+                </div>
+                <div class="stack" id="small">
+                    <label for="user_infix">Tussenvoegsel</label>
+                    <input type="text" id="user_infix" name="user_infix" value="<?= $infix ?? '' ?>">
+                    <p class="infix"><?= $infixhack ?? '' ?></p>
+                </div>
+            </div>
+            <div class="stack">
+                <label for="user_last_name">Achternaam</label>
+                <input type="text" id="user_last_name" name="user_last_name" value="<?= $lastName ?? '' ?>">
+                <p><?= $errors['last_name'] ?? '' ?></p>
+            </div>
+            <div>
+                <div class="stack">
+                    <label for="street_name">Straat</label>
+                    <input type="text" id="street_name" name="street_name" value="<?= $streetName ?? '' ?>">
+                    <p><?= $errors['street_name'] ?? '' ?></p>
+                </div>
+                <div class="stack" id="small">
+                    <label for="house_number">Huisnummer</label>
+                    <input type="text" id="house_number" name="house_number" value="<?= $houseNumber ?? '' ?>">
+                    <p><?= $errors['house_number'] ?? '' ?></p>
+                </div>
+            </div>
+            <div>
+                <div class="stack">
+                    <label for="city_name">Stad</label>
+                    <input type="text" id="city_name" name="city_name" value="<?= $cityName ?? '' ?>">
+                    <p><?= $errors['city_name'] ?? '' ?></p>
+                </div>
+                <div class="stack" id="small">
+                    <label for="postal_code">Postcode</label>
+                    <input type="text" id="postal_code" name="postal_code" value="<?= $postalCode ?? '' ?>">
+                    <p><?= $errors['postal_code'] ?? '' ?></p>
+                </div>
+            </div>
+            <button type="submit" name="submit" class="submit">Verder</button>
 
-        <label for="user_infix">Tussenvoegsel</label>
-        <input type="text" name="user_infix" id="user_infix">
-
-        <label for="user_last_name">Achternaam</label>
-        <input type="text" name="user_last_name" id="user_last_name">
-
-        <label for="city_name">Stad</label>
-        <input type="text" name="city_name" id="city_name">
-
-        <label for="street_name">Straatnaam</label>
-        <input type="text" name="street_name" id="street_name">
-
-        <label for="house_number">Huisnummer</label>
-        <input type="text" name="house_number" id="house_number">
-
-        <label for="postal_code">Postcode</label>
-        <input type="text" name="postal_code" id="postal_code">
-
-
-
-        <input type="submit" id="submit" name="submit">
-
-        <input type="hidden" name="rope_length" id="rope_length" value="<?=$_GET['rope_length'] ?>">
-        <input type="hidden" name="colour_amount" id="colour_amount" value="<?=$_GET['colour_amount'] ?>">
-        <input type="hidden" name="colours" id="colours" value="<?=$_GET['colours'] ?>">
-        <input type="hidden" name="comments" id="comments" value="<?=$_GET['comments'] ?>">
-        <input type="hidden" name="rope_amount" id="rope_amount" value="<?=$_GET['rope_amount'] ?>">
-    </form>
+            <input type="hidden" name="rope_length" id="rope_length" value="<?=$_GET['rope_length'] ?>">
+            <input type="hidden" name="colour_amount" id="colour_amount" value="<?=$_GET['colour_amount'] ?>">
+            <input type="hidden" name="colours" id="colours" value="<?=$_GET['colours'] ?>">
+            <input type="hidden" name="comments" id="comments" value="<?=$_GET['comments'] ?>">
+            <input type="hidden" name="rope_amount" id="rope_amount" value="<?=$_GET['rope_amount'] ?>">
+        </form>
+    </div>
+    <img src="images/wool.png" alt="landschap">
 </main>
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
