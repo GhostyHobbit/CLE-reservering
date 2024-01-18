@@ -1,5 +1,6 @@
 main {
     min-height: 80vh;
+    margin-left: 5vw;
 }
 
 main h1 {
@@ -28,6 +29,7 @@ form .rowFlex div .img  {
     margin: 2vh 1vw 0 1vw;
     padding: 2vh 1vw;
     background-color: #D5CAC0;
+    border-radius: 1vw;
 }
 
 form img {
@@ -35,6 +37,7 @@ form img {
     flex-direction: column;
     height: 55vh;
     max-width: 100%;
+    border-radius: 1vw;
 }
 
 form .stack {

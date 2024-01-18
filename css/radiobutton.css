@@ -1,0 +1,64 @@
+
+/* Customize the label (the container) */
+form .rowFlex div label {
+    display: block;
+    position: relative;
+    padding-left: 10.5vw;
+    margin: 2vh 0 2vh 1vw;
+    cursor: pointer;
+    font-size: 1.3rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+form .rowFlex div label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3.5vh;
+    width: 10vw;
+    background-color: #bba695;
+    border-radius: 1vw;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* On mouse-over, add a grey background color */
+form .rowFlex div label:hover input ~ .checkmark {
+    background-color: #ab9482;
+}
+
+/* When the radio button is checked, add a blue background */
+form .rowFlex div label input:checked ~ .checkmark {
+    background-color: #776356;
+    color: #faefe7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+form .rowFlex div label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+form .rowFlex div label .checkmark:after {
+    background: white;
+}
