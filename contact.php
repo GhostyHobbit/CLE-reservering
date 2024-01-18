@@ -43,6 +43,7 @@ if (isset($_POST["message"])) {
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
         <?php if ($login) { ?>
