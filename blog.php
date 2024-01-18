@@ -47,6 +47,7 @@ mysqli_close($db);
     </div>
 </nav>
 <main>
+    <a href="editBlog.php?id=<?=$id ?>">edit</a>
     <h1><?= $blog['title'] ?></h1>
     <p><?= $blog['recap'] ?></p>
     <p><?= $blog['text'] ?></p>
