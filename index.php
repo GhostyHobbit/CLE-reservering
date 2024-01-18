@@ -58,7 +58,7 @@ mysqli_close($db);
         <a href="index.php" class="location">Home</a>
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <?php if ($user['isAdmin']) {?>
+        <?php if ($login && $user['isAdmin']) {?>
             <a href="orders.php">Bestellingen</a>
         <?php }  else {?>
             <a href="bestellen.php">Bestellen</a>
