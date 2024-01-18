@@ -1,7 +1,5 @@
 <?php
 session_start();
-$_SESSION['id'] = 3;
-$sessionId = $_SESSION['id'];
 require_once 'includes/database.php';
 /** @var array $db */
 

@@ -131,7 +131,7 @@ if (isset($_GET['submit2'])) {
                     <p><?= $errors['postal_code'] ?? '' ?></p>
                 </div>
             </div>
-            <button type="submit" name="submit2" class="submit2">Verder</button>
+            <button type="submit" name="submit2" class="submit">Verder</button>
 
             <input type="hidden" name="rope_length" id="rope_length" value="<?=$_GET['rope_length'] ?>">
             <input type="hidden" name="colour_amount" id="colour_amount" value="<?=$_GET['colour_amount'] ?>">
