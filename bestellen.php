@@ -70,7 +70,7 @@ if (!empty($_SESSION)) {
                     <img src="images/1kleur.jpg" alt="één-kleur">
                 </div>
                 <label for="colour_amount1">1 Kleur
-                <input type="radio" id="colour_amount1" name="colour_amount" value="1" >
+                <input type="radio" id="colour_amount1" name="colour_amount" value="1 kleur" >
                 <span class="checkmark">Kies</span>
                 </label>
             </div>
@@ -79,7 +79,7 @@ if (!empty($_SESSION)) {
                     <img src="images/2kleur.jpg" alt="twee-kleuren">
                 </div>
                 <label for="colour_amount2">2 Kleuren
-                <input type="radio" id="colour_amount2" name="colour_amount" value="2">
+                <input type="radio" id="colour_amount2" name="colour_amount" value="2 kleuren">
                 <span class="checkmark">Kies</span>
                 </label>
             </div>
@@ -88,7 +88,7 @@ if (!empty($_SESSION)) {
                     <img src="images/3kleur.jpg" alt="drie-kleuren">
                 </div>
                 <label for="colour_amount3">3 Kleuren
-                <input type="radio" id="colour_amount3" name="colour_amount" value="3">
+                <input type="radio" id="colour_amount3" name="colour_amount" value="3 kleuren">
                 <span class="checkmark">Kies</span>
                 </label>
             </div>
@@ -96,13 +96,12 @@ if (!empty($_SESSION)) {
 
         <div class="fields">
             <div class="stack">
-                <label for="rope_length">Lengte Wol</label>
+                <label for="rope_length">Gewicht Bol</label>
                 <input list="rope_length" name="rope_length">
                     <datalist id="rope_length">
-                        <option  value="50cm"></option>
-                        <option  value="100cm"></option>
-                        <option  value="150cm"></option>
-                        <option  value="200cm"></option>
+                        <option  value="20 gram"></option>
+                        <option  value="50 gram"></option>
+                        <option  value="100 gram"></option>
                     </datalist>
             </div>
             <div class="stack">
@@ -117,10 +116,10 @@ if (!empty($_SESSION)) {
                 <label for="rope_amount">Hoeveel bolletjes?</label>
                 <input list="rope_amount" name="rope_amount">
                 <datalist id="rope_amount">
-                    <option  value="1"></option>
-                    <option  value="2"></option>
-                    <option  value="3"></option>
-                    <option  value="4"></option>
+                    <option  value="1 Bolletje"></option>
+                    <option  value="2 Bolletjes"></option>
+                    <option  value="3 Bolletjes"></option>
+                    <option  value="4 Bolletjes"></option>
                 </datalist>
             </div>
 
