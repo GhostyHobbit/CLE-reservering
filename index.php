@@ -127,8 +127,10 @@ mysqli_close($db);
             <?php if (isset($colors)) { ?>
                 <?php foreach ($colors as $color) { ?>
                     <div class="bestseller-color">
+                        <div class="color-article">
                             <img src="<?php echo $color['product_link'] ?>" class="blog-images" alt="Picture">
                             <h3><?= $color['colour'] ?></h3>
+                        </div>
                     </div>
                 <?php } ?>
             <?php } else { ?>

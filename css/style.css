@@ -62,13 +62,15 @@ header {
     height: 30vh;
     width: 22vw;
     object-fit: cover;
+    border-radius: 2vw;
+    border: 0.15vw solid #414141;
 }
 
 .article-one-bottom h3, .article-one-bottom p {
     max-width: 18vw;
 }
 
-.article-one-bottom{
+.article-one-bottom, .color-article{
     min-height: 60vh;
     background-color: #D5CAC0;
     padding: 2vh 1vw;
@@ -78,15 +80,15 @@ header {
     transition: 700ms ease-in-out;
 }
 
-.article-one-bottom:hover {
+.article-one-bottom:hover, .color-article:hover {
     background-color: #cebfb5;
         box-shadow: 0.6vw 1vh 0.4vw #ab9482;
 }
 
-.kleuren-images,.blog-images{
-    border-radius: 2vw;
-    border: 0.15vw solid #414141;
+.color-article {
+    min-height: 30vh;
 }
+
 .blog-button{
     text-decoration: none;
     padding: 0 7.5vw;
@@ -113,7 +115,7 @@ header {
 }
 .all-color-button{
     text-align: right;
-    margin:0 11vw 2vw 0;
+    margin:0 7vw 2vw 0;
 }
 /* Footer */
 
