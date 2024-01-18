@@ -4,11 +4,16 @@ require_once "includes/database.php";
 // required when working with sessions
 session_start();
 
-$login = false;
 // Is user logged in?
-$user = [
-    'email' => ''
-];
+if (empty($_SESSION)) {
+    $login = false;
+    $user = [
+        'email' => ''
+    ];
+} else {
+    header('location: index.php');
+}
+
 $errors = [];
 $userPassword = '';
 $emailError = '';
