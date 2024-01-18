@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
             <div class="bestseller">
                 <img src="<?= $color['product_link'] ?>" alt="">
                 <h2><?= $color['colour'] ?></h2>
-                <p>Omshcrijving van kleuren</p>
+                <p>Omschrijving van kleuren</p>
 
             </div>
         <?php } ?>
