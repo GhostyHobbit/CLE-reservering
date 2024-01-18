@@ -4,13 +4,23 @@ session_start();
 require_once "includes/database.php";
 
 if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
     $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
+
+    $isAdmin = $user['isAdmin'];
 } else {
     $login = false;
+    $isAdmin = false;
 }
 
 $query = "SELECT id, title, recap, text, picture_link FROM blogposts";
 $result = mysqli_query($db, $query);
+
 
 
 while($row = mysqli_fetch_assoc($result)) {
@@ -41,6 +51,9 @@ mysqli_close($db);
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Over Wolhoop</a>
+        <?php if ($isAdmin) { ?>
+        <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
+        <?php }?>
     </div>
     <div class="login">
         <?php if ($login) { ?>
