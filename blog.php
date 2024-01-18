@@ -33,7 +33,7 @@ mysqli_close($db);
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blogOverview.php">Blog</a>
+        <a href="blogOverview.php" class="location">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Over Wolhoop</a>

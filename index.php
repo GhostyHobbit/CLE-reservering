@@ -49,11 +49,11 @@ mysqli_close($db);
     <!-- Foto doet raar moet nog aangepast worden -->
     <div class="navbar-middle"> <!-- Nav-Box Middle -->
         <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
-        <a href="index.php">Home</a>
+        <a href="index.php" class="location">Home</a>
         <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php">Bestellen</a>
-        <a href="contact.php">Contact</a>
+        <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
         <?php if ($login) { ?>

@@ -53,6 +53,11 @@ nav a:hover:after {
 nav a:hover {
     font-weight: bold;
 }
+nav .location {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 nav .login {
     background-color: #bba695;
     margin-right: 2vw;
