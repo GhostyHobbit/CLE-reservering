@@ -1,9 +1,9 @@
 <?php
+session_start();
 /** @var mysqli $db */
 require_once 'includes/database.php';
 if (isset($_POST['submit'])) {
     $colourAmount = $_POST['colour_amount'];
-    print_r($colourAmount);
 }
 
 if (!empty($_SESSION)) {
