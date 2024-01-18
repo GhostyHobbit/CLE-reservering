@@ -27,6 +27,7 @@ if (!empty($_SESSION)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bestellen.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/radiobutton.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
     <title>Bestellen</title>
 </head>
@@ -66,25 +67,28 @@ if (!empty($_SESSION)) {
                 <div class="img">
                     <img src="images/1kleur.jpg" alt="één-kleur">
                 </div>
-                <label for="colour_amount1">1 Kleur</label>
+                <label for="colour_amount1">1 Kleur
                 <input type="radio" id="colour_amount1" name="colour_amount" value="1" >
-                <span class="checkmark"></span>
+                <span class="checkmark">Kies</span>
+                </label>
             </div>
             <div>
                 <div class="img">
                     <img src="images/2kleur.jpg" alt="twee-kleuren">
                 </div>
-                <label for="colour_amount2">2 Kleuren</label>
+                <label for="colour_amount2">2 Kleuren
                 <input type="radio" id="colour_amount2" name="colour_amount" value="2">
-                <span class="checkmark"></span>
+                <span class="checkmark">Kies</span>
+                </label>
             </div>
             <div>
                 <div class="img">
                     <img src="images/3kleur.jpg" alt="drie-kleuren">
                 </div>
-                <label for="colour_amount3">3 Kleuren</label>
+                <label for="colour_amount3">3 Kleuren
                 <input type="radio" id="colour_amount3" name="colour_amount" value="3">
-                <span class="checkmark"></span>
+                <span class="checkmark">Kies</span>
+                </label>
             </div>
         </div>
 
