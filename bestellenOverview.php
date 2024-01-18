@@ -16,6 +16,7 @@ if (!empty($_SESSION)) {
 } else {
     $login = false;
     $isAdmin = false;
+    $sessionId = 0;
 }
 if ($login) {
     //gets the users data from the database
@@ -45,8 +46,8 @@ if (isset($_POST['submit'])) {
 
 
 
-    $query = "INSERT INTO orders (user_first_name, user_infix, user_last_name, city_name, street_name, house_number, postal_code, rope_length, colour_amount, colours, comments, rope_amount) 
-            VALUES ('$user_first_name', '$user_infix', '$user_last_name', '$city_name', '$street_name', '$house_number', '$postal_code', '$rope_length', '$colour_amount', '$colours', '$comments', '$rope_amount')";
+    $query = "INSERT INTO orders (user_id, user_first_name, user_infix, user_last_name, city_name, street_name, house_number, postal_code, rope_length, colour_amount, colours, comments, rope_amount) 
+            VALUES ('$sessionId', '$user_first_name', '$user_infix', '$user_last_name', '$city_name', '$street_name', '$house_number', '$postal_code', '$rope_length', '$colour_amount', '$colours', '$comments', '$rope_amount')";
     mysqli_query($db, $query);
     header('location: bestellen.php');
 }
