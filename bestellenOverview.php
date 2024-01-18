@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+$_SESSION['id'] = 3;
+$sessionId = $_SESSION['id'];
 require_once 'includes/database.php';
 /** @var array $db */
 
@@ -9,7 +10,13 @@ if (!empty($_SESSION)) {
 } else {
     $login = false;
 }
-
+if ($login) {
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
+}
 if (isset($_POST['submit'])) {
 header('location: bestellen.php');
 }
@@ -72,18 +79,18 @@ if (isset($_POST['submit'])) {
 </nav>
 <main>
     <form action="bestellenOverview.php" method="post">
-        <input type="hidden" id="user_first_name" name="user_first_name" value="<?=$_GET['user_first_name']?>">
-        <input type="hidden" id="user_infix" name="user_infix" value="<?=$_GET['user_infix']?>">
-        <input type="hidden" id="user_last_name" name="user_last_name" value="<?=$_GET['user_last_name']?>">
-        <input type="hidden" id="city_name" name="city_name" value="<?=$_GET['city_name']?>">
-        <input type="hidden" id="street_name" name="street_name" value="<?=$_GET['street_name']?>">
-        <input type="hidden" id="house_number" name="house_number" value="<?=$_GET['house_number']?>">
-        <input type="hidden" id="postal_code" name="postal_code" value="<?=$_GET['postal_code']?>">
-        <input type="hidden" id="rope_length" name="rope_length" value="<?=$_GET['rope_length']?>">
-        <input type="hidden" id="colour_amount" name="colour_amount" value="<?=$_GET['colour_amount']?>">
-        <input type="hidden" id="colours" name="colours" value="<?=$_GET['colours']?>">
-        <input type="hidden" id="comments" name="comments" value="<?=$_GET['comments']?>">
-        <input type="hidden" id="rope_amount" name="rope_amount" value="<?=$_GET['rope_amount']?>">
+        <input type="hidden" id="user_first_name" name="user_first_name" value="<?php if ($login) { echo $user['first_name']; } else { echo $_GET['user_first_name'];}?>">
+        <input type="hidden" id="user_infix" name="user_infix" value="<?php if ($login) { echo $user['infix']; } else { echo $_GET['user_infix'];}?>">
+        <input type="hidden" id="user_last_name" name="user_last_name" value="<?php if ($login) { echo $user['last_name']; } else { echo $_GET['user_last_name'];}?>">
+        <input type="hidden" id="city_name" name="city_name" value="<?php if ($login) { echo $user['city_name']; } else { echo $_GET['city_name'];}?>">
+        <input type="hidden" id="street_name" name="street_name" value="<?php if ($login) { echo $user['street_name']; } else { echo $_GET['street_name'];}?>">
+        <input type="hidden" id="house_number" name="house_number" value="<?php if ($login) { echo $user['house_number']; } else { echo $_GET['house_number'];}?>">
+        <input type="hidden" id="postal_code" name="postal_code" value="<?php if ($login) { echo $user['postal_code']; } else { echo $_GET['postal_code'];}?>">
+        <input type="hidden" id="rope_length" name="rope_length" value="<?php echo $_GET['rope_length'];?>">
+        <input type="hidden" id="colour_amount" name="colour_amount" value="<?php echo $_GET['colour_amount'];?>">
+        <input type="hidden" id="colours" name="colours" value="<?php echo $_GET['colours'];?>">
+        <input type="hidden" id="comments" name="comments" value="<?php echo $_GET['comments'];?>">
+        <input type="hidden" id="rope_amount" name="rope_amount" value="<?php $_GET['rope_amount'];?>">
         <input type="submit" name="submit" id="submit">
     </form>
 </main>
