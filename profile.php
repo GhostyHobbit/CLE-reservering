@@ -4,7 +4,7 @@ session_start();
 //establishes connection to the database
 /** @var mysqli $db */
 require_once 'includes/database.php';
-
+$_SESSION['id'] = 3;
 $sessionId = $_SESSION['id'];
 
 //gets the users data from the database

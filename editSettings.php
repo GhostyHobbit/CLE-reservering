@@ -9,9 +9,15 @@ if(empty($_SESSION)) {
     header('Location: login.php');
     exit();
 }
-
+$_SESSION['id'] = 3;
 $sessionId = $_SESSION['id'];
-
+if(!isset($_POST['submit'])) {
+//gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
+}
 if(isset($_POST['submit'])) {
 
     $firstName = mysqli_escape_string($db,$_POST['firstName']);
@@ -50,7 +56,7 @@ if(isset($_POST['submit'])) {
                         infix = '$infix', 
                         last_name = '$lastName', 
                         email = '$email', 
-                        street_name = $streetName, 
+                        street_name = '$streetName', 
                         house_number = '$houseNumber',
                         postal_code = '$postalCode', 
                         city_name = '$cityName' 
@@ -94,63 +100,62 @@ mysqli_close($db);
 
 </header>
 <main>
-    <?= $sessionId ?>
     <form method="post">
         <div>
             <label for="firstName">Voornaam</label>
-            <input type="text" name="firstName" id="firstName">
+            <input type="text" name="firstName" id="firstName" <?php if (isset($user)) { ?> value="<?= $user['first_name'] ?>" <?php } ?>>
             <?php if(isset($errors['first_name'])) {
                 echo $errors['first_name'];
             } ?>
         </div>
         <div>
             <label for="infix">Tussenvoegsel</label>
-            <input type="text" name="infix" id="infix">
+            <input type="text" name="infix" id="infix" <?php if (isset($user)) { ?> value="<?= $user['infix'] ?>" <?php } ?>>
         </div>
         <div>
             <label for="lastName">Achternaam</label>
-            <input type="text" name="lastName" id="lastName">
+            <input type="text" name="lastName" id="lastName" <?php if (isset($user)) { ?> value="<?= $user['last_name'] ?>" <?php } ?>>
             <?php if(isset($errors['last_name'])) {
                 echo $errors['last_name'];
             } ?>
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" <?php if (isset($user)) { ?> value="<?= $user['email'] ?>" <?php } ?>>
             <?php if(isset($errors['email'])) {
                 echo $errors['email'];
             } ?>
         </div>
         <div>
             <label for="streetName">Straatnaam</label>
-            <input type="text" name="streetName" id="streetName">
+            <input type="text" name="streetName" id="streetName" <?php if (isset($user)) { ?> value="<?= $user['street_name'] ?>" <?php } ?>>
             <?php if(isset($errors['street_name'])) {
                 echo $errors['street_name'];
             } ?>
         </div>
         <div>
             <label for="houseNumber">Huisnummer</label>
-            <input type="text" name="houseNumber" id="houseNumber">
+            <input type="text" name="houseNumber" id="houseNumber" <?php if (isset($user)) { ?> value="<?= $user['house_number'] ?>" <?php } ?>>
             <?php if(isset($errors['house_number'])) {
                 echo $errors['house_number'];
             } ?>
         </div>
         <div>
-            <label for="postcode">Postcode</label>
-            <input type="text" name="postcode" id="postcode">
+            <label for="postalCode">Postcode</label>
+            <input type="text" name="postalCode" id="postalCode" <?php if (isset($user)) { ?> value="<?= $user['postal_code'] ?>" <?php } ?>>
             <?php if(isset($errors['postal_code'])) {
                 echo $errors['postal_code'];
             } ?>
         </div>
         <div>
-            <label for="city">Plaats</label>
-            <input type="text" name="city" id="city">
+            <label for="cityName">Plaats</label>
+            <input type="text" name="cityName" id="cityName" <?php if (isset($user)) { ?> value="<?= $user['city_name'] ?>" <?php } ?>>
             <?php if(isset($errors['city_name'])) {
                 echo $errors['city_name'];
             } ?>
         </div>
         <div>
-            <button type="submit" class="button">Plaats Veranderingen</button>
+            <button type="submit" name="submit" id="submit" class="button">Plaats Veranderingen</button>
         </div>
     </form>
 </main>
