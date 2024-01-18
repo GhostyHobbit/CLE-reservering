@@ -48,6 +48,7 @@ $user = mysqli_fetch_assoc($result);
     <h3><?= $user['street_name']?> <?= $user['house_number']?></h3>
     <h3><?= $user['postal_code']?></h3>
     <h3><?= $user['city_name']?></h3>
+    <a href="orderHistory.php">Mijn bestellingen</a>
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
