@@ -17,6 +17,8 @@ if (!empty($_SESSION)) {
 } else {
     $login = false;
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">

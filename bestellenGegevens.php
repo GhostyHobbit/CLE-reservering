@@ -6,15 +6,23 @@ if (!empty($_SESSION)) {
     $login = false;
 }
 
+
+
 //errors werken nog niet
-if (isset($_POST['submit'])) {
-    $firstName = $_POST['user_first_name'];
-    $infix = $_POST['user_infix'];
-    $lastName = $_POST['user_last_name'];
-    $cityName = $_POST['city_name'];
-    $streetName = $_POST['street_name'];
-    $houseNumber = $_POST['house_number'];
-    $postalCode = $_POST['postal_code'];
+if (isset($_GET['submit2'])) {
+    $firstName = $_GET['user_first_name'];
+    $infix = $_GET['user_infix'];
+    $lastName = $_GET['user_last_name'];
+    $cityName = $_GET['city_name'];
+    $streetName = $_GET['street_name'];
+    $houseNumber = $_GET['house_number'];
+    $postalCode = $_GET['postal_code'];
+
+    $colourAmount = $_GET['colour_amount'];
+    $ropeLength = $_GET['rope_length'];
+    $colours = $_GET['colours'];
+    $comments = $_GET['comments'];
+    $ropeAmount = $_GET['rope_amount'];
 
     //zet errors neer als ze er zijn
     if ($firstName === '') {
@@ -35,6 +43,12 @@ if (isset($_POST['submit'])) {
     }
     if ($postalCode === '') {
         $errors['postal_code'] = "Verplicht";
+    }
+
+    $link = "user_first_name=$firstName&colour_amount=$colourAmount&rope_length=$ropeLength&user_infix=$infix&user_last_name=$lastName&city_name=$cityName&street_name=$streetName&house_number=$houseNumber&postal_code=$postalCode&rope_length=$ropeLength&colours=$colours&comments=$comments&rope_amount=$ropeAmount";
+
+    if (empty($errors)) {
+        header('location: bestellenOverview.php?'.$link);
     }
 }
 
@@ -73,7 +87,7 @@ if (isset($_POST['submit'])) {
     <img src="images/wool.png" alt="landschap">
     <!--Registratie formulier-->
     <div class="form">
-        <form action="bestellenOverview.php?colour_amount=" method="get">
+        <form action="bestellenGegevens.php" method="get">
             <h2 class="title">Bestellen: Gegevens</h2>
             <!--   per input: label met naam, input waar als er iets leeg staat alle volle dingen worden terug gevuld, als er een error is wordt deze naast de input gezet     -->
             <div>
@@ -117,7 +131,7 @@ if (isset($_POST['submit'])) {
                     <p><?= $errors['postal_code'] ?? '' ?></p>
                 </div>
             </div>
-            <button type="submit" name="submit" class="submit">Verder</button>
+            <button type="submit" name="submit2" class="submit">Verder</button>
 
             <input type="hidden" name="rope_length" id="rope_length" value="<?=$_GET['rope_length'] ?>">
             <input type="hidden" name="colour_amount" id="colour_amount" value="<?=$_GET['colour_amount'] ?>">
