@@ -87,9 +87,15 @@ if (isset($_POST['submit'])) {
 </nav>
 <main>
     <h1>Bestelling: Overzicht</h1>
+    <?php if (!$login) {?>
     <p><?= $_GET['user_first_name'] ?>  <?= $_GET['user_infix'] ?> <?= $_GET['user_last_name'] ?></p>
     <p><?= $_GET['street_name'] ?> <?= $_GET['house_number'] ?></p>
     <p><?= $_GET['city_name'] ?> <?= $_GET['postal_code'] ?></p>
+    <?php } else {?>
+        <p><?= $user['first_name'] ?>  <?= $user['infix'] ?> <?= $user['last_name'] ?></p>
+        <p><?= $user['street_name'] ?> <?= $user['house_number'] ?></p>
+        <p><?= $user['city_name'] ?> <?= $user['postal_code'] ?></p>
+    <?php }?>
     <p><?= $_GET['colour_amount'] ?> <?= $_GET['colours'] ?> <?= $_GET['rope_amount'] ?> <?= $_GET['rope_length'] ?></p>
 
 
