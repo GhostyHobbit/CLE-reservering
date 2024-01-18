@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div>
                 <div class="stack">
-                    <label for="street_name">Straat</label>
+                    <label for="street_name">Adres</label>
                     <input type="text" id="street_name" name="street_name" value="<?= $streetName ?? '' ?>">
                     <p><?= $errors['street_name'] ?? '' ?></p>
                 </div>
@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div>
                 <div class="stack">
-                    <label for="city_name">Stad</label>
+                    <label for="city_name">Plaats</label>
                     <input type="text" id="city_name" name="city_name" value="<?= $cityName ?? '' ?>">
                     <p><?= $errors['city_name'] ?? '' ?></p>
                 </div>

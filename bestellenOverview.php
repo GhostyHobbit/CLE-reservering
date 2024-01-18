@@ -1,12 +1,11 @@
 <?php
 session_start();
-$_SESSION['id'] = 3;
-$sessionId = $_SESSION['id'];
 require_once 'includes/database.php';
 /** @var array $db */
 
 if (!empty($_SESSION)) {
     $login = true;
+    $sessionId = $_SESSION['id'];
 } else {
     $login = false;
 }
@@ -55,6 +54,7 @@ if (isset($_POST['submit'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/bestellenOverzicht.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
     <title>Bestelling Overzicht</title>
 </head>
@@ -78,6 +78,13 @@ if (isset($_POST['submit'])) {
 
 </nav>
 <main>
+    <h1>Bestelling: Overzicht</h1>
+    <p><?= $_GET['user_first_name'] ?>  <?= $_GET['user_infix'] ?> <?= $_GET['user_last_name'] ?></p>
+    <p><?= $_GET['street_name'] ?> <?= $_GET['house_number'] ?></p>
+    <p><?= $_GET['city_name'] ?> <?= $_GET['postal_code'] ?></p>
+    <p><?= $_GET['colour_amount'] ?> <?= $_GET['colours'] ?> <?= $_GET['rope_amount'] ?> <?= $_GET['rope_length'] ?></p>
+
+
     <form action="bestellenOverview.php" method="post">
         <input type="hidden" id="user_first_name" name="user_first_name" value="<?php if ($login) { echo $user['first_name']; } else { echo $_GET['user_first_name'];}?>">
         <input type="hidden" id="user_infix" name="user_infix" value="<?php if ($login) { echo $user['infix']; } else { echo $_GET['user_infix'];}?>">
@@ -91,7 +98,7 @@ if (isset($_POST['submit'])) {
         <input type="hidden" id="colours" name="colours" value="<?php echo $_GET['colours'];?>">
         <input type="hidden" id="comments" name="comments" value="<?php echo $_GET['comments'];?>">
         <input type="hidden" id="rope_amount" name="rope_amount" value="<?php $_GET['rope_amount'];?>">
-        <input type="submit" name="submit" id="submit">
+        <button type="submit" name="submit" id="submit" class="submit">Bevestigen</button>
     </form>
 </main>
     <footer>
