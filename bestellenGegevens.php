@@ -20,7 +20,9 @@ if (isset($_GET['submit2'])) {
 
     $colourAmount = $_GET['colour_amount'];
     $ropeLength = $_GET['rope_length'];
-    $colours = $_GET['colours'];
+    $colours1 = $_GET['colours1'];
+    $colours2 = $_GET['colours2'];
+    $colours3 = $_GET['colours3'];
     $comments = $_GET['comments'];
     $ropeAmount = $_GET['rope_amount'];
 
@@ -45,7 +47,7 @@ if (isset($_GET['submit2'])) {
         $errors['postal_code'] = "Verplicht";
     }
 
-    $link = "user_first_name=$firstName&colour_amount=$colourAmount&rope_length=$ropeLength&user_infix=$infix&user_last_name=$lastName&city_name=$cityName&street_name=$streetName&house_number=$houseNumber&postal_code=$postalCode&rope_length=$ropeLength&colours=$colours&comments=$comments&rope_amount=$ropeAmount";
+    $link = "user_first_name=$firstName&colour_amount=$colourAmount&rope_length=$ropeLength&user_infix=$infix&user_last_name=$lastName&city_name=$cityName&street_name=$streetName&house_number=$houseNumber&postal_code=$postalCode&rope_length=$ropeLength&colours1=$colours1&colours2=$colours2&colours3=$colours3&comments=$comments&rope_amount=$ropeAmount";
 
     if (empty($errors)) {
         header('location: bestellenOverview.php?'.$link);
@@ -135,7 +137,9 @@ if (isset($_GET['submit2'])) {
 
             <input type="hidden" name="rope_length" id="rope_length" value="<?=$_GET['rope_length'] ?>">
             <input type="hidden" name="colour_amount" id="colour_amount" value="<?=$_GET['colour_amount'] ?>">
-            <input type="hidden" name="colours" id="colours" value="<?=$_GET['colours'] ?>">
+            <input type="hidden" name="colours1" id="colours1" value="<?=$_GET['colours1'] ?>">
+            <input type="hidden" name="colours2" id="colours2" value="<?=$_GET['colours2'] ?>">
+            <input type="hidden" name="colours3" id="colours3" value="<?=$_GET['colours3'] ?>">
             <input type="hidden" name="comments" id="comments" value="<?=$_GET['comments'] ?>">
             <input type="hidden" name="rope_amount" id="rope_amount" value="<?=$_GET['rope_amount'] ?>">
         </form>

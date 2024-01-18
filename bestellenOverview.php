@@ -39,15 +39,18 @@ if (isset($_POST['submit'])) {
     $postal_code = $_POST['postal_code'];
     $rope_length = $_POST['rope_length'];
     $colour_amount = $_POST['colour_amount'];
-    $colours = $_POST['colours'];
+    $colour1 = $_POST['colour1'];
+    $colour2 = $_POST['colour2'];
+    $colour3 = $_POST['colour3'];
     $comments = $_POST['comments'];
     $rope_amount = $_POST['rope_amount'];
+    $colours =  $_GET['colours1'] + $_GET['colours2'] + $_GET['colours3'];
 
 
 
 
-    $query = "INSERT INTO orders (user_id, user_first_name, user_infix, user_last_name, city_name, street_name, house_number, postal_code, rope_length, colour_amount, colours, comments, rope_amount) 
-            VALUES ('$sessionId', '$user_first_name', '$user_infix', '$user_last_name', '$city_name', '$street_name', '$house_number', '$postal_code', '$rope_length', '$colour_amount', '$colours', '$comments', '$rope_amount')";
+    $query = "INSERT INTO orders (user_id, user_first_name, user_infix, user_last_name, city_name, street_name, house_number, postal_code, rope_length, colour_amount, colour1, colour2, colour3, comments, rope_amount) 
+            VALUES ('$sessionId', '$user_first_name', '$user_infix', '$user_last_name', '$city_name', '$street_name', '$house_number', '$postal_code', '$rope_length', '$colour_amount', '$colour1', '$colour2', '$colour3', '$comments', '$rope_amount')";
     mysqli_query($db, $query);
     header('location: bestellen.php');
 }
@@ -97,7 +100,7 @@ if (isset($_POST['submit'])) {
         <p><?= $user['street_name'] ?> <?= $user['house_number'] ?></p>
         <p><?= $user['city_name'] ?> <?= $user['postal_code'] ?></p>
     <?php }?>
-    <p><?= $_GET['colour_amount'] ?> <?= $_GET['colours'] ?> <?= $_GET['rope_amount'] ?> <?= $_GET['rope_length'] ?></p>
+    <p><?= $_GET['colour_amount'] ?>    <?= $colours =  $_GET['colours1'] ?> <?= $_GET['colours2'] ?> <?= $_GET['colours3']?> <?= $_GET['rope_amount'] ?> <?= $_GET['rope_length'] ?></p>
 
 
     <form action="bestellenOverview.php" method="post">
@@ -110,7 +113,9 @@ if (isset($_POST['submit'])) {
         <input type="hidden" id="postal_code" name="postal_code" value="<?php if ($login) { echo $user['postal_code']; } else { echo $_GET['postal_code'];}?>">
         <input type="hidden" id="rope_length" name="rope_length" value="<?php echo $_GET['rope_length'];?>">
         <input type="hidden" id="colour_amount" name="colour_amount" value="<?php echo $_GET['colour_amount'];?>">
-        <input type="hidden" id="colours" name="colours" value="<?php echo $_GET['colours'];?>">
+        <input type="hidden" id="colours1" name="colours1" value="<?php echo $_GET['colours1'];?>">
+        <input type="hidden" id="colours2" name="colours2" value="<?php echo $_GET['colours2'];?>">
+        <input type="hidden" id="colours3" name="colours3" value="<?php echo $_GET['colours3'];?>">
         <input type="hidden" id="comments" name="comments" value="<?php echo $_GET['comments'];?>">
         <input type="hidden" id="rope_amount" name="rope_amount" value="<?php $_GET['rope_amount'];?>">
         <button type="submit" name="submit" id="submit" class="submit">Bevestigen</button>
