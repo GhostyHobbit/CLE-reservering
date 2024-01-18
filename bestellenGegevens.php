@@ -139,6 +139,7 @@ if (isset($_GET['submit2'])) {
             <input type="hidden" name="comments" id="comments" value="<?=$_GET['comments'] ?>">
             <input type="hidden" name="rope_amount" id="rope_amount" value="<?=$_GET['rope_amount'] ?>">
         </form>
+        <a href="bestellen.php">Terug Naar Bestellen</a>
     </div>
     <img src="images/wool.png" alt="landschap">
 </main>

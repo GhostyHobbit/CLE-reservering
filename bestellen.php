@@ -105,8 +105,31 @@ if (!empty($_SESSION)) {
                     </datalist>
             </div>
             <div class="stack">
-                <label for="colours">Kleuren</label>
-                <textarea id="colours" name="colours"></textarea>
+                <label for="colours">Kleur 1</label>
+                <input list="colours" name="colours" placeholder="Bij 1, 2 of 3 kleuren">
+                <datalist id="colours">
+                    <option  value="Rood"></option>
+                    <option  value="Blauw"></option>
+                    <option  value="Hazelnoot Bruin"></option>
+                </datalist>
+            </div>
+            <div class="stack">
+                <label for="colours">Kleur 2 </label>
+                <input list="colours" name="colours" placeholder="Alleen bij 2 of 3 kleuren">
+                <datalist id="colours">
+                    <option  value="Rood"></option>
+                    <option  value="Blauw"></option>
+                    <option  value="Hazelnoot Bruin"></option>
+                </datalist>
+            </div>
+            <div class="stack">
+                <label for="colours">Kleur 3</label>
+                <input list="colours" name="colours" placeholder="Alleen bij 3 kleuren">
+                <datalist id="colours">
+                    <option  value="Rood"></option>
+                    <option  value="Blauw"></option>
+                    <option  value="Hazelnoot Bruin"></option>
+                </datalist>
             </div>
             <div class="stack">
                 <label for="comments">Opmerkingen</label>
