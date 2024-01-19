@@ -90,10 +90,7 @@ mysqli_close($db);
         </p>
     </div>
     <div class="header-right">
-        <h1>Foto's</h1>
-        <img src="images/Logo-reserveringsysteem.png" alt class="header-images">
-        <img src="images/Logo-reserveringsysteem.png" class="header-images">
-        <img src="images/Logo-reserveringsysteem.png" class="header-images">
+        <img src="images/homepage.png" alt class="header-images">
     </div>
 </header>
 <!-- Header Eindigt hier-->

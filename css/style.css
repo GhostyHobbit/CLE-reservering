@@ -16,15 +16,21 @@ body {
 /* Header */
 header {
     display: grid;
-    grid-template-columns:1fr 1fr;
-    gap:10vw;
+    grid-template-columns:1.5fr 1fr;
     padding: 0 4vw;
+    background-image: url("images/wool.png");
+    max-height: 85vh;
 }
-.header-left{
+.header-left {
     display:flex;
     flex-direction: column;
     justify-content: center;
     padding:0 4vw;
+}
+
+.header-images {
+    max-height: 80vh;
+    width: 100%;
 }
 
 /* Section Blogs*/
@@ -52,12 +58,6 @@ header {
     justify-content: center;
     align-items: center;
 }
-
-.header-images {
-    width: 250px;
-    height: 250px;
-}
-
 .blog-images, .kleuren-images {
     height: 30vh;
     width: 22vw;
