@@ -41,6 +41,7 @@ if (!empty($_SESSION)) {
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
         <a href="blogOverview.php">Blog</a>
+        <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="bestellen.php" class="location">Bestellen</a>
         <a href="contact.php">Over Wolhoop</a>

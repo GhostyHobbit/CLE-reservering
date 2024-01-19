@@ -2,6 +2,7 @@
 session_start();
 /** @var mysqli $db */
 require_once "includes/database.php";
+
 if (!empty($_SESSION)) {
     $sessionId = $_SESSION['id'];
     $login = true;
@@ -10,19 +11,20 @@ if (!empty($_SESSION)) {
     $result = mysqli_query($db, $query);
 //puts the data in an array
     $user = mysqli_fetch_assoc($result);
+
+    $isAdmin = $user['isAdmin'];
 } else {
     $login = false;
+    $isAdmin = false;
 }
-if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $text = $_POST['text'];
-    $recap = $_POST['recap'];
-    $image = $_POST['image'];
 
-    $query = "INSERT INTO blogposts (title, text, recap, picture_link) VALUES ('$title', '$text', '$recap', '$image')";
-    mysqli_query($db, $query);
-    header('Location: blogOverview.php');
-}
+$id = $_GET['id'];
+$query = "SELECT * FROM customerBlogPosts WHERE id = '$id'";
+$result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
+//info bruikbaar maken
+$blog = mysqli_fetch_assoc($result);
+//database sluiten
+mysqli_close($db);
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,7 +35,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
-    <title>Create Blog</title>
+    <title>Blog</title>
 </head>
 <body>
 <nav>
@@ -43,11 +45,7 @@ if (isset($_POST['submit'])) {
         <a href="blogOverview.php" class="location">Blog</a>
         <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <?php if ($user['isAdmin']) {?>
-            <a href="orders.php">Bestellingen</a>
-        <?php }  else {?>
-            <a href="bestellen.php">Bestellen</a>
-        <?php } ?>
+        <a href="bestellen.php">Bestellen</a>
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
@@ -58,22 +56,21 @@ if (isset($_POST['submit'])) {
         <?php } ?>
     </div>
 </nav>
-<a href="blogOverview.php">Annuleren</a>
-<form action="" method="post">
-    <label for="title">Titel:</label>
-    <input type="text" id="title" name="title">
-
-    <label for="recap">Samenvatting:</label>
-    <input type="text" id="recap" name="recap">
-
-    <label for="text">Tekst:</label>
-    <textarea id="text" name="text" placeholder="Schrijf hier je tekst..."></textarea>
-
-    <label for="image">Link naar foto:</label>
-    <input type="text" id="image" name="image">
-
-    <input type="submit" id="submit" name="submit">
-</form>
+<main>
+    <?php if (isset($user['id'])) {?>
+        <?php if ($user['id'] == $blog['user_id']) {?>
+            <a href="editCustomerBlog.php?id=<?=$id ?>">edit</a>
+            <a href="customerBlogDelete.php?id=<?=$id ?>">delete</a>
+        <?php } ?>
+    <?php } ?>
+    <?php if (isset($user['isAdmin']) && $user['isAdmin']) {?>
+        <a href="editCustomerBlog.php?id=<?=$id ?>">edit</a>
+        <a href="customerBlogDelete.php?id=<?=$id ?>">delete</a>
+    <?php }?>
+    <h1><?= $blog['title'] ?></h1>
+    <p><?= $blog['recap'] ?></p>
+    <p><?= $blog['text'] ?></p>
+</main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
     <div>

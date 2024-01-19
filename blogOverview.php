@@ -48,6 +48,7 @@ mysqli_close($db);
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
         <a href="blogOverview.php" class="location">Blog</a>
+        <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <?php if ($login && $user['isAdmin']) {?>
             <a href="orders.php">Bestellingen</a>
@@ -55,9 +56,6 @@ mysqli_close($db);
             <a href="bestellen.php">Bestellen</a>
         <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
-        <?php if ($isAdmin) { ?>
-        <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
-        <?php }?>
     </div>
     <div class="login">
         <?php if ($login) { ?>
@@ -69,6 +67,9 @@ mysqli_close($db);
 </nav>
 
 <main>
+    <?php if ($isAdmin) { ?>
+        <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
+    <?php }?>
     <section id="all-blogs">
         <?php foreach ($blogs as $blog) {?>
             <article class="blog-1">

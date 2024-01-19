@@ -18,10 +18,11 @@ if (isset($_POST['submit'])) {
     $text = $_POST['text'];
     $recap = $_POST['recap'];
     $image = $_POST['image'];
+    $userId = $user['id'];
 
-    $query = "INSERT INTO blogposts (title, text, recap, picture_link) VALUES ('$title', '$text', '$recap', '$image')";
+    $query = "INSERT INTO customerBlogPosts (user_id, title, text, recap, picture_link) VALUES ('$userId', '$title', '$text', '$recap', '$image')";
     mysqli_query($db, $query);
-    header('Location: blogOverview.php');
+    header('Location: customerBlogOverview.php');
 }
 ?>
 <!doctype html>
@@ -33,7 +34,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
-    <title>Create Blog</title>
+    <title>Klant Create Blog</title>
 </head>
 <body>
 <nav>
@@ -58,7 +59,7 @@ if (isset($_POST['submit'])) {
         <?php } ?>
     </div>
 </nav>
-<a href="blogOverview.php">Annuleren</a>
+<a href="customerBlogOverview.php">Annuleren</a>
 <form action="" method="post">
     <label for="title">Titel:</label>
     <input type="text" id="title" name="title">
