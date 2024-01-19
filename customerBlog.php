@@ -60,8 +60,13 @@ mysqli_close($db);
     <?php if (isset($user['id'])) {?>
         <?php if ($user['id'] == $blog['user_id']) {?>
             <a href="editCustomerBlog.php?id=<?=$id ?>">edit</a>
+            <a href="customerBlogDelete.php?id=<?=$id ?>">delete</a>
         <?php } ?>
     <?php } ?>
+    <?php if (isset($user['isAdmin']) && $user['isAdmin']) {?>
+        <a href="editCustomerBlog.php?id=<?=$id ?>">edit</a>
+        <a href="customerBlogDelete.php?id=<?=$id ?>">delete</a>
+    <?php }?>
     <h1><?= $blog['title'] ?></h1>
     <p><?= $blog['recap'] ?></p>
     <p><?= $blog['text'] ?></p>

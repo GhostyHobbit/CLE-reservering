@@ -4,9 +4,19 @@ session_start();
 require_once "includes/database.php";
 
 if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
     $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
+
+    $isAdmin = $user['isAdmin'];
 } else {
     $login = false;
+    $isAdmin = false;
+    $sessionId = 0;
 }
 
 $id = $_GET['id'];
@@ -48,7 +58,10 @@ mysqli_close($db);
     </div>
 </nav>
 <main>
-    <a href="editBlog.php?id=<?=$id ?>">edit</a>
+    <?php if (isset($user['isAdmin']) && $user['isAdmin']) {?>
+        <a href="editBlog.php?id=<?=$id ?>">edit</a>
+        <a href="deleteBlog.php?id=<?=$id ?>">delete</a>
+    <?php }?>
     <h1><?= $blog['title'] ?></h1>
     <p><?= $blog['recap'] ?></p>
     <p><?= $blog['text'] ?></p>
