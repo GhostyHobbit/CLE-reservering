@@ -35,6 +35,7 @@ if (!empty($_SESSION)) {
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
         <a href="blogOverview.php">Blog</a>
+        <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <?php if ($login && $user['isAdmin']) {?>
             <a href="orders.php">Bestellingen</a>

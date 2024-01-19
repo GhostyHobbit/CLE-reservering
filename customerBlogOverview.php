@@ -1,9 +1,7 @@
 <?php
-require_once 'includes/database.php';
-/** @var mysqli $db */
-
 session_start();
-
+/** @var mysqli $db */
+require_once "includes/database.php";
 
 if (!empty($_SESSION)) {
     $sessionId = $_SESSION['id'];
@@ -13,21 +11,22 @@ if (!empty($_SESSION)) {
     $result = mysqli_query($db, $query);
 //puts the data in an array
     $user = mysqli_fetch_assoc($result);
+
+    $isAdmin = $user['isAdmin'];
 } else {
     $login = false;
+    $isAdmin = false;
 }
 
-// verkocht eigenschap nog toevoegen bij database en later aanpassen
-// Hoeveel is er verkocht en wat is er verkocht
-// Op wat moet ik sorteren?
-$bestSellerQuery = "SELECT id, colour, wool_length, product_link FROM products ORDER BY id LIMIT 3";
-$bestSellResult = mysqli_query($db, $bestSellerQuery);
+$query = "SELECT id, title, recap, text, picture_link FROM customerBlogPosts";
+$result = mysqli_query($db, $query);
 
-while ($row = mysqli_fetch_assoc($bestSellResult)) {
-    $bestSeller[] = $row;
+
+
+while($row = mysqli_fetch_assoc($result)) {
+    $blogs[] = $row;
 }
-
-
+mysqli_close($db);
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,11 +35,10 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/kleuren.css">
+    <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="css/global.css">
-    <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap"
-          rel="stylesheet">
-    <title>Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <title>Klant Blog</title>
 </head>
 <body>
 
@@ -49,9 +47,9 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blogOverview.php">Blog</a>
+        <a href="blogOverview.php" class="location">Blog</a>
         <a href="customerBlogOverview.php">Klant Blog</a>
-        <a href="kleuren.php" class="location">Kleuren</a>
+        <a href="kleuren.php">Kleuren</a>
         <?php if ($login && $user['isAdmin']) {?>
             <a href="orders.php">Bestellingen</a>
         <?php }  else {?>
@@ -67,38 +65,27 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
         <?php } ?>
     </div>
 </nav>
+
 <main>
-    <section id="kleuren-bestseller">
-            <h1>Best Verkocht</h1>
-            <div id="bestseller">
-        <?php foreach ($bestSeller as $color) { ?>
-            <div class="bestseller">
-                <img src="<?= $color['product_link'] ?>" alt="">
-                <h2><?= $color['colour'] ?></h2>
-                <p>Omschrijving van kleuren</p>
-
-            </div>
+    <?php if ($login) { ?>
+        <a href="customerBlogCreate.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
+    <?php }?>
+    <section id="all-blogs">
+        <?php if (isset($blogs)) {?>
+            <?php foreach ($blogs as $blog) {?>
+                <article class="blog-1">
+                    <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="">
+                    <div>
+                        <h1><?= $blog['title']?></h1>
+                        <p><?= $blog['recap']?></p>
+                        <a href="customerBlog.php?id=<?= $blog['id'] ?>">Open</a>
+                    </div>
+                </article>
+            <?php } ?>
+        <?php } else {?>
+            <p>Er zijn nog geen blogs.</p>
         <?php } ?>
-        </div>
     </section>
-    <section id="season-colors">
-        <h1>Seizoen Combinaties</h1>
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-    </section>
-
-    <!-- For loop?   -->
-    <section id="all-colors">
-        <h1>Alle Kleuren</h1>
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-    </section>
-
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">

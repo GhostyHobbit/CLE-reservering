@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $recap = $_POST['recap'];
     $image = $_POST['image'];
 
-    $query = "INSERT INTO blogposts (title, text, recap, picture_link) VALUES ('$title', '$text', '$recap', '$image')";
+    $query = "INSERT INTO customerBlogPosts (title, text, recap, picture_link) VALUES ('$title', '$text', '$recap', '$image')";
     mysqli_query($db, $query);
     header('Location: blogOverview.php');
 }
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
-    <title>Create Blog</title>
+    <title>Klant Create Blog</title>
 </head>
 <body>
 <nav>

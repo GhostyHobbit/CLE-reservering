@@ -56,6 +56,7 @@ mysqli_close($db);
         <img src="images/Logo-reserveringsysteem.png" alt="Logo" class="navbar-logo">
         <a href="index.php" class="location">Home</a>
         <a href="blogOverview.php">Blog</a>
+        <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <?php if ($login && $user['isAdmin']) {?>
             <a href="orders.php">Bestellingen</a>
