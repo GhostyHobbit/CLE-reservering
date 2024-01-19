@@ -43,7 +43,6 @@ header h1 {
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
     padding: 5vh 4vw;
-    /*gap: 1vw;*/
 }
 #recent-blogs h1, #index-besteller h1{
     font-family: 'Annie Use Your Telescope', sans-serif;

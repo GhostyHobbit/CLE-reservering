@@ -8,6 +8,9 @@ body {
     background: #FAF4F4;
 }
 
+main {
+    min-height: 80vh;
+}
 
 /* Nav Bar */
 nav {
