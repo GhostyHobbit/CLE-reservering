@@ -1,24 +1,36 @@
 
-#bestseller{
-    display:flex;
-    justify-content: space-evenly;
-
+#bestseller {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 }
-.bestseller{
+
+.bestseller {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-h1{
-        font-family: 'Annie Use Your Telescope', sans-serif;
+
+h1 {
+    font-family: 'Annie Use Your Telescope', sans-serif;
     color: #414141;
-    font-size:2.5rem;
+    font-size: 2.5rem;
     letter-spacing: 3px;
     font-weight: bold;
     text-align: center;
     text-transform: capitalize;
 }
-#bestseller img{
-    width:250px;
-    height:250px;
+
+#bestseller img {
+    width: 250px;
+    height: 250px;
+}
+
+#all-colors,#bestseller,#season-colors{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    justify-items:center;
+    gap:5rem;
+    padding-bottom: 6vh;
 }

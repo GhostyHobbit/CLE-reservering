@@ -52,9 +52,9 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
         <a href="blogOverview.php">Blog</a>
         <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php" class="location">Kleuren</a>
-        <?php if ($login && $user['isAdmin']) {?>
+        <?php if ($login && $user['isAdmin']) { ?>
             <a href="orders.php">Bestellingen</a>
-        <?php }  else {?>
+        <?php } else { ?>
             <a href="bestellen.php">Bestellen</a>
         <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
@@ -69,34 +69,38 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
 </nav>
 <main>
     <section id="kleuren-bestseller">
-            <h1>Best Verkocht</h1>
-            <div id="bestseller">
-        <?php foreach ($bestSeller as $color) { ?>
-            <div class="bestseller">
-                <img src="<?= $color['product_link'] ?>" alt="">
-                <h2><?= $color['colour'] ?></h2>
-                <p>Omschrijving van kleuren</p>
+        <h1>Best Verkocht</h1>
+        <div id="bestseller">
+            <?php foreach ($bestSeller as $color) { ?>
+                <div class="bestseller">
+                    <img src="<?= $color['product_link'] ?>" alt="">
+                    <h2><?= $color['colour'] ?></h2>
+                    <p>Omschrijving van kleuren</p>
 
-            </div>
-        <?php } ?>
+                </div>
+            <?php } ?>
         </div>
     </section>
-    <section id="season-colors">
+    <section>
         <h1>Seizoen Combinaties</h1>
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
+        <div id="season-colors">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+        </div>
     </section>
 
-    <!-- For loop?   -->
-    <section id="all-colors">
+
+    <section>
         <h1>Alle Kleuren</h1>
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
+        <div id="all-colors">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+        </div>
     </section>
 
 </main>
