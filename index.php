@@ -79,16 +79,11 @@ mysqli_close($db);
 <header>
     <div class="header-left">
         <h1>De Wolhoop</h1>
-        <p>Welkom bij Wolhoop, waar de magie van wol tot leven komt! Wij zijn jouw go-to bestemming voor alles wat met
-            wol te maken heeft, en we kunnen niet wachten om je onder te dompelen in een wereld van kleur, textuur en
-            creativiteit. Of je nu op zoek bent naar een explosie van kleuren en unieke texturen met onze
-            gepersonaliseerde wol, of simpelweg wilt genieten van de betrouwbare warmte van klassieke wol, bij Wolhoop
-            hebben we het allemaal! Bij Wolhoop geloven we in de kracht van creativiteit. We streven ernaar om de meest
-            unieke en hoogwaardige wolproducten aan te bieden, zodat jij, of je nu een ervaren breier bent of net begint
-            aan je haakavontuur, de perfecte wol vindt om jouw projecten tot leven te brengen. Dus, omarm de warmte,
-            kleur en vreugde van wol met Wolhoop! Laat ons jouw metgezel zijn terwijl je de prachtige wereld van
-            handwerk verkent. Happy crafting! 🌈🧶✨
+        <p>Welkom bij de Wolhoop! Mijn kleine bedrijfje voor liefhebbers van handwerk. Ik verkoop geverfde wol in een
+            spectrum aan kleuren en combinaties. Via deze website verkoop ik deze mooie bolletjes en kan je ook kijken naar wat
+            ik eerder heb gemaakt. Neem een kijkje op deze website en zoek de perfecte wol uit voor jouw project!
         </p>
+        <p>Happy Crafting!!</p>
     </div>
     <div class="header-right">
         <img src="images/homepage.png" alt class="header-images">
