@@ -46,9 +46,10 @@ mysqli_close($db);
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
+        <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="orders.php" class="location">Bestellingen</a>
+        <a href="bestellen.php" class="location">Bestellingen</a>
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
