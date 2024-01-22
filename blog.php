@@ -39,6 +39,7 @@ mysqli_close($db);
     <title>Blog</title>
 </head>
 <body>
+
 <nav>
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
@@ -57,6 +58,8 @@ mysqli_close($db);
         <?php } ?>
     </div>
 </nav>
+
+
 <main>
     <?php if (isset($user['isAdmin']) && $user['isAdmin']) {?>
         <a href="editBlog.php?id=<?=$id ?>">edit</a>
