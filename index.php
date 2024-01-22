@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 // verkocht eigenschap nog toevoegen bij database en later aanpassen
-$queryColor = "SELECT id, colour, wool_length, product_link FROM products ORDER BY id LIMIT 3";
+$queryColor = "SELECT * FROM colours ORDER BY id LIMIT 3";
 $resultColor = mysqli_query($db, $queryColor);
 
 while ($row2 = mysqli_fetch_assoc($resultColor)) {
@@ -121,7 +121,7 @@ mysqli_close($db);
                 <?php foreach ($colors as $color) { ?>
                     <div class="bestseller-color">
                         <div class="color-article">
-                            <img src="<?php echo $color['product_link'] ?>" class="blog-images" alt="Picture">
+                            <img src="<?php echo $color['picture_link'] ?>" class="blog-images" alt="Picture">
                             <h3><?= $color['colour'] ?></h3>
                         </div>
                     </div>

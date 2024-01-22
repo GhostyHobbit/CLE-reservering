@@ -59,9 +59,9 @@ while ($row = mysqli_fetch_assoc($coloursResult)) {
         <a href="blogOverview.php">Blog</a>
         <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php" class="location">Kleuren</a>
-        <?php if ($login && $user['isAdmin']) {?>
+        <?php if ($login && $user['isAdmin']) { ?>
             <a href="orders.php">Bestellingen</a>
-        <?php }  else {?>
+        <?php } else { ?>
             <a href="bestellen.php">Bestellen</a>
         <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
@@ -76,32 +76,38 @@ while ($row = mysqli_fetch_assoc($coloursResult)) {
 </nav>
 <main>
     <section id="kleuren-bestseller">
-            <h1>Best Verkocht</h1>
-            <div id="bestseller">
-        <?php foreach ($bestSellers as $bestSeller) { ?>
-            <div class="bestseller">
-                <img src="<?= $bestSeller['picture_link'] ?>" alt="">
-                <h2><?= $bestSeller['colour'] ?></h2>
-                <p>Omschrijving van kleuren</p>
+        <h1>Best Verkocht</h1>
+        <div id="bestseller">
+            <?php foreach ($bestSellers as $bestSeller) { ?>
+                <div class="bestseller">
+                    <img src="<?= $bestSeller['picture_link'] ?>" alt="">
+                    <h2><?= $bestSeller['colour'] ?></h2>
+                    <p>Omschrijving van kleuren</p>
 
-            </div>
-        <?php } ?>
+                </div>
+            <?php } ?>
         </div>
     </section>
-    <section id="season-colors">
+    <section>
         <h1>Seizoen Combinaties</h1>
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
+        <div id="season-colors">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+            <img src="images/Placeholder.png " alt="">
+        </div>
     </section>
 
-    <!-- For loop?   -->
-    <section id="all-colors">
+
+    <section>
         <h1>Alle Kleuren</h1>
-        <?php foreach ($colours as $colour) {?>
-            <p>Kleur: <?= $colour['colour']?></p>
-            <img src="<?= $colour['picture_link']?>">
+
+        <?php foreach ($colours as $colour) { ?>
+            <div>
+                <p>Kleur: <?= $colour['colour'] ?></p>
+                <img src="<?= $colour['picture_link'] ?>">
+            </div>
         <?php } ?>
+
     </section>
 
 </main>
