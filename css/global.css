@@ -112,7 +112,7 @@ footer a:hover{
     font-weight:bold;
 }
 footer div {
-    display:flex;
+    display: flex;
     align-items: center;
     margin: 0 2vw;
     font-family: 'Annie Use Your Telescope', sans-serif;
