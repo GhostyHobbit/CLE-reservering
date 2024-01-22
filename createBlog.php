@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
     <title>Create Blog</title>
 </head>
@@ -58,22 +59,37 @@ if (isset($_POST['submit'])) {
         <?php } ?>
     </div>
 </nav>
-<a href="blogOverview.php">Annuleren</a>
-<form action="" method="post">
-    <label for="title">Titel:</label>
-    <input type="text" id="title" name="title">
+<main>
+    <img src="images/wool.png" alt="landschap">
+    <div class="form">
+        <form action="" method="post">
+            <h2 class="title">Nieuwe Blog</h2>
+            <div class="stack">
+                <label for="title">Titel</label>
+                <input type="text" id="title" name="title">
+            </div>
 
-    <label for="recap">Samenvatting:</label>
-    <input type="text" id="recap" name="recap">
+            <div class="stack">
+                <label for="recap">Samenvatting</label>
+                <input type="text" id="recap" name="recap">
+            </div>
 
-    <label for="text">Tekst:</label>
-    <textarea id="text" name="text" placeholder="Schrijf hier je tekst..."></textarea>
+            <div class="stack">
+                <label for="text">Tekst</label>
+                <textarea id="text" name="text" placeholder="Schrijf hier je tekst..."></textarea>
+            </div>
 
-    <label for="image">Link naar foto:</label>
-    <input type="text" id="image" name="image">
+            <div class="stack">
+                <label for="image">Link naar foto</label>
+                <input type="text" id="image" name="image">
+            </div>
 
-    <input type="submit" id="submit" name="submit">
-</form>
+            <input type="submit" id="submit" name="submit" class="blogsubmit">
+        </form>
+        <a href="blogOverview.php">Annuleren</a>
+    </div>
+    <img src="images/wool.png" alt="landschap">
+</main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
     <div>
