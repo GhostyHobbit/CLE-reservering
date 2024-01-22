@@ -69,6 +69,15 @@ form .infix {
     color: #FAF4F4;
 }
 
+form textarea {
+    padding: 0.7vw 0 0.7vw 0.2vw;
+    border: 0.15vw solid #414141;
+    background-color: #e7dede;
+    border-radius: 1vw;
+    height: 40vh;
+    font-family: Almarai, 'sans-serif';
+}
+
 form .submit {
     width: 30vw;
     border-radius: 10vw;
@@ -81,6 +90,25 @@ form .submit {
 }
 
 form .submit:hover {
+    background-color: #aabdac;
+    color: #414141;
+    font-weight: bold;
+    transition: 300ms ease-in;
+}
+
+form .blogsubmit {
+    margin-top: 2vh;
+    width: 30vw;
+    border-radius: 10vw;
+    padding: 0.5vw 0 0.5vw 0.2vw;
+    background-color: #205D20;
+    color: #D3E9D6;
+    font-family: Almarai, 'sans-serif';
+    font-size: 1rem;
+    transition: 300ms ease-out;
+}
+
+form .blogsubmit:hover {
     background-color: #aabdac;
     color: #414141;
     font-weight: bold;
