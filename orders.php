@@ -31,7 +31,7 @@ mysqli_close($db);
     <p>Postcode: <?= $order['postal_code']?></p>
     <p>Lengte wol: <?= $order['rope_length']?>cm</p>
     <p>Hoeveel kleuren: <?= $order['colour_amount']?></p>
-    <p>Welke kleuren: <?= $order['colours']?></p>
+    <p>Welke kleuren: <?= $order['colour1']?> <?= $order['colour2']?> <?= $order['colour3']?></p>
     <p>Opmerkingen: <?= $order['comments']?></p>
     <p>Hoevaak: <?= $order['rope_amount']?></p>
     <br>
