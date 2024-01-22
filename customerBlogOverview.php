@@ -18,7 +18,7 @@ if (!empty($_SESSION)) {
     $isAdmin = false;
 }
 
-$query = "SELECT id, title, recap, text, picture_link FROM customerBlogPosts";
+$query = "SELECT id, title, recap, text, picture_link FROM customerblogposts";
 $result = mysqli_query($db, $query);
 
 
@@ -75,8 +75,8 @@ mysqli_close($db);
             <?php foreach ($blogs as $blog) {?>
                     <div class="article-one-bottom">
                 <article class="blog-1">
-<!--                    <img src="--><?php //= $blog['picture_link'] ?><!--" class="blog-images" alt="">-->
-                    <img src="images/1kleur.jpg" alt="placeholder" class="blog-images">
+                    <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="">
+<!--                    <img src="images/1kleur.jpg" alt="placeholder" class="blog-images">-->
                     <div class="text">
                         <h1><?= $blog['title']?></h1>
                         <p><?= $blog['recap']?></p>
