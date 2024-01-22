@@ -44,7 +44,9 @@ if (isset($_POST['submit'])) {
     $colour3 = $_POST['colour3'];
     $comments = $_POST['comments'];
     $rope_amount = $_POST['rope_amount'];
-    $colours =  $_GET['colours1'] + $_GET['colours2'] + $_GET['colours3'];
+    $colour1 =  $_POST['colours1'];
+    $colour2 = $_POST['colours2'];
+    $colour3 = $_POST['colours3'];
 
 
 
