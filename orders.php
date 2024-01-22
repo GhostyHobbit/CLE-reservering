@@ -1,7 +1,22 @@
 <?php
+session_start();
 /** @var mysqli $db */
 require_once "includes/database.php";
+if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
+    $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
 
+    $isAdmin = $user['isAdmin'];
+} else {
+    $login = false;
+    $isAdmin = false;
+    $sessionId = 0;
+}
 
 $query = "SELECT * FROM orders WHERE complete = '0'";
 $result = mysqli_query($db, $query);
@@ -37,7 +52,11 @@ mysqli_close($db);
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="login.php" >Login</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
 <main>
@@ -62,7 +81,7 @@ mysqli_close($db);
             <td><?= $order['street_name']?> <?= $order['house_number']?></td>
             <td><?= $order['city_name']?> <?= $order['postal_code']?></td>
             <td><?= $order['colour_amount']?></td>
-            <td><?= $order['colour1']?>, <?= $order['colour2']?>, <?= $order['colour3']?></td>
+            <td><?= $order['colour1']?><?php if (!empty($order['colour2'])) {?>, <?= $order['colour2']?> <?php } ?><?php if (!empty($order['colour3'])) {?>, <?= $order['colour3']?><?php } ?></td>
             <td><?= $order['rope_length']?> gram</td>
             <td><?= $order['rope_amount']?></td>
             <td><?= $order['comments']?></td>
