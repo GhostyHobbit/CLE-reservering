@@ -35,7 +35,7 @@ mysqli_close($db);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/blogs.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
     <title>Blog</title>
@@ -67,9 +67,19 @@ mysqli_close($db);
 </nav>
 
 <main>
-    <?php if ($isAdmin) { ?>
-        <a href="createBlog.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
-    <?php }?>
+    <div class="heading">
+        <div>
+            <h1>Welkom bij de Wolhoop blog!</h1>
+        <?php if ($isAdmin) { ?>
+            <a href="createBlog.php" class="create">Nieuwe Blog</a>
+        <?php }?>
+        </div>
+        <p>
+            Deze pagina bevat alles wat ik heb gemaakt. Nieuwe kleurtjes voor de wol,
+            breiwerkjes waar ik nog mee bezig ben en afgemaakte projecten. Neem gerust
+            een kijkje door mijn portfolio!
+        </p>
+    </div>
     <section id="all-blogs">
         <?php foreach ($blogs as $blog) {?>
                 <div class="article-one-bottom">
@@ -77,7 +87,7 @@ mysqli_close($db);
                 <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="blog-foto">
 <!--                <img src="<images/1kleur.jpg>" alt="placeholder" class="blog-images">-->
                 <div class="text">
-                    <h1><?= $blog['title']?></h1>
+                    <h2><?= $blog['title']?></h2>
                     <p><?= $blog['recap']?></p>
                     <a href="blog.php?id=<?= $blog['id'] ?>">Open</a>
                 </div>

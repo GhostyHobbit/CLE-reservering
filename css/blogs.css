@@ -46,3 +46,40 @@
 .article-one-bottom:hover {
     background-color: #cebfb5;
 }
+
+h1 {
+    margin-left: 36.5vw;
+    margin-top: 5vh;
+}
+
+.heading p {
+    margin-left: 30vw;
+    max-width: 40vw;
+}
+
+.heading div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create {
+    text-align: center;
+    text-decoration: none;
+    width: 10vw;
+    border-radius: 10vw;
+    padding: 0.5vw 0 0.5vw 0.2vw;
+    background-color: #205D20;
+    color: #D3E9D6;
+    font-family: Almarai, 'sans-serif';
+    font-size: 1rem;
+    transition: 300ms ease-out;
+
+}
+
+.create:hover {
+    background-color: #aabdac;
+    color: #414141;
+    font-weight: bold;
+    transition: 300ms ease-in;
+}

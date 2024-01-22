@@ -24,14 +24,14 @@ mysqli_close($db);
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/orders.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
-    <title>Document</title>
+    <title>Bestellingen</title>
 </head>
 <body>
 <nav>
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blog.php">Blog</a>
+        <a href="blogOverview.php">Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <a href="orders.php" class="location">Bestellingen</a>
         <a href="contact.php">Over Wolhoop</a>
