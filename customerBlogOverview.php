@@ -47,8 +47,8 @@ mysqli_close($db);
     <div class="navbar-middle">
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
         <a href="index.php">Home</a>
-        <a href="blogOverview.php" class="location">Blog</a>
-        <a href="customerBlogOverview.php">Klant Blog</a>
+        <a href="blogOverview.php" >Blog</a>
+        <a href="customerBlogOverview.php" class="location">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
         <?php if ($login && $user['isAdmin']) {?>
             <a href="orders.php">Bestellingen</a>
@@ -73,14 +73,17 @@ mysqli_close($db);
     <section id="all-blogs">
         <?php if (isset($blogs)) {?>
             <?php foreach ($blogs as $blog) {?>
+                    <div class="article-one-bottom">
                 <article class="blog-1">
-                    <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="">
-                    <div>
+<!--                    <img src="--><?php //= $blog['picture_link'] ?><!--" class="blog-images" alt="">-->
+                    <img src="images/1kleur.jpg" alt="placeholder" class="blog-images">
+                    <div class="text">
                         <h1><?= $blog['title']?></h1>
                         <p><?= $blog['recap']?></p>
                         <a href="customerBlog.php?id=<?= $blog['id'] ?>">Open</a>
                     </div>
                 </article>
+                    </div>
             <?php } ?>
         <?php } else {?>
             <p>Er zijn nog geen blogs.</p>
