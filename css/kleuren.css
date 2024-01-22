@@ -1,16 +1,25 @@
-
-#bestseller {
+#all-colors,#bestseller,#season-colors{
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr ;
+    justify-items:center;
+    gap:5rem;
+    padding-bottom: 6vh;
 }
 
-.bestseller {
+.bestseller, .all-colors{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-transform: capitalize;
 }
-
+.all-colors, .bestseller{
+    background-color: #D5CAC0;
+    padding: 2vh 1vw;
+    border-radius: 1vw;
+    border:2px outset #a29081;
+    box-shadow: 0.2vw 0.4vh 0.4vw #D5CAC0;
+}
 h1 {
     font-family: 'Annie Use Your Telescope', sans-serif;
     color: #414141;
@@ -21,16 +30,12 @@ h1 {
     text-transform: capitalize;
 }
 
-#bestseller img {
+#bestseller img,#all-colors img{
     width: 250px;
     height: 250px;
+    object-fit: cover;
+    border-radius: 2vw;
+    border: 0.15vw solid #414141;
 }
 
-#all-colors,#bestseller,#season-colors{
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr;
-    grid-template-rows: 1fr ;
-    justify-items:center;
-    gap:5rem;
-    padding-bottom: 6vh;
-}
+

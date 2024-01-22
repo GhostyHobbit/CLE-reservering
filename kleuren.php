@@ -82,8 +82,6 @@ while ($row = mysqli_fetch_assoc($coloursResult)) {
                 <div class="bestseller">
                     <img src="<?= $bestSeller['picture_link'] ?>" alt="">
                     <h2><?= $bestSeller['colour'] ?></h2>
-                    <p>Omschrijving van kleuren</p>
-
                 </div>
             <?php } ?>
         </div>
@@ -100,14 +98,14 @@ while ($row = mysqli_fetch_assoc($coloursResult)) {
 
     <section>
         <h1>Alle Kleuren</h1>
-
+        <div id="all-colors">
         <?php foreach ($colours as $colour) { ?>
-            <div>
-                <p>Kleur: <?= $colour['colour'] ?></p>
+            <div class="all-colors">
                 <img src="<?= $colour['picture_link'] ?>">
+                <h2><?= $colour['colour'] ?></h2>
             </div>
-        <?php } ?>
-
+            <?php } ?>
+        </div>
     </section>
 
 </main>

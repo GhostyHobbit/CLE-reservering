@@ -21,7 +21,7 @@ if (!empty($_SESSION)) {
 
 $id = $_GET['id'];
 $query = "SELECT * FROM blogposts WHERE id = '$id'";
-$result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
+$result = mysqli_query($db, $query) or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 //info bruikbaar maken
 $blog = mysqli_fetch_assoc($result);
 //database sluiten
@@ -35,7 +35,9 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
     <title>Blog</title>
 </head>
 <body>
@@ -61,13 +63,17 @@ mysqli_close($db);
 
 
 <main>
-    <?php if (isset($user['isAdmin']) && $user['isAdmin']) {?>
-        <a href="editBlog.php?id=<?=$id ?>">edit</a>
-        <a href="deleteBlog.php?id=<?=$id ?>">delete</a>
-    <?php }?>
-    <h1><?= $blog['title'] ?></h1>
-    <p><?= $blog['recap'] ?></p>
-    <p><?= $blog['text'] ?></p>
+    <?php if (isset($user['isAdmin']) && $user['isAdmin']) { ?>
+        <a href="editBlog.php?id=<?= $id ?>">edit</a>
+        <a href="deleteBlog.php?id=<?= $id ?>">delete</a>
+    <?php } ?>
+    <div id="blog-post">
+            <img src="<?= $blog['picture_link'] ?>" alt="" class="blog-image">
+            <div>
+                <h1><?= $blog['title'] ?></h1>
+                <p><?= $blog['recap'] ?></p>
+                <p><?= $blog['text'] ?></p>
+            </div>
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
