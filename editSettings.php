@@ -9,7 +9,6 @@ if(empty($_SESSION)) {
     header('Location: login.php');
     exit();
 }
-$_SESSION['id'] = 3;
 $sessionId = $_SESSION['id'];
 if(!isset($_POST['submit'])) {
 //gets the users data from the database
