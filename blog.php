@@ -68,12 +68,12 @@ mysqli_close($db);
         <a href="deleteBlog.php?id=<?= $id ?>">delete</a>
     <?php } ?>
     <div id="blog-post">
-            <img src="<?= $blog['picture_link'] ?>" alt="" class="blog-image">
-            <div>
-                <h1><?= $blog['title'] ?></h1>
-                <p><?= $blog['recap'] ?></p>
-                <p><?= $blog['text'] ?></p>
-            </div>
+        <img src="<?= $blog['picture_link'] ?>" alt="" class="blog-image">
+        <h1><?= $blog['title'] ?></h1>
+        <div class="blog-info">
+            <p><?= $blog['recap'] ?></p>
+            <p><?= $blog['text'] ?></p>
+        </div>
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
