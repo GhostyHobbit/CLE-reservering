@@ -131,7 +131,7 @@ if (isset($_POST['submit'])) {
         <input type="hidden" id="colours2" name="colours2" value="<?php echo $_GET['colours2'];?>">
         <input type="hidden" id="colours3" name="colours3" value="<?php echo $_GET['colours3'];?>">
         <input type="hidden" id="comments" name="comments" value="<?php echo $_GET['comments'];?>">
-        <input type="hidden" id="rope_amount" name="rope_amount" value="<?php $_GET['rope_amount'];?>">
+        <input type="hidden" id="rope_amount" name="rope_amount" value="<?php echo $_GET['rope_amount'];?>">
         <button type="submit" name="submit" id="submit" class="submit">Bevestigen</button>
     </form>
     </section>
