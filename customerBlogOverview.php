@@ -67,9 +67,19 @@ mysqli_close($db);
 </nav>
 
 <main>
-    <?php if ($login) { ?>
-        <a href="customerBlogCreate.php">CREATE</a> <!--moet alleen op de actual blog pagina vd verkoper komen-->
-    <?php }?>
+    <div class="heading">
+        <div>
+            <h1>Welkom bij de klanten blog!</h1>
+            <?php if ($login) { ?>
+                <a href="customerBlogCreate.php" class="create">Nieuwe Blog</a>
+            <?php }?>
+        </div>
+        <p>
+            Hier kunnen jullie alle projecten delen die gemaakt zijn met wol van de Wolhoop!
+            Haak projecten, brei projecten en al het andere! Deel de liefde voor de Wolhoop
+            met andere leden en laat je talent zien!
+        </p>
+    </div>
     <section id="all-blogs">
         <?php if (isset($blogs)) {?>
             <?php foreach ($blogs as $blog) {?>
@@ -78,7 +88,7 @@ mysqli_close($db);
                     <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="">
 <!--                    <img src="images/1kleur.jpg" alt="placeholder" class="blog-images">-->
                     <div class="text">
-                        <h1><?= $blog['title']?></h1>
+                        <h2><?= $blog['title']?></h2>
                         <p><?= $blog['recap']?></p>
                         <a href="customerBlog.php?id=<?= $blog['id'] ?>">Open</a>
                     </div>
