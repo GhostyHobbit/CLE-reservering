@@ -24,7 +24,7 @@ $bestSellerQuery = "SELECT * FROM colours ORDER BY id LIMIT 3";
 $bestSellResult = mysqli_query($db, $bestSellerQuery);
 
 while ($row = mysqli_fetch_assoc($bestSellResult)) {
-    $bestSeller[] = $row;
+    $bestSellers[] = $row;
 }
 
 $coloursQuery = "SELECT * FROM colours";
@@ -78,10 +78,10 @@ while ($row = mysqli_fetch_assoc($coloursResult)) {
     <section id="kleuren-bestseller">
             <h1>Best Verkocht</h1>
             <div id="bestseller">
-        <?php foreach ($bestSeller as $color) { ?>
+        <?php foreach ($bestSellers as $bestSeller) { ?>
             <div class="bestseller">
-                <img src="<?= $colour['product_link'] ?>" alt="">
-                <h2><?= $color['colour'] ?></h2>
+                <img src="<?= $bestSeller['picture_link'] ?>" alt="">
+                <h2><?= $bestSeller['colour'] ?></h2>
                 <p>Omschrijving van kleuren</p>
 
             </div>
