@@ -20,11 +20,18 @@ if (!empty($_SESSION)) {
 // verkocht eigenschap nog toevoegen bij database en later aanpassen
 // Hoeveel is er verkocht en wat is er verkocht
 // Op wat moet ik sorteren?
-$bestSellerQuery = "SELECT id, colour, wool_length, product_link FROM products ORDER BY id LIMIT 3";
+$bestSellerQuery = "SELECT * FROM colours ORDER BY id LIMIT 3";
 $bestSellResult = mysqli_query($db, $bestSellerQuery);
 
 while ($row = mysqli_fetch_assoc($bestSellResult)) {
     $bestSeller[] = $row;
+}
+
+$coloursQuery = "SELECT * FROM colours";
+$coloursResult = mysqli_query($db, $coloursQuery);
+
+while ($row = mysqli_fetch_assoc($coloursResult)) {
+    $colours[] = $row;
 }
 
 
@@ -73,7 +80,7 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
             <div id="bestseller">
         <?php foreach ($bestSeller as $color) { ?>
             <div class="bestseller">
-                <img src="<?= $color['product_link'] ?>" alt="">
+                <img src="<?= $colour['product_link'] ?>" alt="">
                 <h2><?= $color['colour'] ?></h2>
                 <p>Omschrijving van kleuren</p>
 
@@ -91,12 +98,10 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
     <!-- For loop?   -->
     <section id="all-colors">
         <h1>Alle Kleuren</h1>
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
-        <img src="images/Placeholder.png " alt="">
+        <?php foreach ($colours as $colour) {?>
+            <p>Kleur: <?= $colour['colour']?></p>
+            <img src="<?= $colour['picture_link']?>">
+        <?php } ?>
     </section>
 
 </main>
