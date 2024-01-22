@@ -68,10 +68,12 @@ mysqli_close($db);
 
 <main>
     <div class="heading">
+        <div>
+            <h1>Welkom bij de Wolhoop blog!</h1>
             <?php if ($isAdmin) { ?>
                 <a href="createBlog.php" class="create">Nieuwe Blog</a>
             <?php } ?>
-            <h1>Welkom bij de Wolhoop blog!</h1>
+        </div>
             <p>Deze pagina bevat alles wat ik heb gemaakt. Nieuwe kleurtjes voor de wol,
                 breiwerkjes waar ik nog mee bezig ben en afgemaakte projecten. Neem gerust een kijkje door mijn portfolio!
             </p>
