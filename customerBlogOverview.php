@@ -18,7 +18,7 @@ if (!empty($_SESSION)) {
     $isAdmin = false;
 }
 
-$query = "SELECT id, title, recap, text, picture_link FROM customerBlogPosts";
+$query = "SELECT id, title, recap, text, picture_link FROM customerblogposts";
 $result = mysqli_query($db, $query);
 
 
