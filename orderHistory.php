@@ -36,18 +36,20 @@ mysqli_close($db);
     <title>Document</title>
 </head>
 <body>
-<?php foreach ($orders as $order) { ?>
+<?php if (isset($orders)){ foreach ($orders as $order) { ?>
     <p>Naam: <?= $order['user_first_name']?> <?= $order['user_infix']?> <?= $order['user_last_name']?></p>
     <p>Stad: <?= $order['city_name']?></p>
     <p>Straatnaam: <?= $order['street_name']?> <?= $order['house_number']?></p>
     <p>Postcode: <?= $order['postal_code']?></p>
     <p>Lengte wol: <?= $order['rope_length']?>cm</p>
     <p>Hoeveel kleuren: <?= $order['colour_amount']?></p>
-    <p>Welke kleuren: <?= $order['colours']?></p>
+    <p>Welke kleuren: <?= $order['colour1']?> <?= $order['colour2']?> <?= $order['colour3']?></p>
     <p>Opmerkingen: <?= $order['comments']?></p>
     <p>Hoevaak: <?= $order['rope_amount']?></p>
     <br>
 
+<?php }} else { ?>
+<p>Je hebt nog geen bestellingen.</p>
 <?php } ?>
 </body>
 </html>

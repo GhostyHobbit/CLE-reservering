@@ -20,11 +20,18 @@ if (!empty($_SESSION)) {
 // verkocht eigenschap nog toevoegen bij database en later aanpassen
 // Hoeveel is er verkocht en wat is er verkocht
 // Op wat moet ik sorteren?
-$bestSellerQuery = "SELECT id, colour, wool_length, product_link FROM products ORDER BY id LIMIT 3";
+$bestSellerQuery = "SELECT * FROM colours ORDER BY id LIMIT 3";
 $bestSellResult = mysqli_query($db, $bestSellerQuery);
 
 while ($row = mysqli_fetch_assoc($bestSellResult)) {
-    $bestSeller[] = $row;
+    $bestSellers[] = $row;
+}
+
+$coloursQuery = "SELECT * FROM colours";
+$coloursResult = mysqli_query($db, $coloursQuery);
+
+while ($row = mysqli_fetch_assoc($coloursResult)) {
+    $colours[] = $row;
 }
 
 
@@ -71,10 +78,10 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
     <section id="kleuren-bestseller">
         <h1>Best Verkocht</h1>
         <div id="bestseller">
-            <?php foreach ($bestSeller as $color) { ?>
+            <?php foreach ($bestSellers as $bestSeller) { ?>
                 <div class="bestseller">
-                    <img src="<?= $color['product_link'] ?>" alt="">
-                    <h2><?= $color['colour'] ?></h2>
+                    <img src="<?= $bestSeller['picture_link'] ?>" alt="">
+                    <h2><?= $bestSeller['colour'] ?></h2>
                     <p>Omschrijving van kleuren</p>
 
                 </div>
@@ -93,14 +100,14 @@ while ($row = mysqli_fetch_assoc($bestSellResult)) {
 
     <section>
         <h1>Alle Kleuren</h1>
-        <div id="all-colors">
-            <img src="images/Placeholder.png " alt="">
-            <img src="images/Placeholder.png " alt="">
-            <img src="images/Placeholder.png " alt="">
-            <img src="images/Placeholder.png " alt="">
-            <img src="images/Placeholder.png " alt="">
-            <img src="images/Placeholder.png " alt="">
-        </div>
+
+        <?php foreach ($colours as $colour) { ?>
+            <div>
+                <p>Kleur: <?= $colour['colour'] ?></p>
+                <img src="<?= $colour['picture_link'] ?>">
+            </div>
+        <?php } ?>
+
     </section>
 
 </main>

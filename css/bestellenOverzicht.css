@@ -1,3 +1,56 @@
 main {
     min-height: 80vh;
+    display: flex;
+}
+
+main section {
+    width: 60vw;
+    margin-top: 2vh;
+}
+
+main .margin {
+    margin: 0 2.5vw;
+}
+
+main img {
+    width: 20vw;
+    min-height: 80vh;
+    max-height: 160vh;
+    object-fit: cover;
+}
+
+.article-one-bottom p {
+    margin-left: 1vw;
+}
+
+.margin h1, .article-one-bottom h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.article-one-bottom{
+    min-height: 20vh;
+    background-color: #e1d3c8;
+    padding: 2vh 1vw;
+    border: solid #cebfb2;
+
+}
+
+form .submit {
+    margin: 5vh 14vw;
+    width: 30vw;
+    border-radius: 10vw;
+    padding: 0.5vw 0 0.5vw 0.2vw;
+    background-color: #205D20;
+    color: #D3E9D6;
+    font-family: Almarai, 'sans-serif';
+    font-size: 1rem;
+    transition: 300ms ease-out;
+}
+
+form .submit:hover {
+    background-color: #aabdac;
+    color: #414141;
+    font-weight: bold;
+    transition: 300ms ease-in;
 }
