@@ -96,7 +96,7 @@ mysqli_close($db);
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
-    <title>Register</title>
+    <title>Profile edit</title>
 </head>
 <body>
 <nav>
