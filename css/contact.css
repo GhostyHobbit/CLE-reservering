@@ -11,6 +11,7 @@ main img {
 
 main div {
     margin-left: 7vw;
+    max-width: 37vw;
 }
 
 main .links {

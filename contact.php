@@ -56,17 +56,18 @@ if (!empty($_SESSION)) {
     <img src="images/wool.png" alt="wol-collage">
     <div>
         <h1>Over Wolhoop</h1>
-        <p>lorum ipsum blabla ur mom</p>
+        <p>
+            De Wolhoop is een klein handwerk bedrijfje. Ik ben begonnen via Facebook en heb daar een groep
+            wol fanaten gevonden. Deze mensen hebben het mede mogelijk gemaakt dat deze website nu kan bestaan.
+            Ik ben begonnen met mijn eigen wol spinnen en verven, gewoon hobby werk. Dit is uitgegroeid tot mijn
+            mooie bedrijfje. Hier kan ik nu niet alleen mezelf maar ook anderen blij maken met mooie soorten wol!
+        </p>
+        <p>Als je vragen hebt, laat het mij dan weten via Facebook of Instagram! De links staan hieronder.</p>
         <h2>Contact</h2>
         <div class="links">
             <a href="https://www.instagram.com/dewolhoopspinning/">Instagram: @dewolhoopspinning</a>
             <a href="https://www.facebook.com/groups/3217490328265360/media" class="facebook">Facebook: De Wolhoop</a>
         </div>
-
-
-
-
-
     </div>
 </main>
 <footer>
