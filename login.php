@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
     </div>
 </nav>
 <main>
-    <img src="images/wool.png" alt="landschap">
+    <img src="images/banner1.jpg" alt="banner">
     <div class="form">
     <form method = post>
         <h2 class="title">Inloggen</h2>
@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
     </form>
         <a href="register.php">Geen profiel? Registreer hier</a>
     </div>
-    <img src="images/wool.png" alt="landschap">
+    <img src="images/banner.jpg" alt="banner">
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">

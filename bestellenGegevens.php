@@ -86,7 +86,7 @@ if (isset($_GET['submit2'])) {
     </div>
 </nav>
 <main>
-    <img src="images/wool.png" alt="landschap">
+    <img src="images/shep.jpg" alt="banner">
     <!--Registratie formulier-->
     <div class="form">
         <form action="bestellenGegevens.php" method="get">
@@ -145,7 +145,7 @@ if (isset($_GET['submit2'])) {
         </form>
         <a href="bestellen.php">Terug Naar Bestellen</a>
     </div>
-    <img src="images/wool.png" alt="landschap">
+    <img src="images/alpx.jpg" alt="banner">
 </main>
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
