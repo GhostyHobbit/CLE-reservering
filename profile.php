@@ -4,8 +4,18 @@ session_start();
 //establishes connection to the database
 /** @var mysqli $db */
 require_once 'includes/database.php';
-$sessionId = $_SESSION['id'];
 
+if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
+    $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
+} else {
+    $login = false;
+}
 //gets the users data from the database
 $query = "SELECT * FROM users WHERE id = '$sessionId'";
 $result = mysqli_query($db, $query);
@@ -31,7 +41,11 @@ $user = mysqli_fetch_assoc($result);
         <a href="blogOverview.php">Blog</a>
         <a href="customerBlogOverview.php">Klant Blog</a>
         <a href="kleuren.php">Kleuren</a>
-        <a href="bestellen.php">Bestellen</a>
+        <?php if ($login && $user['isAdmin']) {?>
+            <a href="orders.php">Bestellingen</a>
+        <?php }  else {?>
+            <a href="bestellen.php">Bestellen</a>
+        <?php } ?>
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
