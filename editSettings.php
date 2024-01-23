@@ -1,5 +1,22 @@
 <?php
 session_start();
+/** @var mysqli $db */
+require_once "includes/database.php";
+
+if (!empty($_SESSION)) {
+    $sessionId = $_SESSION['id'];
+    $login = true;
+    //gets the users data from the database
+    $query = "SELECT * FROM users WHERE id = '$sessionId'";
+    $result = mysqli_query($db, $query);
+//puts the data in an array
+    $user = mysqli_fetch_assoc($result);
+
+    $isAdmin = $user['isAdmin'];
+} else {
+    $login = false;
+    $isAdmin = false;
+}
 
 //establishes connection to the database
 /** @var mysqli $db */
@@ -19,14 +36,14 @@ if(!isset($_POST['submit'])) {
 }
 if(isset($_POST['submit'])) {
 
-    $firstName = mysqli_escape_string($db,$_POST['firstName']);
-    $infix = mysqli_escape_string($db,$_POST['infix']);
-    $lastName = mysqli_escape_string($db,$_POST['lastName']);
-    $email = mysqli_escape_string($db,$_POST['email']);
-    $streetName = mysqli_escape_string($db,$_POST['streetName']);
-    $houseNumber = mysqli_escape_string($db,$_POST['houseNumber']);
-    $postalCode = mysqli_escape_string($db,$_POST['postalCode']);
-    $cityName = mysqli_escape_string($db,$_POST['cityName']);
+    $firstName = $_POST['first_name'];
+    $infix = $_POST['infix'];
+    $lastName = $_POST['last_name'];
+    $email = $_POST['email'];
+    $streetName = $_POST['street_name'];
+    $houseNumber = $_POST['house_number'];
+    $postalCode = $_POST['postal_code'];
+    $cityName = $_POST['city_name'];
 
     if ($firstName === '') {
         $errors['first_name'] = "Je moet nog een voornaam invullen!";
@@ -77,8 +94,9 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai&family=Annie+Use+Your+Telescope&display=swap">
-    <title>Gegevens aanpassen</title>
+    <title>Profile edit</title>
 </head>
 <body>
 <nav>
@@ -92,72 +110,71 @@ mysqli_close($db);
         <a href="contact.php">Over Wolhoop</a>
     </div>
     <div class="login">
-        <a href="logout.php" >Log uit</a>
+        <?php if ($login) { ?>
+            <a href="profile.php">Profiel</a>
+        <?php } else { ?>
+            <a href="login.php">Login</a>
+        <?php } ?>
     </div>
 </nav>
-
-<header>
-
-</header>
 <main>
-    <form method="post">
-        <div>
-            <label for="firstName">Voornaam</label>
-            <input type="text" name="firstName" id="firstName" <?php if (isset($user)) { ?> value="<?= $user['first_name'] ?>" <?php } ?>>
-            <?php if(isset($errors['first_name'])) {
-                echo $errors['first_name'];
-            } ?>
-        </div>
-        <div>
-            <label for="infix">Tussenvoegsel</label>
-            <input type="text" name="infix" id="infix" <?php if (isset($user)) { ?> value="<?= $user['infix'] ?>" <?php } ?>>
-        </div>
-        <div>
-            <label for="lastName">Achternaam</label>
-            <input type="text" name="lastName" id="lastName" <?php if (isset($user)) { ?> value="<?= $user['last_name'] ?>" <?php } ?>>
-            <?php if(isset($errors['last_name'])) {
-                echo $errors['last_name'];
-            } ?>
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" <?php if (isset($user)) { ?> value="<?= $user['email'] ?>" <?php } ?>>
-            <?php if(isset($errors['email'])) {
-                echo $errors['email'];
-            } ?>
-        </div>
-        <div>
-            <label for="streetName">Straatnaam</label>
-            <input type="text" name="streetName" id="streetName" <?php if (isset($user)) { ?> value="<?= $user['street_name'] ?>" <?php } ?>>
-            <?php if(isset($errors['street_name'])) {
-                echo $errors['street_name'];
-            } ?>
-        </div>
-        <div>
-            <label for="houseNumber">Huisnummer</label>
-            <input type="text" name="houseNumber" id="houseNumber" <?php if (isset($user)) { ?> value="<?= $user['house_number'] ?>" <?php } ?>>
-            <?php if(isset($errors['house_number'])) {
-                echo $errors['house_number'];
-            } ?>
-        </div>
-        <div>
-            <label for="postalCode">Postcode</label>
-            <input type="text" name="postalCode" id="postalCode" <?php if (isset($user)) { ?> value="<?= $user['postal_code'] ?>" <?php } ?>>
-            <?php if(isset($errors['postal_code'])) {
-                echo $errors['postal_code'];
-            } ?>
-        </div>
-        <div>
-            <label for="cityName">Plaats</label>
-            <input type="text" name="cityName" id="cityName" <?php if (isset($user)) { ?> value="<?= $user['city_name'] ?>" <?php } ?>>
-            <?php if(isset($errors['city_name'])) {
-                echo $errors['city_name'];
-            } ?>
-        </div>
-        <div>
-            <button type="submit" name="submit" id="submit" class="button">Plaats Veranderingen</button>
-        </div>
-    </form>
+    <img src="images/wool.png" alt="landschap">
+    <!--Registratie formulier-->
+    <div class="form">
+        <form method="post" action="">
+            <h2 class="title">Verander informatie</h2>
+            <!--   per input: label met naam, input waar als er iets leeg staat alle volle dingen worden terug gevuld, als er een error is wordt deze naast de input gezet     -->
+            <div>
+                <div class="stack">
+                    <label for="first_name">Voornaam</label>
+                    <input type="text" id="first_name" name="first_name" <?php if (isset($user)) { ?> value="<?= $user['first_name'] ?>" <?php } ?>>
+                    <p><?php if(isset($errors['first_name'])) { echo $errors['first_name']; } ?></p>
+                </div>
+                <div class="stack" id="small">
+                    <label for="infix">Tussenvoegsel</label>
+                    <input type="text" id="infix" name="infix" <?php if (isset($user)) { ?> value="<?= $user['infix'] ?>" <?php } ?>>
+                    <p><?php if(isset($errors['infix'])) { echo $errors['infix']; } ?></p>
+                </div>
+            </div>
+            <div class="stack">
+                <label for="last_name">Achternaam</label>
+                <input type="text" id="last_name" name="last_name" <?php if (isset($user)) { ?> value="<?= $user['last_name'] ?>" <?php } ?>>
+                <p><?php if(isset($errors['last_name'])) { echo $errors['last_name']; } ?></p>
+            </div>
+            <div>
+                <div class="stack">
+                    <label for="street_name">Adres</label>
+                    <input type="text" id="street_name" name="street_name" <?php if (isset($user)) { ?> value="<?= $user['street_name'] ?>" <?php } ?>>
+                    <p><?php if(isset($errors['street_name'])) { echo $errors['street_name']; } ?></p>
+                </div>
+                <div class="stack" id="small">
+                    <label for="house_number">Huisnummer</label>
+                    <input type="text" id="house_number" name="house_number" <?php if (isset($user)) { ?> value="<?= $user['house_number'] ?>" <?php } ?>>
+                    <p><?php if(isset($errors['house_number'])) { echo $errors['house_number']; } ?></p>
+                </div>
+            </div>
+            <div>
+                <div class="stack">
+                    <label for="city_name">Plaats</label>
+                    <input type="text" id="city_name" name="city_name" <?php if (isset($user)) { ?> value="<?= $user['city_name'] ?>" <?php } ?>>
+                    <p><?php if(isset($errors['city_name'])) { echo $errors['city_name']; } ?></p>
+                </div>
+                <div class="stack" id="small">
+                    <label for="postal_code">Postcode</label>
+                    <input type="text" name="postal_code" id="postal_code" <?php if (isset($user)) { ?> value="<?= $user['postal_code'] ?>" <?php } ?>>
+                    <p><?php if(isset($errors['postal_code'])) { echo $errors['postal_code']; } ?></p>
+                </div>
+            </div>
+            <div class="stack">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" <?php if (isset($user)) { ?> value="<?= $user['email'] ?>" <?php } ?>>
+                <p><?php if(isset($errors['email'])) { echo $errors['email']; } ?></p>
+            </div>
+
+            <button type="submit" name="submit" class="submit">Verstuur</button>
+        </form>
+    </div>
+    <img src="images/wool.png" alt="landschap">
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
