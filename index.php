@@ -99,8 +99,7 @@ mysqli_close($db);
                 <?php foreach ($blogs as $blog) { ?>
                     <div class="article-one">
                         <div class="article-one-bottom">
-<!--                            <img src="--><?php //= $blog['picture_link'] ?><!--" class="blog-images" alt="blog-foto">-->
-                            <img src="images/1kleur.jpg" alt="placeholder" class="blog-images"> <!--placeholder image, gotta change it-->
+                            <img src="<?= $blog['picture_link'] ?>" class="blog-images" alt="blog-foto">
                             <h3><?= $blog['title'] ?></h3>
                             <p><?= $blog['recap'] ?></p>
                             <div class="button-to-right">
