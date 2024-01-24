@@ -62,7 +62,11 @@ $user = mysqli_fetch_assoc($result);
     <h3><?= $user['street_name']?> <?= $user['house_number']?></h3>
     <h3><?= $user['postal_code']?></h3>
     <h3><?= $user['city_name']?></h3>
-    <a href="orderHistory.php">Mijn bestellingen</a>
+    <?php if (!$user['isAdmin']) { ?>
+        <a href="orderHistory.php">Mijn bestellingen</a>
+    <?php }  else {?>
+        <a href="orders.php">Klant bestellingen</a>
+    <?php } ?>
 </main>
 <footer>
     <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">

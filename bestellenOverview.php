@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
 
 </nav>
 <main>
-    <img src="images/wool.png" alt="landschap">
+    <img src="images/banner.jpg" alt="banner">
     <section class="form">
         <div class="margin">
             <h1>Bestelling: Overzicht</h1>
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
         <button type="submit" name="submit" id="submit" class="submit">Bevestigen</button>
     </form>
     </section>
-    <img src="images/wool.png" alt="landschap">
+    <img src="images/banner1.jpg" alt="banner">
 </main>
     <footer>
         <img src="images/Logo-reserveringsysteem.png" alt="wolhoop-logo">
