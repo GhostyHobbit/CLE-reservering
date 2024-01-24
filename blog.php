@@ -16,7 +16,6 @@ if (!empty($_SESSION)) {
 } else {
     $login = false;
     $isAdmin = false;
-    $sessionId = 0;
 }
 
 $id = $_GET['id'];

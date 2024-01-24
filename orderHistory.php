@@ -8,7 +8,6 @@ if (!empty($_SESSION)) {
     //gets the users data from the database
     $query = "SELECT * FROM users WHERE id = '$sessionId'";
     $result = mysqli_query($db, $query);
-//puts the data in an array
     $user = mysqli_fetch_assoc($result);
 
     $isAdmin = $user['isAdmin'];

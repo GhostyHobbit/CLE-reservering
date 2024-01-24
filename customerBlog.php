@@ -19,8 +19,8 @@ if (!empty($_SESSION)) {
 }
 
 $id = $_GET['id'];
-$query = "SELECT * FROM customerBlogPosts WHERE id = '$id'";
-$result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
+$query = "SELECT * FROM customerblogposts WHERE id = '$id'";
+$result = mysqli_query($db, $query) or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 //info bruikbaar maken
 $blog = mysqli_fetch_assoc($result);
 //database sluiten

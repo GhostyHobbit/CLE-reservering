@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $image = $_POST['image'];
     $userId = $user['id'];
 
-    $query = "INSERT INTO customerBlogPosts (user_id, title, text, recap, picture_link) VALUES ('$userId', '$title', '$text', '$recap', '$image')";
+    $query = "INSERT INTO customerblogposts (user_id, title, text, recap, picture_link) VALUES ('$userId', '$title', '$text', '$recap', '$image')";
     mysqli_query($db, $query);
     header('Location: customerBlogOverview.php');
 }

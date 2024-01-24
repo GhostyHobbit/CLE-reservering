@@ -10,7 +10,7 @@ if (!empty($_SESSION)) {
 }
 
 $id = $_GET['id'];
-$query = "SELECT * FROM customerBlogPosts WHERE id = '$id'";
+$query = "SELECT * FROM customerblogposts WHERE id = '$id'";
 $result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
 //info bruikbaar maken
 $blog = mysqli_fetch_assoc($result);
@@ -40,7 +40,7 @@ if(isset($_POST['submit'])) {
     if ($title !== '' && $recap !== '' && $text !== '') {
 
 //zet alle info in de database
-        $query = "UPDATE customerBlogPosts SET text='$text',recap='$recap',title='$title',picture_link='$image' WHERE id = '$id'";
+        $query = "UPDATE customerblogposts SET text='$text',recap='$recap',title='$title',picture_link='$image' WHERE id = '$id'";
         mysqli_query($db, $query);
         header(header: 'Location: index.php');
     }
