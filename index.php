@@ -78,12 +78,14 @@ mysqli_close($db);
 <!-- Header Begint hier-->
 <header>
     <div class="header-left">
-        <h1>De Wolhoop</h1>
-        <p>Welkom bij de Wolhoop! Mijn kleine bedrijfje voor liefhebbers van handwerk. Ik verkoop geverfde wol in een
-            spectrum aan kleuren en combinaties. Via deze website verkoop ik deze mooie bolletjes en kan je ook kijken naar wat
-            ik eerder heb gemaakt. Neem een kijkje op deze website en zoek de perfecte wol uit voor jouw project!
-        </p>
-        <p>Happy Crafting!!</p>
+        <div class="article-left-bottom">
+            <h1>De Wolhoop</h1>
+            <p>Welkom bij de Wolhoop! Mijn kleine bedrijfje voor liefhebbers van handwerk. Ik verkoop geverfde wol in een
+                spectrum aan kleuren en combinaties. Via deze website verkoop ik deze mooie bolletjes en kan je ook kijken naar wat
+                ik eerder heb gemaakt. Neem een kijkje op deze website en zoek de perfecte wol uit voor jouw project!
+            </p>
+            <p>Happy Crafting!!</p>
+        </div>
     </div>
     <div class="header-right">
         <img src="images/homepage.png" alt class="header-images">

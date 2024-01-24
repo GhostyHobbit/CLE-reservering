@@ -28,6 +28,14 @@ header {
     padding:0 4vw;
 }
 
+.article-left-bottom{
+    min-height: 30vh;
+    background-color: #e1d3c8;
+    padding: 2vh 1vw;
+    border: solid #cebfb2;
+    border-radius: 2vw;
+}
+
 header h1 {
     font-family: 'Annie Use Your Telescope', sans-serif;
     font-size: 3rem;
